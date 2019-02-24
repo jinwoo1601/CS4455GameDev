@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public float detectableDistance = 2f;
 
     public GameObject buttonObject;
-    public Text promptText;
+    //public Text promptText;
 
     void Awake()
     {
@@ -68,22 +68,22 @@ public class PlayerController : MonoBehaviour
         // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
         layerMask = ~layerMask;
 
-        RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, detectableDistance, layerMask))
-        {
-            promptText.text = "Press F to interact";
-            if (Input.GetKeyDown("f"))
-            {
-                Debug.Log("lol");
-                hit.collider.SendMessageUpwards("picked");
-            }
+        //RaycastHit hit;
+        //// Does the ray intersect any objects excluding the player layer
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, detectableDistance, layerMask))
+        //{
+        //    promptText.text = "Press F to interact";
+        //    if (Input.GetKeyDown("f"))
+        //    {
+        //        Debug.Log("lol");
+        //        hit.collider.SendMessageUpwards("picked");
+        //    }
 
-        }
-        else
-        {
-            promptText.text = "";
-        }
+        //}
+        //else
+        //{
+        //    promptText.text = "";
+        //}
     }
 
     void FixedUpdate()
