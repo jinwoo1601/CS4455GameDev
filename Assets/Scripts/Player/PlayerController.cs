@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public float detectableDistance = 2f;
 
     public GameObject buttonObject;
-    //public Text promptText;
+
 
     void Awake()
     {

@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class CompanionController : MonoBehaviour
 {
-    public GameObject Player;
     public bool following = false;
 
     NavMeshAgent navMeshAgent;
@@ -30,11 +29,11 @@ public class CompanionController : MonoBehaviour
 
     void Update()
     {
-        Vector3 playerPos = Player.transform.position;
+        Vector3 playerPos = Player.Instance.transform.position;
         if (following && Vector3.Distance(transform.position, playerPos) > 5)
         {
             Vector3 range = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
-            navMeshAgent.SetDestination(Player.transform.position + range);
+            navMeshAgent.SetDestination(Player.Instance.transform.position + range);
         }
     }
 
