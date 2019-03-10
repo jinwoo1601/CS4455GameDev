@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 6973073257770332543}
   - component: {fileID: 6869985527038622999}
   - component: {fileID: 6973073257770332539}
-  - component: {fileID: 3428598441343921881}
+  - component: {fileID: 5771158153955622504}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -585,7 +585,7 @@ MonoBehaviour:
   InputMapToCircular: 1
   forwardInputFilter: 5
   turnInputFilter: 5
---- !u!114 &3428598441343921881
+--- !u!114 &5771158153955622504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -604,6 +604,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  damaged: 0
 --- !u!1 &7809248626782499485
 GameObject:
   m_ObjectHideFlags: 0
