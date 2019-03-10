@@ -98,4 +98,5 @@ public class Player : MonoBehaviour
         Level = data.level;
         SpawningPos = new Vector3(data.position[0], data.position[1], data.position[2]);
     }
+
 }
