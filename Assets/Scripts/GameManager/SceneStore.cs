@@ -32,4 +32,14 @@ public static class SceneStore
     {
         get { return "SampleScene"; }
     }
+
+    public static string TEST
+    {
+        get { return "TestScene"; }
+    }
+
+    public static string LEVEL1
+    {
+        get { return "l1"; }
+    }
 }
