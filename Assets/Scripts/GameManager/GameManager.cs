@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     //private BoardManager boardScript;                       //Store a reference to our BoardManager which will set up the level.
     private int level = 3;                                  //Current level number, expressed in game as "Day 1".
     public bool paused = false;
-    public GameObject playerPrefab;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneStore.START);
+        SceneManager.LoadScene(SceneStore.LEVEL1);
     }
 
     public void LoadSetting()
@@ -94,6 +93,11 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         SaveSystem.SavePlayer();
+    }
+
+    public void MoveToScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
     //Update is called every frame.

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PauseMenuToggle : MonoBehaviour
 {
-    public GameManager gm;
+    private GameManager gm;
     private CanvasGroup canvasGroup;
 
     private void Awake()
