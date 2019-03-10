@@ -20,6 +20,19 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.instance.MoveToScene(nextScene);
+        if (other.attachedRigidbody != null)
+        {
+            KeyCollector kc = other.attachedRigidbody.GetComponent<KeyCollector>();
+            if (kc != null)
+            {
+                if (kc.getHasKey())
+                {
+                    GameManager.instance.MoveToScene(nextScene);
+                } else
+                {
+                    // maybe prompt a message like "
+                }
+            }
+        }
     }
 }
