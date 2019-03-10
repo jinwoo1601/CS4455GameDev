@@ -12,6 +12,7 @@ public class BoardManager : MonoBehaviour
     private void Awake()
     {
         GameObject player = (GameObject)Instantiate(playerPrefab, OrigSpawningPos.transform.position, OrigSpawningPos.transform.rotation);
+        player.tag = "Player";
     }
 
 }

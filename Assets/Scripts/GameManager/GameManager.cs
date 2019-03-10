@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     //private BoardManager boardScript;                       //Store a reference to our BoardManager which will set up the level.
     private int level = 3;                                  //Current level number, expressed in game as "Day 1".
     public bool paused = false;
+
     private int enemyCount;
+    private bool keySpawned = false;
 
     public GameObject keyPrefab;
     public GameObject keySpawningPos;
@@ -107,14 +109,15 @@ public class GameManager : MonoBehaviour
     //Update is called every frame.
     void Update()
     {
-        if (enemyCount <= 0)
+        if (enemyCount <= 0 && !keySpawned)
         {
+            keySpawned = true;
             SpawnKey();
         }
     }
 
     // On eneymy death, reduce count. Called by Enemy
-    void EnemyDeath()
+    public void EnemyDeath()
     {
         if (enemyCount > 0)
         {
@@ -123,7 +126,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Spawn the key to the next room when enemy count is zero.
-    void SpawnKey()
+    public void SpawnKey()
     {
         GameObject key = (GameObject)Instantiate(keyPrefab, keySpawningPos.transform.position, keySpawningPos.transform.rotation);
     }

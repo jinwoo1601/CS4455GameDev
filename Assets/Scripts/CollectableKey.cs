@@ -5,9 +5,10 @@ using UnityEngine;
 public class CollectableKey : MonoBehaviour
 {
     // code to place the key
-    void OntTriggerEnter(Collider c)
+    void OnTriggerEnter(Collider c)
     {
-        if (c.attachedRigidbody != null)
+        Debug.Log("trigger enter: " + c.tag);
+        if (c.CompareTag("Player"))
         {
             KeyCollector kc = c.attachedRigidbody.gameObject.GetComponent<KeyCollector>();
             if (kc != null)
