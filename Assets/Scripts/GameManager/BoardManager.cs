@@ -11,7 +11,7 @@ public class BoardManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject player = (GameObject)Instantiate(playerPrefab, OrigSpawningPos.transform.position, Quaternion.identity);
+        GameObject player = (GameObject)Instantiate(playerPrefab, OrigSpawningPos.transform.position, OrigSpawningPos.transform.rotation);
     }
 
 }
