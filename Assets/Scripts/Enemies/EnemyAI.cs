@@ -81,12 +81,14 @@ public class EnemyAI : MonoBehaviour
 
     private void TakeDamage(int val)
     {
-        EnemyCurrentHealth -= val;
-        if(EnemyCurrentHealth == 0)
-        {
-            GameManager.instance.EnemyDeath();
-        }
+        //EnemyCurrentHealth -= val;
+        //if(EnemyCurrentHealth == 0)
+        //{
+        //    GameManager.instance.EnemyDeath();
+        //}
         gameObject.SetActive(false);
+
+        GameManager.instance.EnemyDeath();
     }
 
     private void setNextWaypoint()

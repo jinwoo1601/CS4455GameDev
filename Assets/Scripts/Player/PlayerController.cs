@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Animation anim2;
 
+    public GameObject target;
+
     void Awake()
     {
 
@@ -92,6 +94,10 @@ public class PlayerController : MonoBehaviour
         {
 
             anim.SetTrigger("Attack");
+            if (target != null && target.activeSelf)
+            {
+                target.SendMessage("TakeDamage", 10);
+            }
 
         }
     }
@@ -140,6 +146,20 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("vely", inputForward);
         //anim.SetBool("isFalling", !isGrounded);
 
+    }
+
+
+    public void SetTarget(GameObject other)
+    {
+        target = other;
+    }
+
+    public void RemoveTarget(GameObject other)
+    {
+        if (other == target)
+        {
+            target = null;
+        }
     }
 
 }

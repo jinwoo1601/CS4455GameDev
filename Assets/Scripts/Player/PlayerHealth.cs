@@ -24,6 +24,8 @@ public class PlayerHealth : MonoBehaviour
     public bool damaged;                                               // True when the player gets damaged.
 
 
+    GameObject target;
+
     void Awake()
     {
         // Setting up the references.
@@ -91,7 +93,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-
     void Death()
     {
         Debug.Log("dead");
@@ -115,4 +116,5 @@ public class PlayerHealth : MonoBehaviour
         // playerMovement.enabled = false;
         // playerShooting.enabled = false;
     }
+
 }

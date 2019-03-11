@@ -1073,7 +1073,7 @@ PrefabInstance:
     - target: {fileID: 8332953414485222042, guid: 1574d73a69e6eba4e91c89de2fbbf8fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 291.7
+      value: 287.26
       objectReference: {fileID: 0}
     - target: {fileID: 8332953414485222042, guid: 1574d73a69e6eba4e91c89de2fbbf8fa,
         type: 3}
@@ -1083,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: 8332953414485222042, guid: 1574d73a69e6eba4e91c89de2fbbf8fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 212.6
+      value: 230.57
       objectReference: {fileID: 0}
     - target: {fileID: 8332953414485222042, guid: 1574d73a69e6eba4e91c89de2fbbf8fa,
         type: 3}
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc67e3446f194b81aab067f21cac640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6973073257770332530, guid: 6cc7cbc4e9e722747898f0cdaf52245a,
+  playerPrefab: {fileID: 6545902882688912150, guid: e649f1bcd1b43e947afdfa65aa7a0ce4,
     type: 3}
   OrigSpawningPos: {fileID: 1633006817}
 --- !u!4 &1009722409

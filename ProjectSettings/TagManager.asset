@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Companion
   - fences
+  - Enemy
   layers:
   - Default
   - TransparentFX

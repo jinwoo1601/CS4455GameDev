@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     //Awake is always called before any Start functions
     void Awake()
     {
+        enemyCount = 2;
         //Check if instance already exists
         if (instance == null)
 
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour
         {
             ResumeGame();
         }
+        GameEnd = false;
     }
 
     public void PauseGame()
