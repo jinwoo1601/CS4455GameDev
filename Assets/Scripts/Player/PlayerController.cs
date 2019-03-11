@@ -29,11 +29,14 @@ public class PlayerController : MonoBehaviour
 
     public GameObject buttonObject;
 
+    private Animator anim;
+    private Animation anim2;
 
     void Awake()
     {
 
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+        anim2 = GetComponent<Animation>();
 
         //if (anim == null)
         //    Debug.Log("Animator could not be found");
@@ -84,6 +87,13 @@ public class PlayerController : MonoBehaviour
         //{
         //    promptText.text = "";
         //}
+
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+
+            anim.SetTrigger("Attack");
+
+        }
     }
 
     void FixedUpdate()
@@ -122,8 +132,8 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        //anim.SetFloat("velx", inputTurn);
-        //anim.SetFloat("vely", inputForward);
+        anim.SetFloat("velx", inputTurn);
+        anim.SetFloat("vely", inputForward);
         //anim.SetBool("isFalling", !isGrounded);
 
     }
