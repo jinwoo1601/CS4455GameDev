@@ -56,6 +56,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, GameObject NPC)
     {
+        Debug.Log("start dialogue");
         interactingNPC = NPC;
         Debug.Log(interactingNPC.name);
         nameText.text = dialogue.name;
@@ -97,6 +98,7 @@ public class DialogueManager : MonoBehaviour
 
     private void showDialogueBox()
     {
+        Debug.Log("show dialogue box");
         MainCanvasGroup.alpha = 1.0f;
         MainCanvasGroup.blocksRaycasts = true;
         MainCanvasGroup.interactable = true;
