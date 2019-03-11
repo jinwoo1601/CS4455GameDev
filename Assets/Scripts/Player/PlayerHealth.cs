@@ -13,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 
 
+    public Color deathColour = new Color(1f, 0f, 0f, 0.5f);
+    public Image deathImage;
+    public Text deathText;
+
+
     Animator anim;                                              // Reference to the Animator component.
     //AudioSource playerAudio;                                    // Reference to the AudioSource component.
     bool isDead;                                                // Whether the player is dead.
@@ -28,11 +33,19 @@ public class PlayerHealth : MonoBehaviour
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
+
+        isDead = false;
+        deathText.text = "";
     }
 
 
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         // If the player has just been damaged...
         if (damaged)
         {
@@ -47,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         // TODO: for testing only, need to be removed from update function.
-        healthSlider.value = currentHealth;
+        //healthSlider.value = currentHealth;
 
         // Reset the damaged flag.
         damaged = false;
@@ -81,14 +94,18 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
+        Debug.Log("dead");
         // Set the death flag so this function won't be called again.
         isDead = true;
+        deathImage.color = Color.Lerp(deathImage.color, deathColour, 100f * Time.deltaTime);
+        GameManager.GameEnd = true;
+        deathText.text = "   You are dead!\n Press ESC to restart!";
 
         // Turn off any remaining shooting effects.
         // playerShooting.DisableEffects();
 
         // Tell the animator that the player is dead.
-        anim.SetTrigger("Die");
+        //anim.SetTrigger("Die");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
         // playerAudio.clip = deathClip;

@@ -44,6 +44,14 @@ public class CharacterInputController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.GameEnd)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                GameManager.instance.RestartGame();
+            }
+            return;
+        }
 
         //GetAxisRaw() so we can do filtering here instead of the InputManager
         float h = Input.GetAxisRaw("Horizontal");// setup h variable as our horizontal input axis

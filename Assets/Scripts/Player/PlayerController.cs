@@ -88,6 +88,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameManager.GameEnd)
+        {
+            return;
+        }
 
         float inputForward = 0f;
         float inputTurn = 0f;

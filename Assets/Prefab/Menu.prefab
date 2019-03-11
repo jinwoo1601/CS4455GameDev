@@ -126,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabe2eebd099544ab8c0daf7c596f77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
 --- !u!1 &1431823182461907585
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,3 +871,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  keyPrefab: {fileID: 113832087674361297, guid: 1a28cabee32eb4342be39d7dd805753f,
+    type: 3}
+  keySpawningPos: {fileID: 0}
