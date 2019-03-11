@@ -43,6 +43,16 @@ public class GameManager : MonoBehaviour
         InitGame();
     }
 
+    //Update is called every frame.
+    void Update()
+    {
+        if (enemyCount <= 0 && !keySpawned)
+        {
+            keySpawned = true;
+            SpawnKey();
+        }
+    }
+
     //Initializes the game for each level.
     void InitGame()
     {
@@ -104,16 +114,6 @@ public class GameManager : MonoBehaviour
     public void MoveToScene(string scene)
     {
         SceneManager.LoadScene(scene);
-    }
-
-    //Update is called every frame.
-    void Update()
-    {
-        if (enemyCount <= 0 && !keySpawned)
-        {
-            keySpawned = true;
-            SpawnKey();
-        }
     }
 
     // On eneymy death, reduce count. Called by Enemy

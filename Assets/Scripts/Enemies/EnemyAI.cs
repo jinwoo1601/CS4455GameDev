@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     private GameObject _player;
 
-    public int damage = 10;
+    public int damage = 5;
 
     public int EnemyHealth = 100;
 
@@ -56,9 +56,12 @@ public class EnemyAI : MonoBehaviour
         //nextActionTime += period;
 
         coolDown -= Time.deltaTime;
-        if (meshAgent.remainingDistance < 0.75f && !meshAgent.pathPending)
+        if(state == AIState.Waypoints)
         {
-            setNextWaypoint();
+            if (meshAgent.remainingDistance < 0.1f && !meshAgent.pathPending)
+            {
+                setNextWaypoint();
+            }
         }
         else if (state == AIState.Chasing)
         {
@@ -109,7 +112,9 @@ public class EnemyAI : MonoBehaviour
 
     private void chasePlayer()
     {
-        meshAgent.SetDestination(_player.transform.position);
+        Vector3 pos = Vector3.Lerp(_player.transform.position, transform.position, 0.1f);
+        meshAgent.SetDestination(pos);
+        animator.SetInteger("state", 1);
     }
 
     private void PlayerDetected(GameObject player)
@@ -145,5 +150,6 @@ public class EnemyAI : MonoBehaviour
     {
         coolDown = 1f;
         _player.SendMessage("TakeDamage", damage);
+        animator.SetInteger("state", 2);
     }
 }
