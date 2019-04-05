@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
 
     Animator anim;                                              // Reference to the Animator component.
+    Rigidbody rig;
     //AudioSource playerAudio;                                    // Reference to the AudioSource component.
     bool isDead;                                                // Whether the player is dead.
     public bool damaged;                                               // True when the player gets damaged.
@@ -30,8 +31,9 @@ public class PlayerHealth : MonoBehaviour
     {
         // Setting up the references.
         anim = GetComponent<Animator>();
+        rig = GetComponent<Rigidbody>();
         //playerAudio = GetComponent<AudioSource>();
-         
+
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
@@ -45,6 +47,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead)
         {
+            rig.isKinematic = false;
+            anim.enabled = false;
             return;
         }
 
@@ -65,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
         //healthSlider.value = currentHealth;
 
         // Reset the damaged flag.
+        anim.enabled = true;
         damaged = false;
     }
 
