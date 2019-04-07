@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
 
     public int EnemyCurrentHealth = 100;
 
-    private float coolDown = 1f; // 1 seconds cool down;
+    private float coolDown = 3f; // 3 seconds cool down;
 
     int currWaypoint;
 
