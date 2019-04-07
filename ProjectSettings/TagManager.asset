@@ -17,9 +17,9 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
+  - walls
+  - floor
+  - decoration
   - 
   - 
   - 
