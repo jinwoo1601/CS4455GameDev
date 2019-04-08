@@ -44,6 +44,11 @@ public class EllenPlayerController : MonoBehaviour
             UpdateOrientation();
 
         TimeoutToIdle();
+
+        //m_Animator.SetFloat("attack_time", Mathf.Repeat(m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 1f));
+        m_Animator.ResetTrigger("attack");
+        if (m_Input.Attack)
+            m_Animator.SetTrigger("attack");
         
     }
 
@@ -87,7 +92,7 @@ public class EllenPlayerController : MonoBehaviour
         }
     }
 
-        void SetTargetRotation()
+    void SetTargetRotation()
     {
         // Create three variables, move input local to the player, flattened forward direction of the camera and a local target rotation.
         Vector2 moveInput = m_Input.MoveInput;
