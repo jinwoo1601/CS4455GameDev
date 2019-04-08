@@ -64,7 +64,7 @@ public class EllenPlayerController : MonoBehaviour
         m_ForwardSpeed = Mathf.MoveTowards(m_ForwardSpeed, m_DesiredForwardSpeed, acceleration * Time.deltaTime);
 
         // Set the animator parameter to control what animation is being played.
-        if (Mathf.Abs(m_ForwardSpeed) < 0.01 && m_ForwardSpeed != 0) {
+        if (Mathf.Abs(m_ForwardSpeed) < 0.01 && (m_ForwardSpeed < 0 || m_ForwardSpeed > 0)) {
             if (m_ForwardSpeed > 0)
                 m_ForwardSpeed = 0.011f;
             else
@@ -96,7 +96,6 @@ public class EllenPlayerController : MonoBehaviour
         Vector3 forward = Quaternion.Euler(0f, cameraSettings.Current.m_XAxis.Value, 0f) * Vector3.forward;
         forward.y = 0f;
         forward.Normalize();
-        Debug.Log(forward);
 
         Quaternion targetRotation;
 

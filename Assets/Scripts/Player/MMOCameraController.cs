@@ -25,7 +25,7 @@ public class MMOCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //zoom += Input.GetAxis("Moust ScrollWheel") * zoomSpeed;
+        zoom += Input.GetAxis("Moust ScrollWheel") * zoomSpeed;
         if (zoom > zoomMin)
             zoom = zoomMin;
 
@@ -34,7 +34,7 @@ public class MMOCameraController : MonoBehaviour
 
         playerCam.transform.localPosition = new Vector3(0, 0, zoom);
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             mouseX = Input.GetAxis("Mouse X");
             mouseY = Input.GetAxis("Mouse Y");

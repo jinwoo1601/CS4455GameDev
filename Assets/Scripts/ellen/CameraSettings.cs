@@ -70,6 +70,6 @@ public class CameraSettings : MonoBehaviour
 
 
 
-        keyboardAndMouseCamera.Priority = inputChoice == InputChoice.KeyboardAndMouse ? 1 : 0;
+        keyboardAndMouseCamera.Priority = 1;
     }
 }
