@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneStore.LEVEL1);
+        SpawnKey();
     }
 
     public void LoadSetting()
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
         ResumeGame();
         GameEnd = false;
     }
@@ -89,13 +91,13 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         paused = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0.0f;
     }
 
     public void ResumeGame()
     {
         paused = false;
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
     }
 
     public void LoadGame()
