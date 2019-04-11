@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class SmallEnemyAI : MonoBehaviour
+public class SmallEnemyAI : MonoBehaviour, Damageable
 {
     public SmallEnemyController smallEnemyController;
 
@@ -40,6 +40,11 @@ public class SmallEnemyAI : MonoBehaviour
     
 
     public bool test = false;
+
+    public Weapon weapon;
+
+
+
 
 
     // Start is called before the first frame update
@@ -124,7 +129,7 @@ public class SmallEnemyAI : MonoBehaviour
                     smallEnemyController.SetFollowNavmeshAgent(false);
                     m_Animator.SetTrigger("attack");
                     trigger_state = true;
-
+                    weapon.enbaleAttack();
                 }
                 else if (m_NavMeshAgent.enabled) {
                     m_NavMeshAgent.SetDestination(target.transform.position);
@@ -144,6 +149,7 @@ public class SmallEnemyAI : MonoBehaviour
                     if (trigger_state)
                     {
                         m_Animator.ResetTrigger("attack");
+
                         trigger_state = false;
                     }
                     else {
@@ -161,6 +167,7 @@ public class SmallEnemyAI : MonoBehaviour
                     state = 2;
                     smallEnemyController.SetFollowNavmeshAgent(true);
                     m_Animator.ResetTrigger("attack");
+                    weapon.disableAttack();
                 }
             }
             else if (state == 5)
@@ -185,5 +192,21 @@ public class SmallEnemyAI : MonoBehaviour
             }
         }
 
+    }
+
+    public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
+    {
+        Debug.Log("hit");
+        TakeDamage(1);
+    }
+
+    public bool canBeAttacked()
+    {
+        return true;
+    }
+
+    public Damageable getOwner()
+    {
+        return this;
     }
 }

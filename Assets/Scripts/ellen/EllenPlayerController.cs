@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
-public class EllenPlayerController : MonoBehaviour
+public class EllenPlayerController : MonoBehaviour, Damageable
 {
 
     protected static EllenPlayerController s_Instance;
@@ -160,6 +160,21 @@ public class EllenPlayerController : MonoBehaviour
         m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, actualTurnSpeed * Time.deltaTime);
 
         transform.rotation = m_TargetRotation;
+    }
+
+    public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
+    {
+        Debug.Log("todo");
+    }
+
+    public bool canBeAttacked()
+    {
+        return true;
+    }
+
+    public Damageable getOwner()
+    {
+        return this;
     }
 
     protected bool IsMoveInput
