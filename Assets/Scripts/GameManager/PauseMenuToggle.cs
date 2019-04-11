@@ -38,6 +38,7 @@ public class PauseMenuToggle : MonoBehaviour
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
                 canvasGroup.alpha = 0f;
+                Time.timeScale = 1.0f;
                 gm.ResumeGame();
             }
             else
@@ -45,6 +46,7 @@ public class PauseMenuToggle : MonoBehaviour
                 canvasGroup.interactable = true;
                 canvasGroup.blocksRaycasts = true;
                 canvasGroup.alpha = 1f;
+                Time.timeScale = 0.0f;
                 gm.PauseGame();
             }
         }

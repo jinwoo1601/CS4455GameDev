@@ -6,8 +6,8 @@ using UnityEngine;
 public class EllenPlayerController : MonoBehaviour
 {
 
-    protected static PlayerController s_Instance;
-    public static PlayerController instance { get { return s_Instance; } }
+    protected static EllenPlayerController s_Instance;
+    public static EllenPlayerController instance { get { return s_Instance; } }
 
     public float maxSpeed = 8f;
     public float minTurnSpeed = 400f;         // How fast Ellen turns when moving at maximum speed.
@@ -24,14 +24,15 @@ public class EllenPlayerController : MonoBehaviour
     protected Animator m_Animator;
     public CameraSettings cameraSettings;
 
+
     private float m_IdleTimer = 0f;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_Input = GetComponent<PlayerInput>();
         m_Animator = GetComponent<Animator>();
         m_CharCtrl = GetComponent<CharacterController>();
+        s_Instance = this;
     }
 
     // Update is called once per frame
