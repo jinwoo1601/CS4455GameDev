@@ -10,6 +10,7 @@ public class SmallEnemyAI : MonoBehaviour
 
     protected NavMeshAgent m_NavMeshAgent;
     protected Animator m_Animator;
+    protected Rigidbody rgbody;
 
     public bool trigger_state = false;
 
@@ -19,11 +20,26 @@ public class SmallEnemyAI : MonoBehaviour
 
     public EllenPlayerController instance;
 
-    //0 - idle,  2-chasing, 3-attack, 4-attack stop
+    //0 - idle,  2-chasing, 3-attack, 4-attack stop, 5-take damage.
     public int state = 0;
     private float attack_time;
 
     public float attack_range = 1.0f;
+
+    public int healthPoint = 1;
+
+    
+    public bool isDead = false;
+    public float dead_time;
+
+    public bool damaged = false;
+    public float damaged_time;
+    public float invulnerable_duration = 2f;
+
+    public float disappear_speed = 5;
+    
+
+    public bool test = false;
 
 
     // Start is called before the first frame update
@@ -34,11 +50,57 @@ public class SmallEnemyAI : MonoBehaviour
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Animator = GetComponent<Animator>();
         smallEnemyController.SetFollowNavmeshAgent(false);
+        rgbody = GetComponent<Rigidbody>();
+    }
+
+    void TakeDamage(int amount)
+    {
+        if (damaged && Time.time - damaged_time < invulnerable_duration)
+        {
+            return;
+        }
+        healthPoint -= amount;
+        if(healthPoint <= 0)
+        {
+            state = 5;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (test)
+        {
+            TakeDamage(1);
+            test = false;
+        }
+
+        if (isDead)
+        {
+            if(Time.time - dead_time > 1.6f)
+            {
+                m_Animator.enabled = false;
+                rgbody.isKinematic = true;
+            } 
+            if (Time.time - dead_time > 3f)
+            {
+
+                // TODO: not working. not sure why.
+                SkinnedMeshRenderer[] rs = GetComponentsInChildren<SkinnedMeshRenderer>();
+                foreach(SkinnedMeshRenderer rderer in rs)
+                {
+                    Color cur = rderer.material.color;
+                    Color tar = cur;
+                    tar.a = 0f;
+                    rderer.material.color = tar; //Color.Lerp(cur, tar, disappear_speed * Time.deltaTime);
+                }
+
+                Destroy(gameObject);
+
+            }
+            return;
+        }
+
         instance = targetScanner.Detect(transform);
         
         if (instance != null)
@@ -100,6 +162,14 @@ public class SmallEnemyAI : MonoBehaviour
                     smallEnemyController.SetFollowNavmeshAgent(true);
                     m_Animator.ResetTrigger("attack");
                 }
+            }
+            else if (state == 5)
+            {
+                state = 6;
+                m_Animator.SetBool("hit", true);
+                isDead = true;
+                dead_time = Time.time;
+
             }
 
         }
