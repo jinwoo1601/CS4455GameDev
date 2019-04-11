@@ -84,8 +84,9 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         {
             if(Time.time - dead_time > 1.6f)
             {
+                GetComponent<SmallEnemyAI>().enabled = false;
                 m_Animator.enabled = false;
-                rgbody.isKinematic = true;
+                rgbody.isKinematic = false;
             } 
             if (Time.time - dead_time > 3f)
             {

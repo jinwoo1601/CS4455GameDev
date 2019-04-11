@@ -12,12 +12,14 @@ public class Weapon : MonoBehaviour
 
     private Vector3 velocity;
 
-    public void enbaleAttack() {
-        
+    public void enbaleAttack()
+    {
+
         weaponPoint.enabled = true;
     }
 
-    public void disableAttack() {
+    public void disableAttack()
+    {
         weaponPoint.enabled = false;
     }
 
@@ -36,13 +38,15 @@ public class Weapon : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
         Debug.Log("trigger enable");
         Debug.Log(other);
         Debug.Log(other.tag);
 
-            Damageable other_damageable = other.gameObject.GetComponent<Damageable>();
-            if (other_damageable != null) {
+        Damageable other_damageable = other.gameObject.GetComponent<Damageable>();
+        if (other_damageable != null)
+        {
             if (other_damageable.canBeAttacked() && other_damageable.getOwner() != this.gameObject.GetComponentInParent<Damageable>())
             {
                 RaycastHit hit;
@@ -50,9 +54,9 @@ public class Weapon : MonoBehaviour
                 other_damageable.OnDamage(hit.point, velocity);
             }
         }
-            
-     }
-    
+
+    }
+
 
 
 }

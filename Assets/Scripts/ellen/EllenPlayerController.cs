@@ -22,6 +22,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     protected Quaternion m_TargetRotation;
     protected CharacterController m_CharCtrl;      
     protected Animator m_Animator;
+    protected PlayerHealth m_PlayerHealth;
     public CameraSettings cameraSettings;
 
 
@@ -32,6 +33,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
         m_Input = GetComponent<PlayerInput>();
         m_Animator = GetComponent<Animator>();
         m_CharCtrl = GetComponent<CharacterController>();
+        m_PlayerHealth = GetComponent<PlayerHealth>();
         s_Instance = this;
     }
 
@@ -164,7 +166,8 @@ public class EllenPlayerController : MonoBehaviour, Damageable
 
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
     {
-        Debug.Log("todo");
+        //Debug.Log("todo");
+        m_PlayerHealth.TakeDamage(10);
     }
 
     public bool canBeAttacked()
