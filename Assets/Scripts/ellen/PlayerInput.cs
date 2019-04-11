@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
         get { return s_Instance; }
     }
 
-
+    protected static PlayerInput s_Instance;
     protected Vector2 m_Movement;
     protected Vector2 m_Camera;
     protected bool m_Attack;
@@ -18,7 +18,6 @@ public class PlayerInput : MonoBehaviour
     protected bool m_ExternalInputBlocked;
 
 
-    protected static PlayerInput s_Instance;
 
 
     WaitForSeconds m_AttachInputWait;
