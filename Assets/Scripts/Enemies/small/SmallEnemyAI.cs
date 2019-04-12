@@ -36,6 +36,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public GameObject[] waypoints;
     public bool test = false;
 
+
     public Weapon weapon;
 
     // Start is called before the first frame update
@@ -61,7 +62,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         healthPoint -= amount;
         if (healthPoint <= 0)
         {
-            //GameManager.instance.EnemyDeath();
+            GameManager.instance.EnemyDeath();
             state = 5;
         }
     }

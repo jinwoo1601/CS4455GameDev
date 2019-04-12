@@ -723,6 +723,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 790831075, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
+      propertyPath: ellen
+      value: 
+      objectReference: {fileID: 1182733169}
     m_RemovedComponents:
     - {fileID: 6184441622545261701, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
@@ -1271,6 +1275,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 790831075, guid: db6a739b35814694fb3437dcd5843539, type: 3}
+      propertyPath: ellen
+      value: 
+      objectReference: {fileID: 1182733169}
     - target: {fileID: 526258323, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -2167,6 +2175,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 790831075, guid: 93950f796bb2c6a4e95813b84fa362c2, type: 3}
+      propertyPath: ellen
+      value: 
+      objectReference: {fileID: 1182733169}
     - target: {fileID: 790831073, guid: 93950f796bb2c6a4e95813b84fa362c2, type: 3}
       propertyPath: dialogue.sentences.Array.size
       value: 11
@@ -2493,6 +2505,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6dfc07250ccd5f479d4f27993f82099, type: 3}
+--- !u!1 &1182733169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2853618994118674684, guid: a6dfc07250ccd5f479d4f27993f82099,
+    type: 3}
+  m_PrefabInstance: {fileID: 1182733168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1183089955
 GameObject:
   m_ObjectHideFlags: 0
