@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private int level = 3;                                  //Current level number, expressed in game as "Day 1".
     public bool paused = false;
 
-    private int enemyCount;
+    public int enemyCount;
     private bool keySpawned = false;
 
     public GameObject keyPrefab;
@@ -22,17 +22,12 @@ public class GameManager : MonoBehaviour
     //Awake is always called before any Start functions
     void Awake()
     {
-        enemyCount = 2;
         //Check if instance already exists
         if (instance == null)
-
-            //if not, set instance to this
             instance = this;
 
         //If instance already exists and it's not this:
         else if (instance != this)
-
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
 
         //Sets this to not be destroyed when reloading scene
@@ -130,6 +125,6 @@ public class GameManager : MonoBehaviour
     // Spawn the key to the next room when enemy count is zero.
     public void SpawnKey()
     {
-        GameObject key = (GameObject)Instantiate(keyPrefab, keySpawningPos.transform.position, keySpawningPos.transform.rotation);
+        Instantiate(keyPrefab, keySpawningPos.transform.position, keySpawningPos.transform.rotation);
     }
 }
