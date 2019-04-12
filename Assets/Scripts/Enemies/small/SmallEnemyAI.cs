@@ -52,12 +52,14 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
     void TakeDamage(int amount)
     {
+        if (isDead)
+            return;
         if (damaged && Time.time - damaged_time < invulnerable_duration)
         {
             return;
         }
         healthPoint -= amount;
-        if(healthPoint <= 0)
+        if (healthPoint <= 0)
         {
             GameManager.instance.EnemyDeath();
             state = 5;
@@ -75,18 +77,17 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
         if (isDead)
         {
-            if(Time.time - dead_time > 1.6f)
+            Debug.Log(Time.time);
+            if (Time.time - dead_time > 1.6f)
             {
-                GetComponent<SmallEnemyAI>().enabled = false;
                 m_Animator.enabled = false;
                 rgbody.isKinematic = false;
-            } 
+            }
             if (Time.time - dead_time > 3f)
             {
-
                 // TODO: not working. not sure why.
                 SkinnedMeshRenderer[] rs = GetComponentsInChildren<SkinnedMeshRenderer>();
-                foreach(SkinnedMeshRenderer rderer in rs)
+                foreach (SkinnedMeshRenderer rderer in rs)
                 {
                     Color cur = rderer.material.color;
                     Color tar = cur;
@@ -101,7 +102,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         }
 
         instance = targetScanner.Detect(transform);
-        
+
         if (instance != null)
         {
             if (state == 0)
@@ -111,7 +112,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                 smallEnemyController.SetFollowNavmeshAgent(true);
                 m_NavMeshAgent.SetDestination(instance.transform.position);
                 m_Animator.SetBool("chasing_target", true);
-                
+
             }
             else if (state == 2)
             {
@@ -125,7 +126,8 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                     trigger_state = true;
                     weapon.enbaleAttack();
                 }
-                else if (m_NavMeshAgent.enabled) {
+                else if (m_NavMeshAgent.enabled)
+                {
                     m_NavMeshAgent.SetDestination(target.transform.position);
                 }
 
@@ -136,7 +138,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
                 if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
                 {
-                    
+
                     Quaternion m_TargetRotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(target.transform.position - transform.position), 1f * Time.deltaTime);
 
                     transform.rotation = m_TargetRotation;
@@ -146,14 +148,15 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
                         trigger_state = false;
                     }
-                    else {
+                    else
+                    {
                         attack_time = Time.time;
                         m_Animator.SetTrigger("attack");
                         trigger_state = true;
                     }
-                    
 
-                    
+
+
                 }
                 else
                 {
@@ -181,7 +184,8 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
             Quaternion m_TargetRotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, 1f * Time.deltaTime);
 
             transform.rotation = m_TargetRotation;
-            if (state == 2) {
+            if (state == 2)
+            {
                 m_NavMeshAgent.SetDestination(target.transform.position);
             }
         }
