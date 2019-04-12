@@ -723,7 +723,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6184441622545261701, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
 --- !u!1 &458935168
 GameObject:
@@ -937,6 +938,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d9ca007354fad74bbe70fecf9fe9262, type: 3}
+--- !u!1 &514115438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 790831070, guid: 8e576a22bc3c0a148839ff894f30a01e,
+    type: 3}
+  m_PrefabInstance: {fileID: 413648820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &514115439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514115438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d548a9fbb3a6643f1b4f7146e0e917a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Xiang
+    sentences:
+    - Listen here. Don't go thinking you're cool just because you killed a bunch of
+      goblins.
+    - Yuhong and I could have done that ourselves. I'm pretty good with a set of throwing
+      knives.
+    - Guner is no joke though. If you want to get out of here, you'll have to beat
+      him.
+    - A weakling like you couldn't do that alone.
+    - '... I mean, I couldn''t either. But still!'
+    - If you want some help defeating Guner, I'd be willing join your party.
+    - I don't think Yuhong likes me very much though. So if he is going with you I'l
+      just stay back.
+    - Ever since I made some jokes about her being as dull as her sword, she's been
+      a little touchy.
+    - So what do you say? Am I coming with?
 --- !u!1 &522710421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,19 +1241,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_RootOrder
@@ -1229,13 +1265,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: db6a739b35814694fb3437dcd5843539, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 526258323, guid: db6a739b35814694fb3437dcd5843539, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526258323, guid: db6a739b35814694fb3437dcd5843539, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 526258323, guid: db6a739b35814694fb3437dcd5843539, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526258323, guid: db6a739b35814694fb3437dcd5843539, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 526258323, guid: db6a739b35814694fb3437dcd5843539, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 790831073, guid: db6a739b35814694fb3437dcd5843539, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db6a739b35814694fb3437dcd5843539, type: 3}
 --- !u!1001 &712478738
 PrefabInstance:
@@ -3982,6 +4039,38 @@ Transform:
   m_Father: {fileID: 350197718}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &2133283436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 790831070, guid: db6a739b35814694fb3437dcd5843539,
+    type: 3}
+  m_PrefabInstance: {fileID: 674448323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2133283437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133283436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d548a9fbb3a6643f1b4f7146e0e917a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Yuhong
+    sentences:
+    - Thank you so much for saving me! That was some impresive sword work.
+    - I have been trapped in this prison for 7 months. All of the days begin to blur
+      together.
+    - I was not strong enough to defeat Guner by myself, but maybe with your help...
+    - No! I know we could beat him together!
+    - Our swords combined would be unstoppable.
+    - However, I refuse to work with Xiang.
+    - We are good friends but I've been trapped here with her for what feels like
+      forever.
+    - Even your friends can get annoying.
+    - Anyway, would you like me to join your party?
 --- !u!1001 &1945204916570121236
 PrefabInstance:
   m_ObjectHideFlags: 0
