@@ -15,20 +15,15 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public bool trigger_state = false;
 
     TargetScanner targetScanner;
-
     EllenPlayerController target;
-
     public EllenPlayerController instance;
 
     //0 - idle,  2-chasing, 3-attack, 4-attack stop, 5-take damage.
     public int state = 0;
     private float attack_time;
-
     public float attack_range = 1.0f;
 
     public int healthPoint = 1;
-
-    
     public bool isDead = false;
     public float dead_time;
 
@@ -37,15 +32,11 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public float invulnerable_duration = 2f;
 
     public float disappear_speed = 5;
-    
 
+    public GameObject[] waypoints;
     public bool test = false;
 
     public Weapon weapon;
-
-
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +47,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         m_Animator = GetComponent<Animator>();
         smallEnemyController.SetFollowNavmeshAgent(false);
         rgbody = GetComponent<Rigidbody>();
+        target = EllenPlayerController.instance;
     }
 
     void TakeDamage(int amount)
@@ -67,6 +59,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         healthPoint -= amount;
         if(healthPoint <= 0)
         {
+            GameManager.instance.EnemyDeath();
             state = 5;
         }
     }

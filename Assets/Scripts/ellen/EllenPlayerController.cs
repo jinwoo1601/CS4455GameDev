@@ -20,10 +20,13 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     protected float m_VerticalSpeed;               // How fast Ellen is currently moving up or down.
     protected PlayerInput m_Input;
     protected Quaternion m_TargetRotation;
-    protected CharacterController m_CharCtrl;      
+    protected CharacterController m_CharCtrl;
     protected Animator m_Animator;
     protected PlayerHealth m_PlayerHealth;
     public CameraSettings cameraSettings;
+
+    float damaged_time;
+    float invulnerable_duration = 1f;
 
 
     private float m_IdleTimer = 0f;
@@ -52,7 +55,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
         m_Animator.ResetTrigger("attack");
         if (m_Input.Attack)
             m_Animator.SetTrigger("attack");
-        
+
     }
 
     void CalculateForwardMovement()
@@ -72,7 +75,8 @@ public class EllenPlayerController : MonoBehaviour, Damageable
         m_ForwardSpeed = Mathf.MoveTowards(m_ForwardSpeed, m_DesiredForwardSpeed, acceleration * Time.deltaTime);
 
         // Set the animator parameter to control what animation is being played.
-        if (Mathf.Abs(m_ForwardSpeed) < 0.01 && (m_ForwardSpeed < 0 || m_ForwardSpeed > 0)) {
+        if (Mathf.Abs(m_ForwardSpeed) < 0.01 && (m_ForwardSpeed < 0 || m_ForwardSpeed > 0))
+        {
             if (m_ForwardSpeed > 0)
                 m_ForwardSpeed = 0.011f;
             else
@@ -118,7 +122,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
             Quaternion cameraToInputOffset = Quaternion.FromToRotation(Vector3.forward, localMovementDirection);
             targetRotation = Quaternion.LookRotation(cameraToInputOffset * forward);
         }
-        
+
         // The desired forward direction of Ellen.
         Vector3 resultingForward = targetRotation * Vector3.forward;
 
@@ -134,7 +138,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     void TimeoutToIdle()
     {
         bool inputDetected = IsMoveInput || m_Input.Attack;
-        if ( !inputDetected)
+        if (!inputDetected)
         {
             m_IdleTimer += Time.deltaTime;
 
@@ -158,7 +162,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
 
         Vector3 localInput = new Vector3(m_Input.MoveInput.x, 0f, m_Input.MoveInput.y);
         float groundedTurnSpeed = Mathf.Lerp(maxTurnSpeed, minTurnSpeed, m_ForwardSpeed / m_DesiredForwardSpeed);
-        float actualTurnSpeed =  groundedTurnSpeed ;
+        float actualTurnSpeed = groundedTurnSpeed;
         m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, actualTurnSpeed * Time.deltaTime);
 
         transform.rotation = m_TargetRotation;
@@ -167,7 +171,11 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
     {
         //Debug.Log("todo");
+        if (Time.time - damaged_time < invulnerable_duration)
+            return;
+
         m_PlayerHealth.TakeDamage(10);
+        damaged_time = Time.time;
     }
 
     public bool canBeAttacked()

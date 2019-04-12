@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PauseMenuToggle : MonoBehaviour
 {
-    private GameManager gm;
     private CanvasGroup canvasGroup;
 
     private void Awake()
@@ -16,9 +15,7 @@ public class PauseMenuToggle : MonoBehaviour
         {
             Debug.LogError("Get component canvas group error");
         }
-
-        gm = GameManager.instance;
-
+        
         Debug.Log("Pause Menu Toggle loaded\n");
     }
     // Start is called before the first frame update
@@ -39,7 +36,7 @@ public class PauseMenuToggle : MonoBehaviour
                 canvasGroup.blocksRaycasts = false;
                 canvasGroup.alpha = 0f;
                 Time.timeScale = 1.0f;
-                gm.ResumeGame();
+                GameManager.instance.ResumeGame();
             }
             else
             {
@@ -47,7 +44,7 @@ public class PauseMenuToggle : MonoBehaviour
                 canvasGroup.blocksRaycasts = true;
                 canvasGroup.alpha = 1f;
                 Time.timeScale = 0.0f;
-                gm.PauseGame();
+                GameManager.instance.PauseGame();
             }
         }
     }
