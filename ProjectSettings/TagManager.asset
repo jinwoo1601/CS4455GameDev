@@ -8,6 +8,7 @@ TagManager:
   - fences
   - Enemy
   - damageable
+  - crate
   layers:
   - Default
   - TransparentFX

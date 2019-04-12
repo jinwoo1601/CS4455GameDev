@@ -1880,6 +1880,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
+      propertyPath: m_TagString
+      value: crate
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.83
@@ -9234,6 +9238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
+      propertyPath: m_TagString
+      value: crate
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25
@@ -9573,6 +9581,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
       propertyPath: m_Name
       value: Crate (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
+      propertyPath: m_TagString
+      value: crate
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13167,6 +13179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
+      propertyPath: m_TagString
+      value: crate
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.8
@@ -13333,6 +13349,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
       propertyPath: m_Name
       value: Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
+      propertyPath: m_TagString
+      value: crate
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 780923c3a9c2cbe4080c8c96b77cde73, type: 3}
       propertyPath: m_LocalPosition.x
