@@ -17,6 +17,7 @@ public class PlayerInput : MonoBehaviour
     protected bool m_Pause;
     protected bool m_ExternalInputBlocked;
 
+    public Animator animator;
 
     float start_attack;
     float attack_duration = 0.35f;
@@ -37,6 +38,8 @@ public class PlayerInput : MonoBehaviour
             throw new UnityException("There cannot be more than one PlayerInput script.  The instances are " + s_Instance.name + " and " + name + ".");
 
         m_AttachInputWait = new WaitForSeconds(k_AttackInputDuration);
+        animator = GetComponent<Animator>();
+        start_attack = Time.time;
     }
 
     // Update is called once per frame
@@ -50,15 +53,23 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
         {
-            if(Time.time - start_attack < attack_duration)
+            if (Time.time - start_attack > 1f)
             {
-                return;
+                if (m_AttackWaitCoroutine != null)
+                    StopCoroutine(m_AttackWaitCoroutine);
+                weapon.enbaleAttack();
+                m_AttackWaitCoroutine = StartCoroutine(AttackWait());
+                start_attack = Time.time;
+                animator.SetFloat("attack_time", 0);
             }
-            if (m_AttackWaitCoroutine != null)
-                StopCoroutine(m_AttackWaitCoroutine);
-            weapon.enbaleAttack();
-            m_AttackWaitCoroutine = StartCoroutine(AttackWait());
-            start_attack = Time.time;
+            else {
+                if (m_AttackWaitCoroutine != null)
+                    StopCoroutine(m_AttackWaitCoroutine);
+                weapon.enbaleAttack();
+                m_AttackWaitCoroutine = StartCoroutine(AttackWait());
+                animator.SetFloat("attack_time", Time.time - start_attack);
+            }
+            
 
         }
 

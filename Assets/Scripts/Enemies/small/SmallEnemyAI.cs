@@ -59,7 +59,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         healthPoint -= amount;
         if(healthPoint <= 0)
         {
-            GameManager.instance.EnemyDeath();
+            //GameManager.instance.EnemyDeath();
             state = 5;
         }
     }
