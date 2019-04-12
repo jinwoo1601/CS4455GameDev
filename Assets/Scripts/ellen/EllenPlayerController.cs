@@ -192,4 +192,11 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     {
         get { return !Mathf.Approximately(m_Input.MoveInput.sqrMagnitude, 0f); }
     }
+
+    public void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        body.velocity = pushDir * 2;
+    }
 }
