@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 790831076}
   - component: {fileID: 790831075}
   - component: {fileID: 790831074}
+  - component: {fileID: 790831073}
   - component: {fileID: 790831072}
   - component: {fileID: 790831071}
-  - component: {fileID: 8283047921417723216}
   m_Layer: 8
-  m_Name: Sapphi
+  m_Name: sapphi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_LocalPosition: {x: 287.26, y: 2, z: 230.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4446585485209768310}
+  - {fileID: 3128905901563410223}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -126,6 +126,28 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &790831073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790831070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d548a9fbb3a6643f1b4f7146e0e917a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Yuhong
+    sentences:
+    - Thank you so much for saving me! That was some impresive sword work.
+    - I have been trapped in this prison for 7 months. All of the days begin to blur
+      together.
+    - I was not strong enough to defeat Guner by myself, but maybe with your help...
+    - No! I know we could beat him together!
+    - Our swords combined would be unstoppable.
+    - Would you like me to join your party?
 --- !u!65 &790831072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -153,31 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!114 &8283047921417723216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790831070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d548a9fbb3a6643f1b4f7146e0e917a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Xiang
-    sentences:
-    - Listen here. Don't go thinking you're cool just because you killed a bunch of
-      goblins.
-    - Yuhong and I could have done that ourselves. I'm pretty good with a set of throwing
-      knives.
-    - Guner is no joke though. If you want to get out of here, you'll have to beat
-      him.
-    - A weakling like you couldn't do that alone.
-    - '... I mean, I couldn''t either. But still!'
-    - If you want some help defeating Guner, I'd be willing join your party.
---- !u!1001 &4446585485209436934
+--- !u!1001 &3128905901562946911
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -232,11 +230,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9590100, guid: 7dc923b4c4812f147ba42a507e5507bd, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0fbb7d71bcee4d84abcc6d8d0502e7a0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc923b4c4812f147ba42a507e5507bd, type: 3}
---- !u!4 &4446585485209768310 stripped
+--- !u!4 &3128905901563410223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 463472, guid: 7dc923b4c4812f147ba42a507e5507bd,
     type: 3}
-  m_PrefabInstance: {fileID: 4446585485209436934}
+  m_PrefabInstance: {fileID: 3128905901562946911}
   m_PrefabAsset: {fileID: 0}
