@@ -10,7 +10,7 @@ public class CollectableKey : MonoBehaviour
         Debug.Log("trigger enter: " + c.tag);
         if (c.CompareTag("Player"))
         {
-            KeyCollector kc = c.attachedRigidbody.gameObject.GetComponent<KeyCollector>();
+            KeyCollector kc = c.gameObject.GetComponent<KeyCollector>();
             if (kc != null)
             {
                 kc.CollectKey();

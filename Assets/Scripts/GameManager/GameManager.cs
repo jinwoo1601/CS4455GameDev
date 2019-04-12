@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private int level = 3;                                  //Current level number, expressed in game as "Day 1".
     public bool paused = false;
 
-    private int enemyCount;
+    public int enemyCount;
     private bool keySpawned = false;
 
     public GameObject keyPrefab;
@@ -22,17 +22,12 @@ public class GameManager : MonoBehaviour
     //Awake is always called before any Start functions
     void Awake()
     {
-        enemyCount = 2;
         //Check if instance already exists
         if (instance == null)
-
-            //if not, set instance to this
             instance = this;
 
         //If instance already exists and it's not this:
         else if (instance != this)
-
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
             Destroy(gameObject);
 
         //Sets this to not be destroyed when reloading scene
@@ -67,6 +62,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneStore.LEVEL1);
+        SpawnKey();
     }
 
     public void LoadSetting()
@@ -82,6 +78,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
         ResumeGame();
         GameEnd = false;
     }
@@ -89,13 +86,13 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         paused = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0.0f;
     }
 
     public void ResumeGame()
     {
         paused = false;
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
     }
 
     public void LoadGame()
@@ -128,6 +125,6 @@ public class GameManager : MonoBehaviour
     // Spawn the key to the next room when enemy count is zero.
     public void SpawnKey()
     {
-        GameObject key = (GameObject)Instantiate(keyPrefab, keySpawningPos.transform.position, keySpawningPos.transform.rotation);
+        Instantiate(keyPrefab, keySpawningPos.transform.position, keySpawningPos.transform.rotation);
     }
 }

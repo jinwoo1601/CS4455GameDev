@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
         get { return s_Instance; }
     }
 
-
+    protected static PlayerInput s_Instance;
     protected Vector2 m_Movement;
     protected Vector2 m_Camera;
     protected bool m_Attack;
@@ -18,11 +18,13 @@ public class PlayerInput : MonoBehaviour
     protected bool m_ExternalInputBlocked;
 
 
-    protected static PlayerInput s_Instance;
-
+    float start_attack;
+    float attack_duration = 0.35f;
 
     WaitForSeconds m_AttachInputWait;
     Coroutine m_AttackWaitCoroutine;
+
+    public Weapon weapon;
 
     float k_AttackInputDuration = 0.03f;
 
@@ -43,27 +45,36 @@ public class PlayerInput : MonoBehaviour
         m_Movement.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         m_Camera.Set(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
+        if (Time.time - start_attack >= attack_duration)
+            weapon.disableAttack();
 
-
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
         {
-            Debug.Log("fire");
+            if(Time.time - start_attack < attack_duration)
+            {
+                return;
+            }
             if (m_AttackWaitCoroutine != null)
                 StopCoroutine(m_AttackWaitCoroutine);
-
+            weapon.enbaleAttack();
             m_AttackWaitCoroutine = StartCoroutine(AttackWait());
+            start_attack = Time.time;
+
         }
+
 
         //m_Pause = Input.GetButtonDown("Pause");
     }
 
     IEnumerator AttackWait()
     {
+        
         m_Attack = true;
 
         yield return m_AttachInputWait;
 
         m_Attack = false;
+        
     }
 
     public Vector2 MoveInput

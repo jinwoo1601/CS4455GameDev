@@ -66,7 +66,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         // TODO: for testing only, need to be removed from update function.
-        //healthSlider.value = currentHealth;
+        healthSlider.value = currentHealth;
 
         // Reset the damaged flag.
         anim.enabled = true;
