@@ -20,9 +20,9 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.attachedRigidbody != null)
-        {
-            KeyCollector kc = other.attachedRigidbody.GetComponent<KeyCollector>();
+        //if (other.attachedRigidbody != null)
+        //{
+            KeyCollector kc = other.gameObject.GetComponent<KeyCollector>();
             if (kc != null)
             {
                 if (kc.getHasKey())
@@ -33,6 +33,6 @@ public class Teleporter : MonoBehaviour
                     // maybe prompt a message like "
                 }
             }
-        }
+        //}
     }
 }
