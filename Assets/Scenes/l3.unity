@@ -1378,7 +1378,11 @@ MonoBehaviour:
     - I was not strong enough to defeat Guner by myself, but maybe with your help...
     - No! I know we could beat him together!
     - Our swords combined would be unstoppable.
-    - Would you like me to join your party?
+    - However, I refuse to work with Xiang.
+    - We are good friends but I've been trapped here with her for what feels like
+      forever.
+    - Even your friends can get annoying.
+    - Anyway, would you like me to join your party?
 --- !u!65 &822125103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2460,6 +2464,11 @@ MonoBehaviour:
     - A weakling like you couldn't do that alone.
     - '... I mean, I couldn''t either. But still!'
     - If you want some help defeating Guner, I'd be willing join your party.
+    - I don't think Yuhong likes me very much though. So if he is going with you I'l
+      just stay back.
+    - She has a terrible sense of humor. Ever since I made some jokes about her being
+      as dull as her sword, she's been a little touchy.
+    - So what do you say? Am I coming with?
 --- !u!65 &1309875142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3797,6 +3806,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945204917389554339, guid: 13bfce078e4227c44bc1998a02fdad7e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945204917389554339, guid: 13bfce078e4227c44bc1998a02fdad7e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945204917389554339, guid: 13bfce078e4227c44bc1998a02fdad7e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945204916709835774, guid: 13bfce078e4227c44bc1998a02fdad7e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945204916709835774, guid: 13bfce078e4227c44bc1998a02fdad7e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945204916709835774, guid: 13bfce078e4227c44bc1998a02fdad7e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13bfce078e4227c44bc1998a02fdad7e, type: 3}
