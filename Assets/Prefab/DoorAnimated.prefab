@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 7824080776060630926}
   - component: {fileID: 8357979572003464569}
   - component: {fileID: 3215884034990652768}
+  - component: {fileID: 2719191064399889213}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -118,7 +119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2719191064399889212}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3, y: -0.558, z: -1}
+  m_LocalPosition: {x: -3, y: -0.503, z: -1}
   m_LocalScale: {x: 0.50000024, y: 0.1, z: 0.50000024}
   m_Children: []
   m_Father: {fileID: 8465471254396906123}
@@ -182,6 +183,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!111 &2719191064399889213
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2719191064399889212}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 7b5f7bc8a1371d149992737907fc678f, type: 2}
+  - {fileID: 7400000, guid: 3693b7f89d88b604fa58c66cd2d03825, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3991866216648767009
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,8 +846,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 2.1516714, z: 0.4}
-  m_Center: {x: -3, y: 0.5, z: -1}
+  m_Size: {x: 0.4, y: 0.2432214, z: 0.4}
+  m_Center: {x: -3, y: -0.454225, z: -1}
 --- !u!114 &8465471254396906121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,3 +861,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 8465471254353218998}
+  animButton: {fileID: 2719191064399889213}
