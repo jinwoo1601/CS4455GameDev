@@ -78,7 +78,6 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
         if (isDead)
         {
-            Debug.Log(Time.time);
             if (Time.time - dead_time > 1.6f)
             {
                 m_Animator.enabled = false;
@@ -195,7 +194,6 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
     {
-        Debug.Log("hit");
         TakeDamage(1);
     }
 
