@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(CharacterController))]
+//[RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
 public class EllenPlayerController : MonoBehaviour, Damageable
 {
@@ -10,8 +10,8 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     public static EllenPlayerController instance { get { return s_Instance; } }
 
     public float maxSpeed = 8f;
-    public float minTurnSpeed = 400f;         // How fast Ellen turns when moving at maximum speed.
-    public float maxTurnSpeed = 1200f;        // How fast Ellen turns when stationary.
+    public float rootMovementSpeed = 2f;
+    public float rootTurnSpeed = 10f;
     public float idleTimeout = 5f;            // How long before Ellen starts considering random idles.
     public bool canAttack;                    // Whether or not Ellen can swing her staff.
     protected float m_AngleDiff;
@@ -20,11 +20,12 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     protected float m_VerticalSpeed;               // How fast Ellen is currently moving up or down.
     protected PlayerInput m_Input;
     protected Quaternion m_TargetRotation;
-    protected CharacterController m_CharCtrl;
+    //protected CharacterController m_CharCtrl;
     protected Animator m_Animator;
     protected PlayerHealth m_PlayerHealth;
     public CameraSettings cameraSettings;
 
+    bool isGrounded = true;
     float damaged_time;
     float invulnerable_duration = 1f;
 
@@ -35,7 +36,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     {
         m_Input = GetComponent<PlayerInput>();
         m_Animator = GetComponent<Animator>();
-        m_CharCtrl = GetComponent<CharacterController>();
+        //m_CharCtrl = GetComponent<CharacterController>();
         m_PlayerHealth = GetComponent<PlayerHealth>();
         s_Instance = this;
     }
@@ -43,11 +44,14 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     // Update is called once per frame
     void FixedUpdate()
     {
-        CalculateForwardMovement();
+        //CalculateForwardMovement();
+        Vector2 moveInput = m_Input.MoveInput;
+        m_Animator.SetFloat("vely", moveInput.x);
+        m_Animator.SetFloat("velx", moveInput.y);
 
-        SetTargetRotation();
-        if (IsMoveInput)
-            UpdateOrientation();
+        //SetTargetRotation();
+        //if (IsMoveInput)
+            //UpdateOrientation();
 
         TimeoutToIdle();
 
@@ -83,6 +87,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
                 m_ForwardSpeed = -0.011f;
         }
         m_Animator.SetFloat("speed", m_ForwardSpeed);
+
     }
 
     void Reset()
@@ -156,17 +161,17 @@ public class EllenPlayerController : MonoBehaviour, Damageable
 
     }
 
-    void UpdateOrientation()
-    {
-        m_Animator.SetFloat("angle", m_AngleDiff * Mathf.Deg2Rad);
+    //void UpdateOrientation()
+    //{
+    //    m_Animator.SetFloat("angle", m_AngleDiff * Mathf.Deg2Rad);
 
-        Vector3 localInput = new Vector3(m_Input.MoveInput.x, 0f, m_Input.MoveInput.y);
-        float groundedTurnSpeed = Mathf.Lerp(maxTurnSpeed, minTurnSpeed, m_ForwardSpeed / m_DesiredForwardSpeed);
-        float actualTurnSpeed = groundedTurnSpeed;
-        m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, actualTurnSpeed * Time.deltaTime);
+    //    Vector3 localInput = new Vector3(m_Input.MoveInput.x, 0f, m_Input.MoveInput.y);
+    //    float groundedTurnSpeed = Mathf.Lerp(maxTurnSpeed, minTurnSpeed, m_ForwardSpeed / m_DesiredForwardSpeed);
+    //    float actualTurnSpeed = groundedTurnSpeed;
+    //    m_TargetRotation = Quaternion.RotateTowards(transform.rotation, m_TargetRotation, actualTurnSpeed * Time.deltaTime);
 
-        transform.rotation = m_TargetRotation;
-    }
+    //    transform.rotation = m_TargetRotation;
+    //}
 
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
     {
@@ -176,6 +181,37 @@ public class EllenPlayerController : MonoBehaviour, Damageable
 
         m_PlayerHealth.TakeDamage(10);
         damaged_time = Time.time;
+    }
+
+    void OnAnimatorMove()
+    {
+
+        
+        Vector3 newRootPosition;
+        Quaternion newRootRotation;
+
+        if (isGrounded)
+        {
+            //use root motion as is if on the ground		
+            newRootPosition = m_Animator.rootPosition;
+        }
+        else
+        {
+            //Simple trick to keep model from climbing other rigidbodies that aren't the ground
+            newRootPosition = new Vector3(m_Animator.rootPosition.x, this.transform.position.y, m_Animator.rootPosition.z);
+        }
+
+        //use rotational root motion as is
+        newRootRotation = m_Animator.rootRotation;
+
+        //TODO Here, you could scale the difference in position and rotation to make the character go faster or slower
+
+        this.transform.position = Vector3.LerpUnclamped(this.transform.position, newRootPosition, rootMovementSpeed);
+        this.transform.rotation = Quaternion.LerpUnclamped(this.transform.rotation, newRootRotation, rootTurnSpeed);
+
+
+        //clear IsGrounded
+        isGrounded = false;
     }
 
     public bool canBeAttacked()
