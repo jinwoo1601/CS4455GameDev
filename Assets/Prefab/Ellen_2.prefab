@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2484269466272445153}
   m_Layer: 0
   m_Name: Ellen_2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1034,7 +1034,7 @@ PrefabInstance:
     - target: {fileID: 7101895031909260844, guid: e1534ec4f81d84418b815e2f0bd84ade,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.6020775
+      value: -14.602072
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1534ec4f81d84418b815e2f0bd84ade, type: 3}
