@@ -48,7 +48,6 @@ public class CameraFollow : MonoBehaviour
 
         else if (Input.GetMouseButton(1))
         {
-            Debug.Log("mouse button down");
             float inputX = Input.GetAxis("RightStickHorizontal");
             float inputY = Input.GetAxis("RightStickVertical");
             mouseX = -Input.GetAxis("Mouse Y") - mouseXBase;
