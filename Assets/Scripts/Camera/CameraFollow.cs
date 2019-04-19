@@ -15,11 +15,14 @@ public class CameraFollow : MonoBehaviour
     public float camDistanceYToPlayer;
     public float camDistanceZToPlayer;
     public float mouseX;
-    public float moustY;
+    public float mouseY;
+    public float mouseXBase;
+    public float mouseYBase;
     public float finalInputX;
     public float finalInputY;
     public float smoothX;
     public float smoothY;
+    public float smooth = 10.0f;
     private float rotY = 0.0f;
     private float rotX = 0.0f;
 
@@ -34,20 +37,39 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        float inputX = Input.GetAxis("RightStickHorizontal");
-        float inputY = Input.GetAxis("RightStickVertical");
-        mouseX = -Input.GetAxis("Mouse Y");
-        moustY = Input.GetAxis("Mouse X");
-        finalInputX = inputX + mouseX;
-        finalInputY = inputY + moustY;
+        if (Input.GetMouseButtonDown(1))
+        {
+            mouseXBase = -Input.GetAxis("Mouse Y");
+            mouseYBase = Input.GetAxis("Mouse X");
+        }
 
-        rotX += finalInputX * InputSensitivity * Time.deltaTime;
-        rotY += finalInputY * InputSensitivity * Time.deltaTime;
 
-        rotX = Mathf.Clamp(rotX, -ClampAngle, ClampAngle);
 
-        Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
-        transform.rotation = localRotation;
+
+        else if (Input.GetMouseButton(1))
+        {
+            Debug.Log("mouse button down");
+            float inputX = Input.GetAxis("RightStickHorizontal");
+            float inputY = Input.GetAxis("RightStickVertical");
+            mouseX = -Input.GetAxis("Mouse Y") - mouseXBase;
+            mouseY = Input.GetAxis("Mouse X") - mouseYBase;
+            finalInputX = inputX + mouseX;
+            finalInputY = inputY + mouseY;
+
+            rotX += finalInputX * InputSensitivity * Time.deltaTime;
+            rotY += finalInputY * InputSensitivity * Time.deltaTime;
+
+            rotX = Mathf.Clamp(rotX, -ClampAngle, ClampAngle);
+
+            Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
+            transform.rotation = localRotation;
+            PlayerObj.transform.rotation = Quaternion.Euler(0.0f, rotY, 0.0f);
+
+        }
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Follow.transform.rotation, smooth * Time.deltaTime);
+        }
     }
 
     private void LateUpdate()
