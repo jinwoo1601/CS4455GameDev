@@ -106,6 +106,10 @@ public class DialogueManager : MonoBehaviour
     {
         hideDialogueBox();
         hideOptionsButtons();
+        hideNextButton();
+
+        nameText.text = "";
+
     }
 
     private void showDialogueBox()

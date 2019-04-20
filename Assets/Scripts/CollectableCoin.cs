@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CollectableCoin : MonoBehaviour
 {
-    // code to place the key
+
+    public float y;
+
+    // code to place the coin
     void OnTriggerEnter(Collider c)
     {
         Debug.Log("trigger enter: " + c.tag);
@@ -18,5 +21,9 @@ public class CollectableCoin : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    void Update(){
+        transform.Rotate( new Vector3 (0,y,0) * Time.deltaTime);
     }
 }
