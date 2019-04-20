@@ -73,6 +73,18 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    public void DisplayMessage(string message) {
+        Debug.Log("display message");
+
+        dialogueText.text = message;
+        showDialogueBox();
+    }
+
+    public void HideMessage(){
+        hideDialogueBox();
+    }
+
+
     public void DisplayNextSentence()
     { 
         if (sentences.Count == 0)

@@ -7945,6 +7945,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.11
       objectReference: {fileID: 0}
+    - target: {fileID: 1150940953841294367, guid: 42a97509bcf554343b0065d8a5b50e5c,
+        type: 3}
+      propertyPath: DM
+      value: 
+      objectReference: {fileID: 1945204916570121237}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42a97509bcf554343b0065d8a5b50e5c, type: 3}
 --- !u!1001 &1611358345
@@ -9239,3 +9244,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13bfce078e4227c44bc1998a02fdad7e, type: 3}
+--- !u!114 &1945204916570121237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1945204915920040065, guid: 13bfce078e4227c44bc1998a02fdad7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945204916570121236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c250dbcd2894406288c60b6cea66245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
