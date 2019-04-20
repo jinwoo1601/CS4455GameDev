@@ -50,6 +50,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 48d745b602275c340ac643685bc96125, type: 3}
   - {fileID: 8300000, guid: 075b060aa10f3b0459643d3359e3fb40, type: 3}
   - {fileID: 8300000, guid: f6049084868b6b14cbc0047015670af1, type: 3}
+  mFootstepAudio:
+  - {fileID: 8300000, guid: 8a8f62f138064ec44a8516581a105120, type: 3}
+  - {fileID: 8300000, guid: d413e15ced76cd54cbda3a6285029ac1, type: 3}
   attackAudio:
   - {fileID: 8300000, guid: f4c6afa5286abf04f8478f9e3d1662e8, type: 3}
   - {fileID: 8300000, guid: 1aadd6d11b3151846802965318c1d950, type: 3}
