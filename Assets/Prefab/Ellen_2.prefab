@@ -219,7 +219,7 @@ MonoBehaviour:
   idleTimeout: 5
   canAttack: 0
   cameraSettings: {fileID: 8956372726838220807}
---- !u!114 &8027340367185326456
+--- !u!114 &8456791690915798562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2853618994118674684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae7aa13796fe00449eaefbd064e75fd, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd9fc6d964be3b419634a1bf75516f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4773238783108548555
