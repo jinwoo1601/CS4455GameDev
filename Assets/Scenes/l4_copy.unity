@@ -3288,6 +3288,8 @@ GameObject:
   - component: {fileID: 118035302}
   - component: {fileID: 118035301}
   - component: {fileID: 118035300}
+  - component: {fileID: 118035305}
+  - component: {fileID: 118035304}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -3366,8 +3368,34 @@ Transform:
   m_LocalScale: {x: 0.75, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1225936007}
-  m_RootOrder: 54
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!65 &118035304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118035299}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.86426896, z: 10.000002}
+  m_Center: {x: 0, y: 0.15417618, z: -4.1461882e-16}
+--- !u!114 &118035305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118035299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ebe04dead61bc43b1807015786f69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DM: {fileID: 1945204915920040065}
 --- !u!1001 &127311935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16666,6 +16694,7 @@ Transform:
   - {fileID: 750149678}
   - {fileID: 728440347}
   - {fileID: 765636327}
+  - {fileID: 118035303}
   - {fileID: 188422847}
   - {fileID: 1268860400}
   - {fileID: 634529821}
@@ -16685,7 +16714,6 @@ Transform:
   - {fileID: 613770099}
   - {fileID: 2032445974}
   - {fileID: 1949095790}
-  - {fileID: 118035303}
   - {fileID: 107871737}
   - {fileID: 1923919432}
   - {fileID: 1723369471}
