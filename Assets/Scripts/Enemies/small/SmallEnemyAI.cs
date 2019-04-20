@@ -78,6 +78,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
         if (isDead)
         {
+            
             if (Time.time - dead_time > 1.6f)
             {
                 m_Animator.enabled = false;
@@ -98,6 +99,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                 Destroy(gameObject);
 
             }
+            EventManager.TriggerEvent<mDeathEvent, Vector3>(transform.position);
             return;
         }
 

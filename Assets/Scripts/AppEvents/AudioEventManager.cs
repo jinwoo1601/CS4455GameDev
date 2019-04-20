@@ -11,11 +11,13 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip[] FootstepAudio;
     public AudioClip[] mFootstepAudio;
     public AudioClip[] attackAudio;
+    public AudioClip mDeathAudio;
 
 
     private UnityAction<Vector3> FootstepEventListener;
     private UnityAction<Vector3> mFootstepEventListener;
     private UnityAction<Vector3> attackEventListener;
+    private UnityAction<Vector3> mDeathEventListener;
 
     void Awake()
     {
@@ -23,6 +25,7 @@ public class AudioEventManager : MonoBehaviour
         FootstepEventListener = new UnityAction<Vector3>(FootstepEventHandler);
         mFootstepEventListener = new UnityAction<Vector3>(mFootstepEventHandler);
         attackEventListener = new UnityAction<Vector3>(attackEventHandler);
+        mDeathEventListener = new UnityAction<Vector3>(mDeathEventHandler);
     }
 
 
@@ -38,6 +41,7 @@ public class AudioEventManager : MonoBehaviour
     void OnEnable()
     {
         EventManager.StartListening<attackEvent, Vector3>(attackEventListener);
+        EventManager.StartListening<mDeathEvent, Vector3>(mDeathEventListener);
         EventManager.StartListening<FootstepEvent, Vector3>(FootstepEventListener);
         EventManager.StartListening<mFootstepEvent, Vector3>(mFootstepEventListener);
 
@@ -46,6 +50,7 @@ public class AudioEventManager : MonoBehaviour
     void OnDisable()
     {
         EventManager.StopListening<attackEvent, Vector3>(attackEventListener);
+        EventManager.StopListening<mDeathEvent, Vector3>(mDeathEventListener);
         EventManager.StopListening<FootstepEvent, Vector3>(FootstepEventListener);
         EventManager.StopListening<mFootstepEvent, Vector3>(mFootstepEventListener);
     }
@@ -88,7 +93,6 @@ public class AudioEventManager : MonoBehaviour
     void attackEventHandler(Vector3 pos)
     {
 
-
         EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
 
         snd.audioSrc.clip = this.attackAudio[Random.Range(0, attackAudio.Length)];
@@ -98,6 +102,19 @@ public class AudioEventManager : MonoBehaviour
 
         snd.audioSrc.Play();
 
+    }
 
+
+    void mDeathEventHandler(Vector3 pos)
+    {
+
+        EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+        snd.audioSrc.clip = this.mDeathAudio;
+
+        snd.audioSrc.minDistance = 5f;
+        snd.audioSrc.maxDistance = 100f;
+
+        snd.audioSrc.Play();
     }
 }
