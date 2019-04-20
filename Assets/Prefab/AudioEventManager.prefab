@@ -58,3 +58,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1aadd6d11b3151846802965318c1d950, type: 3}
   - {fileID: 8300000, guid: 353119531619c9e4897d121ddadd255b, type: 3}
   - {fileID: 8300000, guid: 61980a0757e117643b8f9df031670b33, type: 3}
+  mDeathAudio: {fileID: 8300000, guid: 5a27cea71ff921a45a77745c2810b304, type: 3}
