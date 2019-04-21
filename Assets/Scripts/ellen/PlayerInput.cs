@@ -91,7 +91,7 @@ public class PlayerInput : MonoBehaviour
             m_Movement.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             m_Camera.Set(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-            if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 if (m_AttackWaitCoroutine != null)
                     StopCoroutine(m_AttackWaitCoroutine);

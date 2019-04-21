@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class ZeldaManager : MonoBehaviour
 {
 
@@ -27,29 +26,35 @@ public class ZeldaManager : MonoBehaviour
     void FixedUpdate()
     {
         if (started) {
-            float current_distance = Vector3.Distance(EllenPlayerController.instance.transform.position, distance_target.transform.position);
+            float current_distance = Vector3.Distance(BarbPlayerController.instance.transform.position, distance_target.transform.position);
             float time_elpsed = (distance - current_distance) / distance;
             point_light.range = 10f * time_elpsed + start_range;
 
             float current_camera = distance_start - (distance_start - distance_end) * time_elpsed;
             cameraCollision.maxDistance = current_camera;
 
-            RenderSettings.skybox.SetFloat("_Exposure", (5 - 1) * time_elpsed + 1);
+            RenderSettings.skybox.SetFloat("_Exposure", (20 - 1) * time_elpsed + 1);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("zelda_area")){
+            Debug.Log(collision.collider.tag);
             collision.collider.gameObject.SetActive(false);
             PlayerInput.Instance.enable = false;
             PlayerInput.Instance.setMaxStraight();
-            EllenPlayerController.instance.transform.LookAt(lookat_target.transform.position, Vector3.up);
+            BarbPlayerController.instance.transform.LookAt(lookat_target.transform.position, Vector3.up);
             panel.SetActive(false);
-            distance = Vector3.Distance(EllenPlayerController.instance.transform.position, distance_target.transform.position);
+            distance = Vector3.Distance(BarbPlayerController.instance.transform.position, distance_target.transform.position);
             started = true;
             distance_start = cameraCollision.maxDistance;
             audioClip.Play();
         }
+    }
+
+    private void OnDestroy()
+    {
+        RenderSettings.skybox.SetFloat("_Exposure", 1);
     }
 }
