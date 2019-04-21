@@ -7,6 +7,13 @@ public class TreasureChestScript : MonoBehaviour
     //
     private bool collided;
     private Collider collidedObject;
+    private bool TreasureNotCollected;
+    public DialogueManager DM;
+
+
+    private void Start(){
+        TreasureNotCollected = true;
+    }
 
     private void Update()
     {
@@ -17,11 +24,16 @@ public class TreasureChestScript : MonoBehaviour
                 CoinCollector kc = collidedObject.gameObject.GetComponent<CoinCollector>();
                 if (kc != null)
                 {
-                    if (Input.GetKeyDown(KeyCode.Space))
+                    if (Input.GetKeyDown(KeyCode.Space) && TreasureNotCollected)
                     {
                         kc.CollectTreasure();
+                        TreasureNotCollected = false;
                         // sound event?
-                        Destroy(this.gameObject);
+                        //Destroy(this.gameObject);
+                    } else if(TreasureNotCollected){
+                        DM.DisplayMessage("Press 'Space' to loot chest.");
+                    } else {
+                        DM.DisplayMessage("You've already looted this chest.");
                     }
                 }
             }
@@ -38,5 +50,6 @@ public class TreasureChestScript : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         collided = false;
+        DM.HideMessage();
     }
 }

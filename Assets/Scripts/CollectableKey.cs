@@ -26,7 +26,11 @@ public class CollectableKey : MonoBehaviour
     }
 
 
-    void OnTriggerExit(Collider other){
+    private void OnTriggerExit(Collider other){
+        DM.HideMessage();
+    }
+
+    private void OnDestroy(){
         DM.HideMessage();
     }
 }

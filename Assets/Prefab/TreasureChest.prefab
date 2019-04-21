@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7976337409489843799}
   - component: {fileID: 2874774785110015231}
   - component: {fileID: 9205808110978418046}
+  - component: {fileID: 5246248079688285834}
   m_Layer: 0
   m_Name: TreasureChest
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6045754917241098448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4044451204129546462}
   - {fileID: 3741837215348529346}
@@ -46,8 +47,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794ed17849e5eca4aabdd30b0e8af3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DM: {fileID: 0}
 --- !u!135 &9205808110978418046
 SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045754917241098448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.53201723
+  m_Center: {x: 0.1607176, y: 0.3, z: 0}
+--- !u!65 &5246248079688285834
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -57,8 +72,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.4951541, y: 1.6932511, z: 1.9816873}
+  m_Center: {x: -0.27407777, y: 0.8174212, z: -0.006593466}
 --- !u!1001 &3739000214705397788
 PrefabInstance:
   m_ObjectHideFlags: 0
