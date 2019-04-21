@@ -15,8 +15,8 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public bool trigger_state = false;
 
     TargetScanner targetScanner;
-    EllenPlayerController target;
-    public EllenPlayerController instance;
+    BarbPlayerController target;
+    public BarbPlayerController instance;
 
     //0 - idle,  2-chasing, 3-attack, 4-attack stop, 5-take damage.
     public int state = 0;
@@ -51,7 +51,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         m_Animator = GetComponent<Animator>();
         smallEnemyController.SetFollowNavmeshAgent(false);
         rgbody = GetComponent<Rigidbody>();
-        target = EllenPlayerController.instance;
+        target = BarbPlayerController.instance;
     }
 
     void TakeDamage(int amount)

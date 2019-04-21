@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - damageable
   - crate
+  - zelda_area
   layers:
   - Default
   - TransparentFX
