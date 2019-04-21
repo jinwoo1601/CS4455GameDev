@@ -87,28 +87,12 @@ public class PlayerInput : MonoBehaviour
         m_Movement.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         m_Camera.Set(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        if (Time.time - start_attack_time >= attack_duration)
-            weapon.disableAttack();
-
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
         {
-            if (Time.time - start_attack_time > 1f)
-            {
-                if (m_AttackWaitCoroutine != null)
-                    StopCoroutine(m_AttackWaitCoroutine);
-                weapon.enbaleAttack();
-                m_AttackWaitCoroutine = StartCoroutine(AttackWait());
-                start_attack_time = Time.time;
-                animator.SetFloat("attack_time", 0);
-            }
-            else
-            {
-                if (m_AttackWaitCoroutine != null)
-                    StopCoroutine(m_AttackWaitCoroutine);
-                weapon.enbaleAttack();
-                m_AttackWaitCoroutine = StartCoroutine(AttackWait());
-                animator.SetFloat("attack_time", Time.time - start_attack_time);
-            }
+            if (m_AttackWaitCoroutine != null)
+                StopCoroutine(m_AttackWaitCoroutine);
+            m_AttackWaitCoroutine = StartCoroutine(AttackWait());
+            animator.SetFloat("attack_time", Time.time - start_attack_time);
         }
 
 
@@ -170,6 +154,12 @@ public class PlayerInput : MonoBehaviour
     public void start_attack()
     {
         start_attack_time = Time.time;
+        weapon.enbaleAttack();
+    }
+
+    public void stop_attack()
+    {
+        weapon.disableAttack();
     }
 
     public Vector2 MoveInput

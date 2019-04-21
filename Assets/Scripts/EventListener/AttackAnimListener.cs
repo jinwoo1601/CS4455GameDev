@@ -7,14 +7,12 @@ public class AttackAnimListener : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        // Reminder: handled by animation event;
-        //PlayerInput.Instance.start_attack();
-        //BarbPlayerController.instance.m_weapon.enbaleAttack();
+        if (animatorStateInfo.IsName("peaceAndLove"))
+        {
+            PlayerInput.Instance.stop_attack();
+            return;
+        }
+        PlayerInput.Instance.start_attack();
     }
-
-    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
-    {
-        // Reminder: handled by animation event;
-        //BarbPlayerController.instance.m_weapon.disableAttack();
-    }
+    
 }

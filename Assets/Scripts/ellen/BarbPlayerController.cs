@@ -41,7 +41,11 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     bool isGrounded = true;
     float damaged_time;
     float invulnerable_duration = 1f;
-    bool armed = false;
+    bool armed = true;
+
+    float m_speed;
+    Vector3 curPosition;
+    Vector3 lastPosition; 
 
 
     private float m_IdleTimer = 0f;
@@ -61,6 +65,13 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     // Update is called once per frame
     void FixedUpdate()
     {
+        curPosition = transform.position;
+        curPosition.y = 0;
+        m_speed = (((curPosition - lastPosition).magnitude) / Time.deltaTime);
+        lastPosition = transform.position;
+        lastPosition.y = 0;
+        m_Animator.SetFloat("speed", m_speed);
+
         Vector2 moveInput = m_Input.MoveInput;
         m_Animator.SetFloat("velx", moveInput.x);
         m_Animator.SetFloat("vely", moveInput.y);
