@@ -871,6 +871,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  enemyCount: 0
   keyPrefab: {fileID: 113832087674361297, guid: 1a28cabee32eb4342be39d7dd805753f,
     type: 3}
   keySpawningPos: {fileID: 0}
+  coinPreFab: {fileID: 3583132855026805356, guid: f08649a22066d434db0feb9e5b867ce9,
+    type: 3}

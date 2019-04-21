@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject keyPrefab;
 
+    public GameObject coinPreFab;
+
     //Awake is always called before any Start functions
     void Awake()
     {
@@ -106,16 +108,26 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    // On eneymy death, reduce count. Called by Enemy
-    public void EnemyDeath(Transform trans)
+    // On eneymy death, reduce count and spawn a random number of coins. Called by Enemy
+    public void EnemyDeath(Vector3 deathPosition, Quaternion deathRotation)
     {
         if (enemyCount > 0)
         {
             enemyCount--;
         }
-        if (enemyCount == 0)
+        int numCoin = Random.Range(1, 4);
+        if (numCoin == 1)
         {
-            SpawnKey(trans);
+            SpawnCoin(deathPosition, deathRotation);
+        } else if (numCoin==2)
+        {
+            SpawnCoin(deathPosition, deathRotation);
+            SpawnCoin(deathPosition, deathRotation);
+        } else
+        {
+            SpawnCoin(deathPosition, deathRotation);
+            SpawnCoin(deathPosition, deathRotation);
+            SpawnCoin(deathPosition, deathRotation);
         }
     }
 
@@ -123,5 +135,19 @@ public class GameManager : MonoBehaviour
     public void SpawnKey(Transform trans)
     {
         Instantiate(keyPrefab, trans.position, trans.rotation);
+    }
+
+    //Spawn a coin in a random location relative to the enemy's death location.
+    public void SpawnCoin(Vector3 coinSpawnPoint, Quaternion deathRotation)
+    {
+        ////Random.InitState(System.Environment.TickCount);
+        int randXDir = Random.Range(0, 2);
+        int randZDir = Random.Range(0, 2);
+        int randXMag = Random.Range(1, 4);
+        int randZMag = Random.Range(1, 4);
+        if (randXDir == 0) { randXDir = -1; }
+        if (randZDir == 0) { randZDir = -1; }
+        coinSpawnPoint = new Vector3(coinSpawnPoint.x + randXDir * randXMag, coinSpawnPoint.y+1, coinSpawnPoint.z + randZDir * randZMag);
+        Instantiate(coinPreFab, coinSpawnPoint, deathRotation);
     }
 }

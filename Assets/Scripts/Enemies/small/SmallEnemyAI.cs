@@ -36,6 +36,9 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public GameObject[] waypoints;
     public bool test = false;
 
+    private Vector3 deathPosition;
+    private Quaternion deathRotation;
+
 
     public Weapon weapon;
 
@@ -62,7 +65,9 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         healthPoint -= amount;
         if (healthPoint <= 0)
         {
-            GameManager.instance.EnemyDeath(transform);
+            deathPosition = transform.position;
+            deathRotation = transform.rotation;
+            GameManager.instance.EnemyDeath(deathPosition, deathRotation);
             state = 5;
         }
     }
@@ -78,6 +83,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
         if (isDead)
         {
+            
             if (Time.time - dead_time > 1.6f)
             {
                 m_Animator.enabled = false;
@@ -98,6 +104,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                 Destroy(gameObject);
 
             }
+            EventManager.TriggerEvent<mDeathEvent, Vector3>(transform.position);
             return;
         }
 

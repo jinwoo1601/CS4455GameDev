@@ -260,7 +260,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: ExecutemFootstep
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: f2b325faca9e2c3429d9978f07f3a2da,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
