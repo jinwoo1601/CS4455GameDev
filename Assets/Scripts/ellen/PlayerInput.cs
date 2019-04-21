@@ -27,6 +27,8 @@ public class PlayerInput : MonoBehaviour
 
     public Weapon weapon;
 
+    public bool enable = true;
+
     float k_AttackInputDuration = 0.03f;
 
     void Awake()
@@ -45,34 +47,37 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_Movement.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        m_Camera.Set(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-
-        if (Time.time - start_attack >= attack_duration)
-            weapon.disableAttack();
-
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
+        if (enable)
         {
-            if (Time.time - start_attack > 1f)
+            m_Movement.Set(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            m_Camera.Set(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+            if (Time.time - start_attack >= attack_duration)
+                weapon.disableAttack();
+
+            if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J))
             {
-                if (m_AttackWaitCoroutine != null)
-                    StopCoroutine(m_AttackWaitCoroutine);
-                weapon.enbaleAttack();
-                m_AttackWaitCoroutine = StartCoroutine(AttackWait());
-                start_attack = Time.time;
-                animator.SetFloat("attack_time", 0);
-            }
-            else {
-                if (m_AttackWaitCoroutine != null)
-                    StopCoroutine(m_AttackWaitCoroutine);
-                weapon.enbaleAttack();
-                m_AttackWaitCoroutine = StartCoroutine(AttackWait());
-                animator.SetFloat("attack_time", Time.time - start_attack);
-            }
-            
+                if (Time.time - start_attack > 1f)
+                {
+                    if (m_AttackWaitCoroutine != null)
+                        StopCoroutine(m_AttackWaitCoroutine);
+                    weapon.enbaleAttack();
+                    m_AttackWaitCoroutine = StartCoroutine(AttackWait());
+                    start_attack = Time.time;
+                    animator.SetFloat("attack_time", 0);
+                }
+                else
+                {
+                    if (m_AttackWaitCoroutine != null)
+                        StopCoroutine(m_AttackWaitCoroutine);
+                    weapon.enbaleAttack();
+                    m_AttackWaitCoroutine = StartCoroutine(AttackWait());
+                    animator.SetFloat("attack_time", Time.time - start_attack);
+                }
 
+
+            }
         }
-
 
         //m_Pause = Input.GetButtonDown("Pause");
     }
@@ -96,6 +101,12 @@ public class PlayerInput : MonoBehaviour
                 return Vector2.zero;
             return m_Movement;
         }
+    }
+
+    public void setMaxStraight()
+    {
+        m_Movement.x = 0;
+        m_Movement.y = 1;
     }
 
     public Vector2 CameraInput
