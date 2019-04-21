@@ -16,6 +16,12 @@ public class CoinCollector : MonoBehaviour
         CoinCount++;
     }
 
+    public void CollectTreasure()
+    {
+        int rand = Random.Range(20, 40);
+        CoinCount += rand;
+    }
+
     public int getCoinCount()
     {
         return CoinCount;
