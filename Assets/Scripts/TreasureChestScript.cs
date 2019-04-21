@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class TreasureChestScript : MonoBehaviour
 {
-    // 
-    void OnTriggerEnter(Collider c)
+    //
+    private bool collided;
+    private Collider collidedObject;
+
+    private void Update()
     {
-        Debug.Log("trigger enter: " + c.tag);
-        if (c.CompareTag("Player"))
+        if (collided)
         {
-            CoinCollector kc = c.gameObject.GetComponent<CoinCollector>();
-            if (kc != null)
+            if (collidedObject.CompareTag("Player"))
             {
-                if (Input.GetKeyDown(KeyCode.Space)) {
-                    kc.CollectTreasure();
-                    // sound event?
-                    Destroy(this.gameObject);
+                CoinCollector kc = collidedObject.gameObject.GetComponent<CoinCollector>();
+                if (kc != null)
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        kc.CollectTreasure();
+                        // sound event?
+                        Destroy(this.gameObject);
+                    }
                 }
             }
         }
+    }
+
+    void OnTriggerEnter(Collider c)
+    {
+        Debug.Log("trigger enter: " + c.tag);
+        collided = true;
+        collidedObject = c;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        collided = false;
     }
 }
