@@ -258,6 +258,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 13668f1738490b64c88ff777c9d6b61e, type: 3}
+--- !u!114 &34037684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6334241530842219470, guid: 184a5b9de554b47bb952eb85e82c1605,
+    type: 3}
+  m_PrefabInstance: {fileID: 1630777694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f81a6c4750f5744a5ba38b0d71eb1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &41978958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8385,6 +8397,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barbarian_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5505361708003123231, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5272608750474729558, guid: 184a5b9de554b47bb952eb85e82c1605,
         type: 3}
       propertyPath: m_Enabled
@@ -8487,7 +8504,23 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon
       value: 
+      objectReference: {fileID: 34037684}
+    - target: {fileID: 2770864092324374611, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: enemyCount
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2770864092324374611, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: keyPrefab
+      value: 
+      objectReference: {fileID: 113832087674361297, guid: 1a28cabee32eb4342be39d7dd805753f,
+        type: 3}
+    - target: {fileID: 2770864092324374611, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: keySpawningPos
+      value: 
+      objectReference: {fileID: 1838428225}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
 --- !u!1 &1631129613 stripped
@@ -8799,29 +8832,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: fa8ed8bb037ff5f4f9179db7935acd72, type: 3}
---- !u!1 &1748200180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5505361708003123231, guid: 184a5b9de554b47bb952eb85e82c1605,
-    type: 3}
-  m_PrefabInstance: {fileID: 1630777694}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1748200182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748200180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9335cfb57324bc18e74b512720e244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paused: 0
-  enemyCount: 1
-  keyPrefab: {fileID: 113832087674361297, guid: 1a28cabee32eb4342be39d7dd805753f,
-    type: 3}
-  keySpawningPos: {fileID: 1838428225}
 --- !u!1001 &1784917780
 PrefabInstance:
   m_ObjectHideFlags: 0

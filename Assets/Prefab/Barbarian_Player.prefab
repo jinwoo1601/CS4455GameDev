@@ -2007,13 +2007,14 @@ GameObject:
   - component: {fileID: 3355557365991823772}
   - component: {fileID: 3355557366001183299}
   - component: {fileID: 3355557366001183297}
+  - component: {fileID: 2254154086760826608}
   - component: {fileID: 3355557366001183301}
   - component: {fileID: 3355557366001183302}
   - component: {fileID: 3355557366001183303}
   - component: {fileID: 3355557366001183304}
   m_Layer: 0
   m_Name: Barbarian
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2079,6 +2080,20 @@ CapsuleCollider:
   m_GameObject: {fileID: 3355557366001183296}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!136 &2254154086760826608
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355557366001183296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -5761,6 +5776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2380189191261056484}
+  - component: {fileID: 2770864092324374611}
   m_Layer: 0
   m_Name: Barbarian_Player
   m_TagString: Untagged
@@ -5785,6 +5801,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2770864092324374611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505361708003123231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9335cfb57324bc18e74b512720e244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paused: 0
+  enemyCount: 0
+  keyPrefab: {fileID: 0}
 --- !u!1 &6826504315153774234
 GameObject:
   m_ObjectHideFlags: 0

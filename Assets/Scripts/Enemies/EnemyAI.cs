@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour
         //}
         gameObject.SetActive(false);
 
-        GameManager.instance.EnemyDeath();
+        GameManager.instance.EnemyDeath(transform);
     }
 
     private void setNextWaypoint()
