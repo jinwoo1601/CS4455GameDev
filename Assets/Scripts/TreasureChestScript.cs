@@ -28,6 +28,7 @@ public class TreasureChestScript : MonoBehaviour
                     {
                         kc.CollectTreasure();
                         TreasureNotCollected = false;
+                        this.transform.GetChild(0).gameObject.SetActive(false);
                         // sound event?
                         //Destroy(this.gameObject);
                     } else if(TreasureNotCollected){

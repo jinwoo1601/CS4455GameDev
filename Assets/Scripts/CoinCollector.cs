@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class CoinCollector : MonoBehaviour
 {
-    int CoinCount;
+    static int CoinCount;
     public Text countText;
 
     public void Start()
     {
-        CoinCount = 0;
         UpdateCountText();
     }
 
