@@ -78,9 +78,11 @@ public class CameraFollow : MonoBehaviour
 
     void CameraUpdate()
     {
-        Transform target = Follow.transform;
+        Vector3 target = Follow.transform.position;
+        target.y += 2;
+        
 
         float step = CameraMoveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, target, step);
     }
 }

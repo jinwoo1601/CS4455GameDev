@@ -133,8 +133,8 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < 1.2f)
             isGrounded = true;
 
-        rbody.MovePosition(rbody.position + this.transform.forward * inputForward * Time.deltaTime * forwardMaxSpeed);
-        rbody.MoveRotation(rbody.rotation * Quaternion.AngleAxis(inputTurn * Time.deltaTime * turnMaxSpeed, Vector3.up));
+        //rbody.MovePosition(rbody.position + this.transform.forward * inputForward * Time.deltaTime * forwardMaxSpeed);
+        //rbody.MoveRotation(rbody.rotation * Quaternion.AngleAxis(inputTurn * Time.deltaTime * turnMaxSpeed, Vector3.up));
 
         if (cinput.Jump && isGrounded)
         {
@@ -149,17 +149,34 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void SetTarget(GameObject other)
+    void OnAnimatorMove()
     {
-        target = other;
-    }
 
-    public void RemoveTarget(GameObject other)
-    {
-        if (other == target)
+        Vector3 newRootPosition;
+        Quaternion newRootRotation;
+
+        if (isGrounded)
         {
-            target = null;
+            //use root motion as is if on the ground        
+            newRootPosition = anim.rootPosition;
         }
+        else
+        {
+            //Simple trick to keep model from climbing other rigidbodies that aren't the ground
+            newRootPosition = new Vector3(anim.rootPosition.x, this.transform.position.y, anim.rootPosition.z);
+        }
+
+        //use rotational root motion as is
+        newRootRotation = anim.rootRotation;
+        Debug.Log(newRootPosition);
+
+        //TODO Here, you could scale the difference in position and rotation to make the character go faster or slower
+        this.transform.position = Vector3.LerpUnclamped(this.transform.position, newRootPosition, rootMovementSpeed);
+        this.transform.rotation = Quaternion.LerpUnclamped(this.transform.rotation, newRootRotation, rootTurnSpeed);
+
+
+        //clear IsGrounded
+        isGrounded = false;
     }
 
 }
