@@ -27,6 +27,9 @@ public class EnemyAI : MonoBehaviour
     private float nextActionTime = 0.0f;
     public float period = 0.2f;
 
+    private Vector3 deathPosition;
+    private Quaternion deathRotation;
+
     public enum AIState
     {
         Waypoints,
@@ -86,9 +89,11 @@ public class EnemyAI : MonoBehaviour
         //{
         //    GameManager.instance.EnemyDeath();
         //}
+        deathPosition = gameObject.transform.position;
+        deathRotation = gameObject.transform.rotation;
         gameObject.SetActive(false);
 
-        GameManager.instance.EnemyDeath(transform);
+        GameManager.instance.EnemyDeath(deathPosition,deathRotation);
     }
 
     private void setNextWaypoint()

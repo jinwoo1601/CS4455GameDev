@@ -51,7 +51,10 @@ public class EllenPlayerController : MonoBehaviour, Damageable
 
         m_Animator.ResetTrigger("attack");
         if (m_Input.Attack)
+        {
             m_Animator.SetTrigger("attack");
+            EventManager.TriggerEvent<attackEvent, Vector3>(transform.position);
+        }
 
     }
 
