@@ -72,7 +72,7 @@ public class UIGuideManager : MonoBehaviour, StateMachineListener
                 PlayerInput.Instance.enable = true;
             }
         }
-        else if (interestedKeyCode[counter] == KeyCode.None) {
+        else if (counter > -1 && counter < interestedKeyCode.Length && interestedKeyCode[counter] == KeyCode.None) {
             enable_listener = true;
         }
         
