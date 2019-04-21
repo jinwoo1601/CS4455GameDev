@@ -18,14 +18,12 @@ public class CinemachineController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("mouse down");
             cam.m_XAxis.m_InputAxisName = "Mouse X";
             cam.m_YAxis.m_InputAxisName = "Mouse Y";
         }
 
         if (Input.GetMouseButtonUp(1))
         {
-            Debug.Log("mouse up");
             cam.m_XAxis.m_InputAxisName = "Horizontal";
             cam.m_YAxis.m_InputAxisName = "";
             cam.m_XAxis.m_InputAxisValue = 0;
