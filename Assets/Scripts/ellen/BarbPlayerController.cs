@@ -34,7 +34,6 @@ public class BarbPlayerController : MonoBehaviour, Damageable
 
     public Transform locator1;
     public Transform locator2;
-    public Weapon m_weapon;
     FollowUpdate weapon_position;
 
     Rigidbody rbody;
@@ -59,7 +58,6 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         s_Instance = this;
         rbody = GetComponent<Rigidbody>();
         weapon_position = GetComponentInChildren<FollowUpdate>();
-        m_weapon = GetComponentInChildren<Weapon>();
     }
 
     // Update is called once per frame
