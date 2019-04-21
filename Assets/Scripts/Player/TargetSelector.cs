@@ -20,7 +20,6 @@ public class TargetSelector : MonoBehaviour
             return;
         }
         Debug.Log("enter target trigger");
-        parent.GetComponentInParent<PlayerController>().SetTarget(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)

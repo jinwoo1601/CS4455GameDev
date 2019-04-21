@@ -13,15 +13,15 @@ public class TargetScanner
     public float maxHeightDifference = 1.0f;
     public LayerMask viewBlockerLayerMask;
 
-    public EllenPlayerController Detect(Transform detector, bool useHeightDifference = true)
+    public BarbPlayerController Detect(Transform detector, bool useHeightDifference = true)
     {
         //if either the player is not spwned or they are spawning, we do not target them
-        if (EllenPlayerController.instance == null)
+        if (BarbPlayerController.instance == null)
             return null;
 
         Vector3 eyePos = detector.position + Vector3.up * heightOffset;
-        Vector3 toPlayer = EllenPlayerController.instance.transform.position - eyePos;
-        Vector3 toPlayerTop = EllenPlayerController.instance.transform.position + Vector3.up * 1.5f - eyePos;
+        Vector3 toPlayer = BarbPlayerController.instance.transform.position - eyePos;
+        Vector3 toPlayerTop = BarbPlayerController.instance.transform.position + Vector3.up * 1.5f - eyePos;
 
         if (useHeightDifference && Mathf.Abs(toPlayer.y + heightOffset) > maxHeightDifference)
         { //if the target is too high or too low no need to try to reach it, just abandon pursuit
@@ -50,7 +50,7 @@ public class TargetScanner
                     viewBlockerLayerMask, QueryTriggerInteraction.Ignore);
 
                 if (canSee)
-                    return EllenPlayerController.instance;
+                    return BarbPlayerController.instance;
             }
         }
 

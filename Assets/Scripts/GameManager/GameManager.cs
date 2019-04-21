@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     private bool keySpawned = false;
 
     public GameObject keyPrefab;
-    public GameObject keySpawningPos;
 
     public GameObject coinPreFab;
 
@@ -45,11 +44,6 @@ public class GameManager : MonoBehaviour
     //Update is called every frame.
     void Update()
     {
-        if (enemyCount <= 0 && !keySpawned)
-        {
-            keySpawned = true;
-            SpawnKey();
-        }
     }
 
     //Initializes the game for each level.
@@ -64,7 +58,6 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneStore.LEVEL1);
-        SpawnKey();
     }
 
     public void LoadSetting()
@@ -139,9 +132,9 @@ public class GameManager : MonoBehaviour
     }
 
     // Spawn the key to the next room when enemy count is zero.
-    public void SpawnKey()
+    public void SpawnKey(Transform trans)
     {
-        Instantiate(keyPrefab, keySpawningPos.transform.position, keySpawningPos.transform.rotation);
+        Instantiate(keyPrefab, trans.position, trans.rotation);
     }
 
     //Spawn a coin in a random location relative to the enemy's death location.
