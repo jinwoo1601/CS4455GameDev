@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35291055, g: 0.5736663, b: 0.8686594, a: 1}
+  m_IndirectSpecularColor: {r: 0.3758422, g: 0.60427874, b: 0.86570877, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7586,7 +7586,7 @@ MonoBehaviour:
   - You could use D to turn right
   - Click K to Pull Out Your Axe
   - Now you try to attack by clicking J
-  - Great, now try to click j multiple times
+  - Great, now try to click J multiple times
   - You can attack at any time, even running
   - Click K again to Take Back AXE
   - Click left mouse to select the items

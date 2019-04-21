@@ -183,6 +183,12 @@ public class PlayerInput : MonoBehaviour
         m_Movement.y = 1;
     }
 
+    public void setStop()
+    {
+        m_Movement.x = 0;
+        m_Movement.y = 0;
+    }
+
     public Vector2 CameraInput
     {
         get

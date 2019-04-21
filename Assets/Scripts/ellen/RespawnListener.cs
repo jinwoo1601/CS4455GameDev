@@ -10,8 +10,7 @@ public class RespawnListener : StateMachineBehaviour
     {
         if (!triggered)
         {
-            UIGuideManager.instance.triggerStateEvent(animator, stateInfo, layerIndex);
-            triggered = true;
+            triggered = UIGuideManager.instance.triggerStateEvent(animator, stateInfo, layerIndex);
         }
         
     }

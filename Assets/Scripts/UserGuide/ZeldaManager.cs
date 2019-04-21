@@ -26,7 +26,9 @@ public class ZeldaManager : MonoBehaviour
     void FixedUpdate()
     {
         if (started) {
-            float current_distance = Vector3.Distance(BarbPlayerController.instance.transform.position, distance_target.transform.position);
+            Vector2 v21 = new Vector2(BarbPlayerController.instance.transform.position.x, BarbPlayerController.instance.transform.position.z);
+            Vector2 v22 = new Vector2(distance_target.transform.position.x, distance_target.transform.position.z);
+            float current_distance = Vector2.Distance(v21, v22);
             float time_elpsed = (distance - current_distance) / distance;
             point_light.range = 10f * time_elpsed + start_range;
 
@@ -34,19 +36,25 @@ public class ZeldaManager : MonoBehaviour
             cameraCollision.maxDistance = current_camera;
 
             RenderSettings.skybox.SetFloat("_Exposure", (20 - 1) * time_elpsed + 1);
+
+            if (distance - current_distance < 0.1) {
+                PlayerInput.Instance.setStop();
+            }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("zelda_area")){
-            Debug.Log(collision.collider.tag);
+            
             collision.collider.gameObject.SetActive(false);
             PlayerInput.Instance.enable = false;
+            BarbPlayerController.instance.transform.LookAt(lookat_target.transform, Vector3.up);
             PlayerInput.Instance.setMaxStraight();
-            BarbPlayerController.instance.transform.LookAt(lookat_target.transform.position, Vector3.up);
             panel.SetActive(false);
-            distance = Vector3.Distance(BarbPlayerController.instance.transform.position, distance_target.transform.position);
+            Vector2 v21 = new Vector2(BarbPlayerController.instance.transform.position.x, BarbPlayerController.instance.transform.position.z);
+            Vector2 v22 = new Vector2(distance_target.transform.position.x, distance_target.transform.position.z);
+            distance = Vector2.Distance(v21, v22);
             started = true;
             distance_start = cameraCollision.maxDistance;
             audioClip.Play();

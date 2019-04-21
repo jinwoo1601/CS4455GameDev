@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIGuideManager : MonoBehaviour, StateMachineListener
+public class UIGuideManager : MonoBehaviour
 {
     protected static UIGuideManager s_Instance;
     public static UIGuideManager instance { get { return s_Instance; } }
@@ -18,8 +18,8 @@ public class UIGuideManager : MonoBehaviour, StateMachineListener
     private bool enable_listener = true;
 
 
-    private KeyCode[] interestedKeyCode = { KeyCode.Space, KeyCode.Space , KeyCode.W, KeyCode.S, KeyCode.A,  KeyCode.D, KeyCode.K, KeyCode.J
-        , KeyCode.None, KeyCode.None, KeyCode.K, KeyCode.Mouse0, KeyCode.Mouse1 };
+    private KeyCode[] interestedKeyCode = { KeyCode.Space, KeyCode.Space , KeyCode.W, KeyCode.S, KeyCode.A,  KeyCode.D, KeyCode.None, KeyCode.J
+        , KeyCode.None, KeyCode.None, KeyCode.None, KeyCode.Mouse0, KeyCode.Mouse1 };
 
     private int counter = -1;
 
@@ -32,7 +32,7 @@ public class UIGuideManager : MonoBehaviour, StateMachineListener
         "You could use D to turn right" ,
         "Click K to Pull Out Your Axe",
         "Now you try to attack by clicking J",
-        "Great, now try to click j multiple times",
+        "Great, now try to click J multiple times",
         "You can attack at any time, even running",
         "Click K again to Take Back AXE",
         "Click left mouse to select the items",
@@ -97,7 +97,7 @@ public class UIGuideManager : MonoBehaviour, StateMachineListener
         return counter < texts.Length && counter < inputIntructions.Length;
     }
 
-    public void triggerStateEvent(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public bool triggerStateEvent(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (enable_listener)
         {
@@ -105,7 +105,10 @@ public class UIGuideManager : MonoBehaviour, StateMachineListener
 
             showNext();
             enable_listener = false;
+            return true;
         }
+        else
+            return false;
         
     }
 
