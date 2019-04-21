@@ -6,26 +6,29 @@ public class DoorAnimator : MonoBehaviour
 {
     public Animation anim;
     public Animation animButton;
-    private int inTrigger;
+    private bool boxOnPlate;
+    private Collider tempCollider1;
+    private Collider tempCollider2;
 
     void Start()
     {
-        inTrigger = 0;
     }
 
     // Update is called once per frame
     void OnTriggerEnter(Collider c) {
-       inTrigger++;
-       anim.Play("Door");
-       animButton.Play("Press");
+        if (c.CompareTag("crate"))
+        {
+            boxOnPlate = true;
+            anim.Play("Door");
+            animButton.Play("Press");
+        }
     }
 
     void OnTriggerExit(Collider c) {
-    	inTrigger--;
-    	anim.Play("close");
-
-    	if(inTrigger < 1) {
-    		animButton.Play("Depress");
-    	}
+        if (!boxOnPlate)
+        {
+            anim.Play("close");
+            animButton.Play("Depress");
+        }
     }
 }
