@@ -129,7 +129,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                 Destroy(gameObject);
 
             }
-            EventManager.TriggerEvent<mDeathEvent, Vector3>(transform.position);
+            //EventManager.TriggerEvent<mDeathEvent, Vector3>(transform.position);
             return;
         }
 

@@ -29,7 +29,7 @@ public class TreasureChestScript : MonoBehaviour
                         kc.CollectTreasure();
                         TreasureNotCollected = false;
                         this.transform.GetChild(0).gameObject.SetActive(false);
-                        // sound event?
+                        EventManager.TriggerEvent<treasureEvent, Vector3>(transform.position);
                         //Destroy(this.gameObject);
                     } else if(TreasureNotCollected){
                         DM.DisplayMessage("Press 'Space' to loot chest.");

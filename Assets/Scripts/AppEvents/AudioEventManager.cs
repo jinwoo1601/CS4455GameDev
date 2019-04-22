@@ -14,6 +14,7 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip mDeathAudio;
     public AudioClip coinAudio;
     public AudioClip keyAudio;
+    public AudioClip treasureAudio;
 
 
     private UnityAction<Vector3> FootstepEventListener;
@@ -22,6 +23,7 @@ public class AudioEventManager : MonoBehaviour
     private UnityAction<Vector3> mDeathEventListener;
     private UnityAction<Vector3> coinEventListener;
     private UnityAction<Vector3> keyEventListener;
+    private UnityAction<Vector3> treasureEventListener;
 
     void Awake()
     {
@@ -32,6 +34,7 @@ public class AudioEventManager : MonoBehaviour
         mDeathEventListener = new UnityAction<Vector3>(mDeathEventHandler);
         coinEventListener = new UnityAction<Vector3>(coinEventHandler);
         keyEventListener = new UnityAction<Vector3>(keyEventHandler);
+        treasureEventListener = new UnityAction<Vector3>(treasureEventHandler);
     }
 
 
@@ -52,6 +55,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<mDeathEvent, Vector3>(mDeathEventListener);
         EventManager.StartListening<coinEvent, Vector3>(coinEventListener);
         EventManager.StartListening<keyEvent, Vector3>(keyEventListener);
+        EventManager.StartListening<keyEvent, Vector3>(treasureEventListener);
     }
 
     void OnDisable()
@@ -62,6 +66,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<mDeathEvent, Vector3>(mDeathEventListener);
         EventManager.StopListening<coinEvent, Vector3>(coinEventListener);
         EventManager.StopListening<keyEvent, Vector3>(keyEventListener);
+        EventManager.StopListening<keyEvent, Vector3>(treasureEventListener);
     }
 
 
@@ -144,6 +149,19 @@ public class AudioEventManager : MonoBehaviour
         EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
 
         snd.audioSrc.clip = this.keyAudio;
+
+        snd.audioSrc.minDistance = 5f;
+        snd.audioSrc.maxDistance = 100f;
+
+        snd.audioSrc.Play();
+    }
+
+    void treasureEventHandler(Vector3 pos)
+    {
+
+        EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+        snd.audioSrc.clip = this.treasureAudio;
 
         snd.audioSrc.minDistance = 5f;
         snd.audioSrc.maxDistance = 100f;
