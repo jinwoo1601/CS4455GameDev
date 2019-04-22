@@ -13,13 +13,13 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     protected Animator m_Animator;
     protected Rigidbody rgbody;
 
-    public bool trigger_state = false;
+    public volatile bool trigger_state = false;
 
     TargetScanner targetScanner;
     BarbPlayerController target;
     public BarbPlayerController instance;
 
-    //0 - idle,  2-chasing, 3-attack, 4-attack stop, 5-take damage.
+    //0 - idle,  2-chasing, 3-attack
     public int state = 0;
     private float attack_time;
     public float attack_range = 1.0f;
@@ -66,13 +66,17 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         {
             return;
         }
+        m_Animator.SetTrigger("hit");
         healthPoint -= amount;
         if (healthPoint < 1)
         {
+            isDead = true;
+            dead_time = Time.time;
+            m_Animator.SetBool("isDead", true);
             deathPosition = transform.position;
             deathRotation = transform.rotation;
             GameManager.instance.EnemyDeath(deathPosition, deathRotation);
-            state = 5;
+            
         }
     }
 
@@ -129,91 +133,81 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
             return;
         }
 
-        instance = targetScanner.Detect(transform);
+        
 
-        if (instance != null)
-        {
             if (state == 0)
+            {
+                instance = targetScanner.Detect(transform);
+            if (instance != null)
             {
                 state = 2;
                 target = instance;
                 smallEnemyController.SetFollowNavmeshAgent(true);
                 m_NavMeshAgent.SetDestination(instance.transform.position);
                 m_Animator.SetBool("chasing_target", true);
+            }
+                
 
             }
             else if (state == 2)
             {
-
+            instance = targetScanner.Detect(transform);
+            if (instance != null)
+            {
                 if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
                 {
                     attack_time = Time.time;
                     state = 3;
                     smallEnemyController.SetFollowNavmeshAgent(false);
                     m_Animator.SetTrigger("attack");
-                    trigger_state = true;
-                    weapon.enbaleAttack();
+
+
                 }
                 else if (m_NavMeshAgent.enabled)
                 {
                     m_NavMeshAgent.SetDestination(target.transform.position);
                 }
+            }
+            else {
+                state = 0;
+                smallEnemyController.SetFollowNavmeshAgent(false);
+                m_Animator.SetBool("chasing_target", false);
+            }
+            
 
 
             }
-            else if (state == 3 && Time.time - attack_time > 1.2f)
+            else if (state == 3)
             {
-
-                if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
+                if (!trigger_state)
                 {
-
-                    //Quaternion m_TargetRotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(target.transform.position - transform.position), 1f * Time.deltaTime);
-
-                    transform.LookAt(instance.transform.position);
-                    if (trigger_state)
+                    if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
                     {
-                        m_Animator.ResetTrigger("attack");
+                        //attack again
+                        smallEnemyController.SetFollowNavmeshAgent(false);
+                        m_Animator.SetTrigger("attack");
 
-                        trigger_state = false;
                     }
                     else
                     {
-                        attack_time = Time.time;
-                        m_Animator.SetTrigger("attack");
-                        trigger_state = true;
+                    //back to chasing or detecting
+                    instance = targetScanner.Detect(transform);
+                    if (instance != null)
+                    {
+                        state = 2;
+                        smallEnemyController.SetFollowNavmeshAgent(true);
+                    }
+                    else {
+                        state = 0;
+                        smallEnemyController.SetFollowNavmeshAgent(false);
+                        m_Animator.SetBool("chasing_target", false);
+                    }
+                    
                     }
                 }
-                else
-                {
-
-                    state = 2;
-                    smallEnemyController.SetFollowNavmeshAgent(true);
-                    m_Animator.ResetTrigger("attack");
-                    weapon.disableAttack();
-                }
-            }
-            else if (state == 5)
-            {
-                state = 6;
-                m_Animator.SetBool("hit", true);
-                isDead = true;
-                dead_time = Time.time;
-
             }
 
-        }
-        if (instance == null || Vector3.Distance(transform.position, instance.transform.position) < attack_range)
-        {
-            Vector3 _direction = (target.transform.position - transform.position).normalized;
-            Quaternion _lookRotation = Quaternion.LookRotation(_direction);
-            Quaternion m_TargetRotation = Quaternion.RotateTowards(transform.rotation, _lookRotation, 1f * Time.deltaTime);
-
-            transform.rotation = m_TargetRotation;
-            if (state == 2)
-            {
-                m_NavMeshAgent.SetDestination(target.transform.position);
-            }
-        }
+        
 
     }
 
@@ -228,13 +222,12 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         {
             return;
         }
-        Debug.Log("onDamage");
         m_Animator.SetFloat("horizontalPoint", attackPoint.x);
         m_Animator.SetFloat("verticalPoint", attackPoint.y);
-        m_Animator.SetTrigger("hit");
+        m_Animator.ResetTrigger("hit");
         damaged_time = Time.time;
         TakeDamage(AD);
-        m_Animator.ResetTrigger("hit");
+        
     }
 
     public bool canBeAttacked()
@@ -245,5 +238,25 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public Damageable getOwner()
     {
         return this;
+    }
+
+
+    public void attack_start() {
+        trigger_state = true;
+    }
+
+    public void attack_end() {
+        m_Animator.ResetTrigger("attack");
+        transform.LookAt(instance.transform.position);
+        trigger_state = false;
+        
+    }
+
+    public void weapon_enable() {
+        weapon.enbaleAttack();
+    }
+
+    public void weapon_disable() {
+        weapon.disableAttack();
     }
 }
