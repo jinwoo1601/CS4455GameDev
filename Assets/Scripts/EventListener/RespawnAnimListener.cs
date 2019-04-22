@@ -6,6 +6,7 @@ public class RespawnAnimListener : StateMachineBehaviour
 {
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        BarbPlayerController.instance.respawned();
+        if(BarbPlayerController.instance != null)
+            BarbPlayerController.instance.respawned();
     }
 }

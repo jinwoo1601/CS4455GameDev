@@ -23,14 +23,13 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     private float attack_time;
     public float attack_range = 1.0f;
 
-    public int healthPoint = 1;
+    public int healthPoint = 5;
     public bool isDead = false;
     public float dead_time;
 
     public bool damaged = false;
     public float damaged_time;
     public float invulnerable_duration = 2f;
-
     public float disappear_speed = 5;
 
     public GameObject[] waypoints;
@@ -87,7 +86,8 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
             if (Time.time - dead_time > 1.6f)
             {
                 m_Animator.enabled = false;
-                rgbody.isKinematic = false;
+                rgbody.isKinematic = true;
+                rgbody.useGravity = true;
             }
             if (Time.time - dead_time > 3f)
             {
@@ -146,9 +146,9 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                 if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
                 {
 
-                    Quaternion m_TargetRotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(target.transform.position - transform.position), 1f * Time.deltaTime);
+                    //Quaternion m_TargetRotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(target.transform.position - transform.position), 1f * Time.deltaTime);
 
-                    transform.rotation = m_TargetRotation;
+                    transform.LookAt(instance.transform.position);
                     if (trigger_state)
                     {
                         m_Animator.ResetTrigger("attack");
@@ -201,12 +201,18 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
     {
+
+        m_Animator.SetFloat("horizontalPoint", attackPoint.x);
+        m_Animator.SetFloat("verticalPoint", attackPoint.y);
+        m_Animator.SetTrigger("hit");
+        damaged_time = Time.time;
         TakeDamage(1);
+        m_Animator.ResetTrigger("hit");
     }
 
     public bool canBeAttacked()
     {
-        return true;
+        return Time.time > damaged_time + invulnerable_duration;
     }
 
     public Damageable getOwner()

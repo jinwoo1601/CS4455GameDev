@@ -32,8 +32,8 @@ public class SmallEnemyController : MonoBehaviour
         if (m_Rigidbody == null)
             m_Rigidbody = gameObject.AddComponent<Rigidbody>();
 
-        m_Rigidbody.isKinematic = true;
-        m_Rigidbody.useGravity = false;
+        m_Rigidbody.isKinematic = false;
+        m_Rigidbody.useGravity = true;
         m_Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
 
         m_FollowNavmeshAgent = true;

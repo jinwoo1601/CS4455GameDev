@@ -2069,7 +2069,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &3355557366001183297
 CapsuleCollider:
@@ -5777,6 +5777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2380189191261056484}
   - component: {fileID: 2770864092324374611}
+  - component: {fileID: 6376917374330275259}
   m_Layer: 0
   m_Name: Barbarian_Player
   m_TagString: Untagged
@@ -5814,8 +5815,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  enemyCount: 0
-  keyPrefab: {fileID: 0}
+  enemyCount: 1
+  keyPrefab: {fileID: 113832087674361297, guid: 1a28cabee32eb4342be39d7dd805753f,
+    type: 3}
+  coinPreFab: {fileID: 0}
+--- !u!114 &6376917374330275259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505361708003123231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dcafc539cc8e420896a369fdf20fd20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6826504315153774234
 GameObject:
   m_ObjectHideFlags: 0

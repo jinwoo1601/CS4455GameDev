@@ -79,6 +79,13 @@ public class BarbPlayerController : MonoBehaviour, Damageable
             hintText.text = "";
         }
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("ragdoll");
+            m_Animator.enabled = false;
+            rbody.isKinematic = false;
+        }
+
         if(moveInput.magnitude > 0.01 || (armed && m_Input.Attack))
         {
             m_Animator.SetBool("active", true);
