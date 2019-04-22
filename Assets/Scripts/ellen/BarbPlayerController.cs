@@ -149,7 +149,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     }
 
 
-    public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
+    public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
         if (Time.time - damaged_time < invulnerable_duration)
             return;

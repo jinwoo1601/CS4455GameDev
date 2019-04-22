@@ -6,9 +6,10 @@ using UnityEngine;
 public class FollowUpdate : MonoBehaviour
 {
     public Transform toFollow;
+    public Vector3 offset;
     private void FixedUpdate()
     {
-        transform.position = toFollow.position;
+        transform.position = toFollow.position + offset;
         transform.rotation = toFollow.rotation;
     }
 }
