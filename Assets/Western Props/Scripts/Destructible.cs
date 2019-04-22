@@ -22,7 +22,7 @@ public class Destructible : MonoBehaviour, Damageable {
         return this;
     }
 
-    public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
+    public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
         destructed();
     }

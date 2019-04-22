@@ -7,7 +7,7 @@ public interface Damageable
 
 
 
-    void OnDamage(Vector3 attackPoint, Vector3 attackForce);
+    void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD = 1);
 
     bool canBeAttacked();
 

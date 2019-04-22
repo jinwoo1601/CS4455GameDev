@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
 
     public GameObject[] inventories;
-    public static int HealthPoint
+    public static float HealthPoint
     {
         get
         {
@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    private static int _healthPoint;
+    private static float _healthPoint;
     private static int _level;
-    private static int _maxHP;
+    private static float _maxHP;
     private static Player _instance;
 
     public static Vector3 SpawningPos = Vector3.zero;

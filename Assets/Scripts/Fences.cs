@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fences : MonoBehaviour
 {
 
-    private Rigidbody rigidbody;
+    private Rigidbody rbody;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class Fences : MonoBehaviour
     {
         print(collision.gameObject.CompareTag("Player"));
         if (collision.gameObject.CompareTag("Player")) {
-            this.rigidbody.MovePosition(rigidbody.position + new Vector3(0,40,0));
+            this.rbody.MovePosition(rbody.position + new Vector3(0,40,0));
         }
     }
 }

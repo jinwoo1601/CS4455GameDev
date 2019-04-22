@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class SmallEnemyAI : MonoBehaviour, Damageable
@@ -23,13 +24,16 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     private float attack_time;
     public float attack_range = 1.0f;
 
-    public int healthPoint = 5;
+    public GameObject healthUI;
+    public Slider healthBar;
+    public float maxHealthPoint = 5;
+    public float healthPoint = 5;
     public bool isDead = false;
     public float dead_time;
 
     public bool damaged = false;
     public float damaged_time;
-    public float invulnerable_duration = 2f;
+    public float invulnerable_duration = 1f;
     public float disappear_speed = 5;
 
     public GameObject[] waypoints;
@@ -51,9 +55,10 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         smallEnemyController.SetFollowNavmeshAgent(false);
         rgbody = GetComponent<Rigidbody>();
         target = BarbPlayerController.instance;
+        healthBar.value = CalculateHealth();
     }
 
-    void TakeDamage(int amount)
+    void TakeDamage(float amount)
     {
         if (isDead)
             return;
@@ -62,7 +67,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
             return;
         }
         healthPoint -= amount;
-        if (healthPoint <= 0)
+        if (healthPoint < 1)
         {
             deathPosition = transform.position;
             deathRotation = transform.rotation;
@@ -72,22 +77,38 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        if (healthPoint < maxHealthPoint)
+        {
+            healthUI.SetActive(true);
+        }
+
+        healthBar.value = CalculateHealth();
+
+
+    }
+
     void FixedUpdate()
     {
         if (test)
         {
-            TakeDamage(1);
+            m_Animator.enabled = false;
+            rgbody.isKinematic = true;
+            rgbody.useGravity = true;
+            rgbody.constraints = RigidbodyConstraints.None;
             test = false;
         }
 
         if (isDead)
         {
             
-            if (Time.time - dead_time > 1.6f)
+            if (Time.time - dead_time > 0.5f)
             {
                 m_Animator.enabled = false;
                 rgbody.isKinematic = true;
                 rgbody.useGravity = true;
+                rgbody.constraints = RigidbodyConstraints.None;
             }
             if (Time.time - dead_time > 3f)
             {
@@ -196,14 +217,23 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
     }
 
-    public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
+    float CalculateHealth()
     {
+        return healthPoint / maxHealthPoint;
+    }
 
+    public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
+    {
+        if(healthPoint < 1)
+        {
+            return;
+        }
+        Debug.Log("onDamage");
         m_Animator.SetFloat("horizontalPoint", attackPoint.x);
         m_Animator.SetFloat("verticalPoint", attackPoint.y);
         m_Animator.SetTrigger("hit");
         damaged_time = Time.time;
-        TakeDamage(1);
+        TakeDamage(AD);
         m_Animator.ResetTrigger("hit");
     }
 
