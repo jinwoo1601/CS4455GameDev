@@ -17,7 +17,7 @@ public class CollectableCoin : MonoBehaviour
             if (kc != null)
             {
                 kc.CollectCoin();
-                // sound event?
+                EventManager.TriggerEvent<coinEvent, Vector3>(transform.position);
                 Destroy(this.gameObject);
             }
         }
