@@ -60,3 +60,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 61980a0757e117643b8f9df031670b33, type: 3}
   mDeathAudio: {fileID: 8300000, guid: 5a27cea71ff921a45a77745c2810b304, type: 3}
   coinAudio: {fileID: 8300000, guid: 0473be3049d64fe4daddd495680a49a2, type: 3}
+  keyAudio: {fileID: 8300000, guid: e835f43210641a84dbe33624ad2a3a20, type: 3}
