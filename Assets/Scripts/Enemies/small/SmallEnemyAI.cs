@@ -161,9 +161,6 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                         m_Animator.SetTrigger("attack");
                         trigger_state = true;
                     }
-
-
-
                 }
                 else
                 {

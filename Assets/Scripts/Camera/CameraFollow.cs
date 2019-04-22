@@ -79,7 +79,7 @@ public class CameraFollow : MonoBehaviour
     void CameraUpdate()
     {
         Vector3 target = Follow.transform.position;
-        target.y += 2;
+        target.y += 1;
         
 
         float step = CameraMoveSpeed * Time.deltaTime;

@@ -4110,6 +4110,11 @@ PrefabInstance:
       propertyPath: coinPreFab
       value: 
       objectReference: {fileID: 2056535193}
+    - target: {fileID: 5920995337995253343, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
 --- !u!1 &709408621
