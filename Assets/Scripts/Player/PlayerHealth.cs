@@ -100,7 +100,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
-        Debug.Log("dead");
         // Set the death flag so this function won't be called again.
         isDead = true;
         deathImage.color = Color.Lerp(deathImage.color, deathColour, 100f * Time.deltaTime);
