@@ -196,9 +196,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Welcome to the store, smith. From the left, you can purchase buffs. You
-    can hold up to two buffs on your self. If you would like to remove buffs on you,
-    you can remove them from the right two buttons.
+  m_Text: Welcome to the store, smith. From the left, you can purchase buffs that
+    will enchance your attributes. You can hold up to two buffs on your self. If you
+    would like to remove buffs on you, you can remove them from the right two buttons.
 --- !u!1 &2447954913115232594
 GameObject:
   m_ObjectHideFlags: 0

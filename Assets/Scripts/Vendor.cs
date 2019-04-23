@@ -5,13 +5,10 @@ using UnityEngine.Experimental.UIElements;
 
 public class Vendor : MonoBehaviour
 {
-    private Buff[] inventory;
-    private bool seller;
 
-    //public static Vendor Instance { get; private set; }
+    public static Vendor Instance { get; private set; }
 
     public CanvasGroup MainCanvasGroup;
-    public CanvasGroup VendorMenuPanel;
     public CanvasGroup OptionsButtonsCanvasGroup;
     public CanvasGroup NextButtonCanvasGroup;
 
@@ -19,17 +16,17 @@ public class Vendor : MonoBehaviour
     public Button Purchase2Button;
     public Button EndDialogueButton;
 
-    //void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //    }
-    //    else if (Instance != this)
-    //    {
-    //        Destroy(this);
-    //    }
-    //}
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -56,9 +53,9 @@ public class Vendor : MonoBehaviour
     public void CloseStore()
     {
         Debug.Log("close store menu");
-        MainCanvasGroup.alpha = 1.0f;
-        MainCanvasGroup.blocksRaycasts = true;
-        MainCanvasGroup.interactable = true;
+        MainCanvasGroup.alpha = 0.0f;
+        MainCanvasGroup.blocksRaycasts = false;
+        MainCanvasGroup.interactable = false;
     }
 
     public void PurchaseItem1()

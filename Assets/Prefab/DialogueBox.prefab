@@ -116,8 +116,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1008620838671906684}
-        m_MethodName: OpenStore
+      - m_Target: {fileID: 1945204915920040065}
+        m_MethodName: OpenVendorStore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 1945204915920040066}
   - component: {fileID: 1945204915920040065}
   - component: {fileID: 1945204915920040064}
-  - component: {fileID: 1008620838671906684}
+  - component: {fileID: 5715547369045926794}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -266,7 +266,7 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &1008620838671906684
+--- !u!114 &5715547369045926794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1945204915920040071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecb7997b6260c224caae40803ed97138, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e258d8c3365e47458d38cc9ea0fedaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1945204916080767904
