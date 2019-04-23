@@ -153,18 +153,18 @@ public class CompanionController : MonoBehaviour
             {
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                inConversation = false;
             }
             Debug.Log("trigger exit");
-            if (introduced)
+            if (vendorTrigger.isOpen)
             {
                 vendorTrigger.EndVendorMenu();
             }
             else
             {
                 dialogueTrigger.EndDialogue();
-                introduced = true;
+                introduced=true;
             }
+            inConversation = false;
         }
     }
 }
