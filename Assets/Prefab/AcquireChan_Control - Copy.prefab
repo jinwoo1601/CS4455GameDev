@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 790831073}
   - component: {fileID: 790831072}
   - component: {fileID: 790831071}
+  - component: {fileID: 740558840153386669}
   m_Layer: 8
   m_Name: AcquireChan_Control - Copy
   m_TagString: Untagged
@@ -873,7 +874,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!136 &790831077
 CapsuleCollider:
@@ -919,6 +920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   following: 0
+  ellen: {fileID: 5505361708003123231, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
   m_WalkSpeed: 2
   m_RunSpeed: 3.5
   m_RotateSpeed: 8
@@ -995,6 +997,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
+--- !u!114 &740558840153386669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790831070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e258d8c3365e47458d38cc9ea0fedaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &807575750
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     public Queue<string> sentences;
     public static DialogueManager Instance { get; private set; }
 
+    VendorTrigger vendorTrigger;
+
     public CanvasGroup MainCanvasGroup;
     public CanvasGroup OptionsButtonsCanvasGroup;
     public CanvasGroup NextButtonCanvasGroup;
@@ -19,10 +21,12 @@ public class DialogueManager : MonoBehaviour
     public Button OpenStoreButton;
     public Button EndDialogueButton;
 
+
     private GameObject interactingNPC;
 
     void Awake()
     {
+        vendorTrigger = GetComponent<VendorTrigger>();
         if (Instance == null)
         {
             Instance = this;
@@ -110,6 +114,12 @@ public class DialogueManager : MonoBehaviour
 
         nameText.text = "";
 
+    }
+
+    public void OpenVendorStore()
+    {
+        EndDialogue();
+        vendorTrigger.TriggerVendorMenu();
     }
 
     private void showDialogueBox()

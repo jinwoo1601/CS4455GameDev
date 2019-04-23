@@ -2553,7 +2553,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
@@ -6783,8 +6783,6 @@ MonoBehaviour:
     type: 3}
   coinPreFab: {fileID: 3583132855026805356, guid: f08649a22066d434db0feb9e5b867ce9,
     type: 3}
-  loading_bar: {fileID: 0}
-  loading_bar_sprites: []
 --- !u!114 &6376917374330275259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6956,7 +6954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1107016379791724658
 RectTransform:
   m_ObjectHideFlags: 0
