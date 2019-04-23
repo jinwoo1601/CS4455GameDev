@@ -10,6 +10,7 @@ public class CompanionController : MonoBehaviour
 
     NavMeshAgent navMeshAgent;
     DialogueTrigger dialogueTrigger;
+    Vendor vendor;
 
     // Inspector
     [SerializeField] private float m_WalkSpeed = 2.0f;
@@ -25,6 +26,7 @@ public class CompanionController : MonoBehaviour
     private float m_MoveSpeed = 0.0f;
     private bool m_IsGround = true;
     private bool isMove = false;
+    private bool introduced = false;
 
     private void Awake()
     {
@@ -129,7 +131,13 @@ public class CompanionController : MonoBehaviour
         if (!following && other.CompareTag("Player"))
         {
             Debug.Log("trigger enter");
-            dialogueTrigger.TriggerDialogue();
+            if (introduced)
+            {
+                vendor.OpenStore();
+            } else {
+                dialogueTrigger.TriggerDialogue();
+                introduced = true;
+            }
         }
     }
 
@@ -138,7 +146,14 @@ public class CompanionController : MonoBehaviour
         if (!following && other.CompareTag("Player"))
         {
             Debug.Log("trigger exit");
-            dialogueTrigger.EndDialogue();
+            if (introduced)
+            {
+                vendor.CloseStore();
+            }
+            else
+            {
+                dialogueTrigger.EndDialogue();
+            }
         }
     }
 }

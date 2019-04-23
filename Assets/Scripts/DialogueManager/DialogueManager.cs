@@ -16,8 +16,8 @@ public class DialogueManager : MonoBehaviour
     public CanvasGroup NextButtonCanvasGroup;
 
     public Button NextButton;
-    public Button AcceptButton;
-    public Button RejectButton;
+    public Button OpenStoreButton;
+    public Button EndDialogueButton;
 
     private GameObject interactingNPC;
 
