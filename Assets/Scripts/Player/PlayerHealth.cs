@@ -104,6 +104,7 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         deathImage.color = Color.Lerp(deathImage.color, deathColour, 100f * Time.deltaTime);
         GameManager.GameEnd = true;
+        EventManager.TriggerEvent<DeathEvent, Vector3>(transform.position);
         deathText.text = "   You are dead!\n Press ESC to restart!";
 
 
