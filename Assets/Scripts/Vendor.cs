@@ -5,7 +5,7 @@ using UnityEngine.Experimental.UIElements;
 
 public class Vendor : MonoBehaviour
 {
-    private Buff[] inventory;
+    //private Buff[] inventory;
     private bool seller;
 
     //public static Vendor Instance { get; private set; }
