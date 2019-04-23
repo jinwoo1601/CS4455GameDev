@@ -25,6 +25,7 @@ public class Destructible : MonoBehaviour, Damageable {
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
         destructed();
+        EventManager.TriggerEvent<glassEvent, Vector3>(transform.position);
     }
 
     // If the player clicks on the object
@@ -32,8 +33,8 @@ public class Destructible : MonoBehaviour, Damageable {
 	{
 		// Spawn a shattered object
 		Instantiate(destroyedVersion, transform.position, transform.rotation);
-		// Remove the current object
-		Destroy(gameObject);
+        // Remove the current object
+        Destroy(gameObject);
 	}
 
 

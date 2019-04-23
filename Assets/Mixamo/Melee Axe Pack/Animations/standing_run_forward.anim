@@ -46229,4 +46229,20 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: ExecuteFootstep
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: cfd9fc6d964be3b419634a1bf75516f6,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: ExecuteFootstep
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: cfd9fc6d964be3b419634a1bf75516f6,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
