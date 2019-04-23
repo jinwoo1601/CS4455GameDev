@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 870355703, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
+      propertyPath: material
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
 --- !u!1001 &41978958
@@ -593,6 +597,11 @@ PrefabInstance:
     - target: {fileID: 441590685, guid: d58b1ee50e058674d8510d31994ac0d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219502832923078032, guid: d58b1ee50e058674d8510d31994ac0d3,
+        type: 3}
+      propertyPath: material
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d58b1ee50e058674d8510d31994ac0d3, type: 3}
@@ -1193,6 +1202,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 870355703, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
+      propertyPath: material
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
 --- !u!1001 &204495774
@@ -1519,10 +1532,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 819ee0d79a7b6ac4cbd9381cd1eea810, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 1874755923645608, guid: d5c3573356a11c749b57a75101fb8d12,
     type: 3}
+  material: 0
 --- !u!1001 &234505117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1590,21 +1604,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1838428225}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1145052027}
     - target: {fileID: 6456346001702368473, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -25.92
       objectReference: {fileID: 0}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value:
-      objectReference: {fileID: 1838428225}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value:
-      objectReference: {fileID: 1145052027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d01451116677947af5a4f116bec8ba, type: 3}
 --- !u!1 &242592076
@@ -1850,6 +1864,10 @@ PrefabInstance:
     - target: {fileID: 4000014294075672, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870355703, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
+      propertyPath: material
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
@@ -5266,21 +5284,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1838428225}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1145052027}
     - target: {fileID: 6456346001702368473, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.32
       objectReference: {fileID: 0}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value:
-      objectReference: {fileID: 1838428225}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value:
-      objectReference: {fileID: 1145052027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d01451116677947af5a4f116bec8ba, type: 3}
 --- !u!1001 &862171703
@@ -5437,6 +5455,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 870355703, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
+      propertyPath: material
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 991c87290ffb77d449861b8c11415b73, type: 3}
@@ -6051,10 +6073,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 819ee0d79a7b6ac4cbd9381cd1eea810, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 1874755923645608, guid: d5c3573356a11c749b57a75101fb8d12,
     type: 3}
+  material: 0
 --- !u!54 &957359050
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6304,21 +6327,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1838428225}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1145052027}
     - target: {fileID: 6456346001702368473, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.539
       objectReference: {fileID: 0}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value:
-      objectReference: {fileID: 1838428225}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value:
-      objectReference: {fileID: 1145052027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d01451116677947af5a4f116bec8ba, type: 3}
 --- !u!1 &985999499 stripped
@@ -10159,8 +10182,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -10178,8 +10201,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -10825,12 +10848,12 @@ PrefabInstance:
     - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: waypoints.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 1838428225}
     - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: waypoints.Array.data[1]
-      value:
+      value: 
       objectReference: {fileID: 1145052027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d01451116677947af5a4f116bec8ba, type: 3}
@@ -11938,10 +11961,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 819ee0d79a7b6ac4cbd9381cd1eea810, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 1874755923645608, guid: d5c3573356a11c749b57a75101fb8d12,
     type: 3}
+  material: 0
 --- !u!54 &2119743236
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12025,21 +12049,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1838428225}
+    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1145052027}
     - target: {fileID: 6456346001702368473, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -21.133
       objectReference: {fileID: 0}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value:
-      objectReference: {fileID: 1838428225}
-    - target: {fileID: 8278399908338069626, guid: d1d01451116677947af5a4f116bec8ba,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value:
-      objectReference: {fileID: 1145052027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d01451116677947af5a4f116bec8ba, type: 3}
 --- !u!1001 &2140282994
@@ -12220,10 +12244,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 819ee0d79a7b6ac4cbd9381cd1eea810, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 1874755923645608, guid: d5c3573356a11c749b57a75101fb8d12,
     type: 3}
+  material: 1
 --- !u!136 &4729684860982754476
 CapsuleCollider:
   m_ObjectHideFlags: 0
