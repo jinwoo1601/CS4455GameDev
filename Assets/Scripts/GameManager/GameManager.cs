@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject coinPreFab;
 
-    public GameObject loading_bar;
+    private GameObject loading_bar;
 
-    public List<Sprite> loading_bar_sprites;
+    private List<Sprite> loading_bar_sprites;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -44,11 +44,20 @@ public class GameManager : MonoBehaviour
 
         //Call the InitGame function to initialize the first level 
         InitGame();
-        loading_bar_sprites = new List<Sprite>();
-        for (int i = 1; i <= 5; i++) {
-            loading_bar_sprites.Add(Resources.Load<Sprite>(string.Format("image/%d", i)));
-        }
+       
         
+    }
+
+    private void Start()
+    {
+        loading_bar_sprites = new List<Sprite>();
+        for (int i = 1; i <= 5; i++)
+        {
+            loading_bar_sprites.Add(Resources.Load<Sprite>(string.Format("image/{0}", i)));
+        }
+        loading_bar = GameObject.Find("loading_bar");
+        if(loading_bar != null)
+        loading_bar.SetActive(false);
     }
 
     //Update is called every frame.
@@ -115,23 +124,40 @@ public class GameManager : MonoBehaviour
 
     public void MoveToScene(string scene)
     {
-        AsyncOperation  async = SceneManager.LoadSceneAsync(scene);
         loading_bar.SetActive(true);
-        while (!async.isDone) {
-            float prog = async.progress;
-            if (prog > 0.1f && prog < 0.4f)
+        StartCoroutine(LoadScene(scene));
+    }
+
+
+    IEnumerator LoadScene(string scene)
+    {
+        yield return null;
+
+        //Begin to load the Scene you specify
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene);
+        //Don't let the Scene activate until you allow it to
+        asyncOperation.allowSceneActivation = false;
+        for (int i = 0; i < 300; i++) {
+            if ( i < 100)
             {
                 loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[1];
             }
-            else if (prog >= 0.4f && prog < 0.6f)
+            else if (i >= 100 && i < 200)
             {
                 loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[2];
             }
-            else if (prog >= 0.6f && prog < 0.9f) {
+            else if (i >= 200) {
                 loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[3];
-            } else if (prog >= 0.9f) {
-                loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[4];
             }
+            if (i % 10 == 0) {
+                yield return null;
+            }
+        }
+        loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[4];
+        asyncOperation.allowSceneActivation = true;
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
         }
     }
 
