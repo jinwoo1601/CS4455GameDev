@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 using System.Collections.Generic;       //Allows us to use Lists. 
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour
     public GameObject keyPrefab;
 
     public GameObject coinPreFab;
+
+    public GameObject loading_bar;
+
+    public List<Sprite> loading_bar_sprites;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -39,6 +44,11 @@ public class GameManager : MonoBehaviour
 
         //Call the InitGame function to initialize the first level 
         InitGame();
+        loading_bar_sprites = new List<Sprite>();
+        for (int i = 1; i <= 5; i++) {
+            loading_bar_sprites.Add(Resources.Load<Sprite>(string.Format("image/%d", i)));
+        }
+        
     }
 
     //Update is called every frame.
@@ -105,7 +115,24 @@ public class GameManager : MonoBehaviour
 
     public void MoveToScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        AsyncOperation  async = SceneManager.LoadSceneAsync(scene);
+        loading_bar.SetActive(true);
+        while (!async.isDone) {
+            float prog = async.progress;
+            if (prog > 0.1f && prog < 0.4f)
+            {
+                loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[1];
+            }
+            else if (prog >= 0.4f && prog < 0.6f)
+            {
+                loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[2];
+            }
+            else if (prog >= 0.6f && prog < 0.9f) {
+                loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[3];
+            } else if (prog >= 0.9f) {
+                loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[4];
+            }
+        }
     }
 
     // On eneymy death, reduce count and spawn a random number of coins. Called by Enemy

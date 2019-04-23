@@ -20,7 +20,8 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public BarbPlayerController instance;
 
     //0 - idle,  2-chasing, 3-attack
-    public int state = 0;
+    public enemyState state;
+    public enemyState defaultState = enemyState.idle;
     private float attack_time;
     public float attack_range = 1.0f;
 
@@ -34,13 +35,22 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     public bool damaged = false;
     public float damaged_time;
     public float invulnerable_duration = 1f;
-    public float disappear_speed = 5;
+    public float disappear_speed = 10f;
 
     public GameObject[] waypoints;
+    public int curWP = -1;
     public bool test = false;
 
     private Vector3 deathPosition;
     private Quaternion deathRotation;
+
+    public enum enemyState
+    {
+        idle,
+        patrol,
+        chasing,
+        attacking
+    }
 
 
     public Weapon weapon;
@@ -56,12 +66,24 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         rgbody = GetComponent<Rigidbody>();
         target = BarbPlayerController.instance;
         healthBar.value = CalculateHealth();
+        state = defaultState;
+        if (defaultState == enemyState.patrol)
+        {
+            m_Animator.SetBool("patrol", true);
+        } 
+        else
+        {
+            AnimatorStateInfo stateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+            m_Animator.Play(stateInfo.fullPathHash, -1, Random.Range(0f, 1f));
+        }
     }
 
     void TakeDamage(float amount)
     {
         if (isDead)
             return;
+
+        transform.LookAt(BarbPlayerController.instance.transform);
         if (damaged && Time.time - damaged_time < invulnerable_duration)
         {
             return;
@@ -73,10 +95,6 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
             isDead = true;
             dead_time = Time.time;
             m_Animator.SetBool("isDead", true);
-            deathPosition = transform.position;
-            deathRotation = transform.rotation;
-            GameManager.instance.EnemyDeath(deathPosition, deathRotation);
-            
         }
     }
 
@@ -97,6 +115,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     {
         if (test)
         {
+            GameManager.instance.MoveToScene("l6");
             m_Animator.enabled = false;
             rgbody.isKinematic = true;
             rgbody.useGravity = true;
@@ -106,15 +125,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
 
         if (isDead)
         {
-            
-            if (Time.time - dead_time > 0.5f)
-            {
-                m_Animator.enabled = false;
-                rgbody.isKinematic = true;
-                rgbody.useGravity = true;
-                rgbody.constraints = RigidbodyConstraints.None;
-            }
-            if (Time.time - dead_time > 3f)
+            if (Time.time - dead_time > disappear_speed)
             {
                 // TODO: not working. not sure why.
                 SkinnedMeshRenderer[] rs = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -127,58 +138,62 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                 }
 
                 Destroy(gameObject);
-
             }
-            //EventManager.TriggerEvent<mDeathEvent, Vector3>(transform.position);
             return;
         }
 
-        
 
-            if (state == 0)
-            {
+
+        switch (state)
+        {
+            case enemyState.patrol:
+            case enemyState.idle:
+                if(state == enemyState.patrol)
+                {
+                    m_NavMeshAgent.enabled = true;
+                    if (m_NavMeshAgent.remainingDistance < 0.1f && !m_NavMeshAgent.pathPending)
+                    {
+                        setNextWaypoint();
+                    }
+                }
                 instance = targetScanner.Detect(transform);
-            if (instance != null)
-            {
-                state = 2;
-                target = instance;
-                smallEnemyController.SetFollowNavmeshAgent(true);
-                m_NavMeshAgent.SetDestination(instance.transform.position);
-                m_Animator.SetBool("chasing_target", true);
-            }
-                
-
-            }
-            else if (state == 2)
-            {
-            instance = targetScanner.Detect(transform);
-            if (instance != null)
-            {
-                if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
+                if (instance != null)
                 {
-                    attack_time = Time.time;
-                    state = 3;
+                    state = enemyState.chasing;
+                    target = instance;
+                    smallEnemyController.SetFollowNavmeshAgent(true);
+                    m_NavMeshAgent.SetDestination(instance.transform.position);
+                    m_Animator.SetBool("chasing_target", true);
+                }
+                break;
+            case enemyState.chasing:
+                transform.LookAt(BarbPlayerController.instance.transform);
+                instance = targetScanner.Detect(transform);
+                if (instance != null)
+                {
+                    if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
+                    {
+                        attack_time = Time.time;
+                        state = enemyState.attacking;
+                        smallEnemyController.SetFollowNavmeshAgent(false);
+                        m_Animator.SetTrigger("attack");
+
+
+                    }
+                    else if (m_NavMeshAgent.enabled)
+                    {
+                        m_NavMeshAgent.SetDestination(target.transform.position);
+                    }
+                }
+                else
+                {
+                    state = defaultState;
                     smallEnemyController.SetFollowNavmeshAgent(false);
-                    m_Animator.SetTrigger("attack");
-
-
+                    m_Animator.SetBool("chasing_target", false);
                 }
-                else if (m_NavMeshAgent.enabled)
-                {
-                    m_NavMeshAgent.SetDestination(target.transform.position);
-                }
-            }
-            else {
-                state = 0;
-                smallEnemyController.SetFollowNavmeshAgent(false);
-                m_Animator.SetBool("chasing_target", false);
-            }
-            
-
-
-            }
-            else if (state == 3)
-            {
+                break;
+            case enemyState.attacking:
+                transform.LookAt(BarbPlayerController.instance.transform);
                 if (!trigger_state)
                 {
                     if (Vector3.Distance(transform.position, instance.transform.position) < attack_range)
@@ -186,29 +201,26 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
                         //attack again
                         smallEnemyController.SetFollowNavmeshAgent(false);
                         m_Animator.SetTrigger("attack");
-
                     }
                     else
                     {
-                    //back to chasing or detecting
-                    instance = targetScanner.Detect(transform);
-                    if (instance != null)
-                    {
-                        state = 2;
-                        smallEnemyController.SetFollowNavmeshAgent(true);
-                    }
-                    else {
-                        state = 0;
-                        smallEnemyController.SetFollowNavmeshAgent(false);
-                        m_Animator.SetBool("chasing_target", false);
-                    }
-                    
+                        //back to chasing or detecting
+                        instance = targetScanner.Detect(transform);
+                        if (instance != null)
+                        {
+                            state = enemyState.chasing;
+                            smallEnemyController.SetFollowNavmeshAgent(true);
+                        }
+                        else
+                        {
+                            state = defaultState;
+                            smallEnemyController.SetFollowNavmeshAgent(false);
+                            m_Animator.SetBool("chasing_target", false);
+                        }
                     }
                 }
-            }
-
-        
-
+                break;
+        }
     }
 
     float CalculateHealth()
@@ -216,9 +228,17 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         return healthPoint / maxHealthPoint;
     }
 
+    void setNextWaypoint()
+    {
+        if (waypoints.Length == 0)
+            return;
+
+        m_NavMeshAgent.SetDestination(waypoints[++curWP % waypoints.Length].transform.position);
+    }
+
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
-        if(healthPoint < 1)
+        if (healthPoint < 1)
         {
             return;
         }
@@ -227,7 +247,19 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         m_Animator.ResetTrigger("hit");
         damaged_time = Time.time;
         TakeDamage(AD);
-        
+    }
+
+    public void died()
+    {
+        deathPosition = transform.position;
+        deathRotation = transform.rotation;
+        GameManager.instance.EnemyDeath(deathPosition, deathRotation);
+        m_NavMeshAgent.enabled = false;
+        m_Animator.enabled = false;
+        rgbody.isKinematic = true;
+        rgbody.useGravity = true;
+        rgbody.constraints = RigidbodyConstraints.None;
+        GetComponent<BoxCollider>().enabled = false;
     }
 
     public bool canBeAttacked()
@@ -241,22 +273,26 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     }
 
 
-    public void attack_start() {
+    public void attack_start()
+    {
         trigger_state = true;
     }
 
-    public void attack_end() {
+    public void attack_end()
+    {
         m_Animator.ResetTrigger("attack");
         transform.LookAt(instance.transform.position);
         trigger_state = false;
-        
+
     }
 
-    public void weapon_enable() {
+    public void weapon_enable()
+    {
         weapon.enbaleAttack();
     }
 
-    public void weapon_disable() {
+    public void weapon_disable()
+    {
         weapon.disableAttack();
     }
 }

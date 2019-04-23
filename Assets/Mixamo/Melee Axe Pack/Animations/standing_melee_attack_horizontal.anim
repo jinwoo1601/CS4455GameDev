@@ -134573,4 +134573,20 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.73333335
+    functionName: enable_weapon
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: de8249c98dabb486eb1a72abee9e21ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2
+    functionName: disable_weapon
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: bb44572d49a0b7a42a356f65db40df95,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
