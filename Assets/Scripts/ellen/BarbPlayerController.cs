@@ -18,7 +18,6 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     public float disarmedRootMovementSpeed;
     public float disarmedRootTurnSpeed;
     public float idleTimeout = 5f;            // How long before Ellen starts considering random idles.
-    public bool canAttack;                    // Whether or not Ellen can swing her staff.
 
     public Text hintText;
     float hintExistTime;
