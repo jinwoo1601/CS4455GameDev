@@ -147,7 +147,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -430,7 +430,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6286246889419823255
 BoxCollider:
@@ -491,6 +491,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b325faca9e2c3429d9978f07f3a2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8126831868349491307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456346001702398201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848e4efc958eefd4daa0fa85f8b12446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8278399908338069626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,6 +519,7 @@ MonoBehaviour:
   trigger_state: 0
   instance: {fileID: 0}
   state: 0
+  defaultState: 0
   attack_range: 1
   healthUI: {fileID: 285977366}
   healthBar: {fileID: 5336672612865114578}
@@ -516,9 +529,12 @@ MonoBehaviour:
   dead_time: 0
   damaged: 0
   damaged_time: 0
-  invulnerable_duration: 2
+  invulnerable_duration: 0.7
   disappear_speed: 15
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  curWP: -1
   test: 0
   weapon: {fileID: 2565087859676492053}
 --- !u!1 &6707763827194397255
@@ -653,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 29.62
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -661,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -23.1
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 2732fe64dd2799f439fb845921df626b, type: 3}
       propertyPath: m_LocalRotation.x

@@ -18,7 +18,6 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     public float disarmedRootMovementSpeed;
     public float disarmedRootTurnSpeed;
     public float idleTimeout = 5f;            // How long before Ellen starts considering random idles.
-    public bool canAttack;                    // Whether or not Ellen can swing her staff.
 
     public Text hintText;
     float hintExistTime;
@@ -58,6 +57,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         s_Instance = this;
         rbody = GetComponent<Rigidbody>();
         weapon_position = GetComponentInChildren<FollowUpdate>();
+        
     }
 
     // Update is called once per frame
@@ -125,6 +125,20 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         }
 
     }
+
+    /*
+    void Update()
+    {
+        if (m_Input.Attack)
+        {
+            if (armed)
+            {
+                EventManager.TriggerEvent<attackEvent, Vector3>(transform.position);
+            }
+        }
+    }
+    */
+    
 
 
     void TimeoutToIdle()

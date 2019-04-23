@@ -18,7 +18,7 @@ public class CollectableKey : MonoBehaviour
             {
                 if(Input.GetKeyDown("space")){
                     kc.CollectKey();
-                    // sound event?
+                    EventManager.TriggerEvent<keyEvent, Vector3>(transform.position);
                     Destroy(this.gameObject);
                 }
             }

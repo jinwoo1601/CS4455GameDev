@@ -58,5 +58,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1aadd6d11b3151846802965318c1d950, type: 3}
   - {fileID: 8300000, guid: 353119531619c9e4897d121ddadd255b, type: 3}
   - {fileID: 8300000, guid: 61980a0757e117643b8f9df031670b33, type: 3}
+  DeathAudio:
+  - {fileID: 8300000, guid: a7813c3df42458d44bc7d94961e0f43c, type: 3}
+  - {fileID: 8300000, guid: 2fc2a9f55b074b94381fd42e19255c47, type: 3}
   mDeathAudio: {fileID: 8300000, guid: 5a27cea71ff921a45a77745c2810b304, type: 3}
   coinAudio: {fileID: 8300000, guid: 0473be3049d64fe4daddd495680a49a2, type: 3}
+  keyAudio: {fileID: 8300000, guid: e835f43210641a84dbe33624ad2a3a20, type: 3}
+  treasureAudio: {fileID: 8300000, guid: e94c821d7039c5d4b9c9ae4440766df1, type: 3}
+  glassAudio: {fileID: 8300000, guid: 65fe2ce57f199ae419e7a6c9cdc480fb, type: 3}

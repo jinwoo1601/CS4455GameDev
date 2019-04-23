@@ -28,10 +28,6 @@ public class Player : MonoBehaviour
             {
                 _healthPoint = _maxHP;
             }
-            else if(value < 0) 
-            {
-                Debug.Log("Cannot set negative health points\n");
-            }
             else
             {
                 _healthPoint = value;

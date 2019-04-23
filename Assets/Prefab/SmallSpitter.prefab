@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toFollow: {fileID: 7320081518179160311}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &675749879645570818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPoint: {fileID: 4221688925202466084}
+  AD: 1
 --- !u!54 &7899925921726981602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,6 +160,9 @@ MonoBehaviour:
   instance: {fileID: 0}
   state: 0
   attack_range: 1
+  healthUI: {fileID: 0}
+  healthBar: {fileID: 0}
+  maxHealthPoint: 5
   healthPoint: 1
   isDead: 0
   dead_time: 0
@@ -212,6 +217,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2b325faca9e2c3429d9978f07f3a2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1665538917840627345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7320081518179584569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848e4efc958eefd4daa0fa85f8b12446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7320081518179552413

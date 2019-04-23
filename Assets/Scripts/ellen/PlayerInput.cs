@@ -30,7 +30,6 @@ public class PlayerInput : MonoBehaviour
     public Animator animator;
 
     float start_attack_time;
-    float attack_duration = 0.35f;
 
     WaitForSeconds m_AttachInputWait;
     Coroutine m_AttackWaitCoroutine;
@@ -159,11 +158,19 @@ public class PlayerInput : MonoBehaviour
     public void start_attack()
     {
         start_attack_time = Time.time;
-        weapon.enbaleAttack();
+        
     }
 
     public void stop_attack()
     {
+        
+    }
+
+    public void enable_weapon() {
+        weapon.enbaleAttack();
+    }
+
+    public void disable_weapon() {
         weapon.disableAttack();
     }
 

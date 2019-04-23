@@ -10,7 +10,13 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour, Damageable {
 
-	public GameObject destroyedVersion; // Reference to the shattered version of the object
+    public GameObject destroyedVersion; // Reference to the shattered version of the object
+    public DestructibleMaterial material;
+    public enum DestructibleMaterial
+    {
+        crate,
+        glass
+    }
 
     public bool canBeAttacked()
     {
@@ -25,6 +31,14 @@ public class Destructible : MonoBehaviour, Damageable {
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
         destructed();
+        switch (material)
+        {
+            case DestructibleMaterial.glass:
+                EventManager.TriggerEvent<glassEvent, Vector3>(transform.position);
+                break;
+            case DestructibleMaterial.crate:
+                break;
+        }
     }
 
     // If the player clicks on the object
@@ -32,8 +46,8 @@ public class Destructible : MonoBehaviour, Damageable {
 	{
 		// Spawn a shattered object
 		Instantiate(destroyedVersion, transform.position, transform.rotation);
-		// Remove the current object
-		Destroy(gameObject);
+        // Remove the current object
+        Destroy(gameObject);
 	}
 
 
