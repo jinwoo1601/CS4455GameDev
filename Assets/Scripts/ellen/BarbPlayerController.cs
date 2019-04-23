@@ -126,6 +126,19 @@ public class BarbPlayerController : MonoBehaviour, Damageable
 
     }
 
+    /*
+    void Update()
+    {
+        if (m_Input.Attack)
+        {
+            if (armed)
+            {
+                EventManager.TriggerEvent<attackEvent, Vector3>(transform.position);
+            }
+        }
+    }
+    */
+
 
     void TimeoutToIdle()
     {
