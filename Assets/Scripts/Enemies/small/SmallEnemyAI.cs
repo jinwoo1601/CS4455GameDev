@@ -115,7 +115,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
     {
         if (test)
         {
-            GameManager.instance.MoveToScene("l6");
+            GameManager.instance.MoveToScene("l0");
             m_Animator.enabled = false;
             rgbody.isKinematic = true;
             rgbody.useGravity = true;
