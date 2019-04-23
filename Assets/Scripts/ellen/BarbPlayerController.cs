@@ -57,6 +57,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         s_Instance = this;
         rbody = GetComponent<Rigidbody>();
         weapon_position = GetComponentInChildren<FollowUpdate>();
+        
     }
 
     // Update is called once per frame
