@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
         {
             //rig.isKinematic = false;
             anim.enabled = false;
+            EventManager.TriggerEvent<DeathEvent, Vector3>(transform.position);
             return;
         }
 
