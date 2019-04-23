@@ -36,16 +36,7 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        //Sets this to not be destroyed when reloading scene
-        //DontDestroyOnLoad(gameObject);
-
-        //Get a component reference to the attached BoardManager script
-        //boardScript = GetComponent<BoardManager>();
-
-        //Call the InitGame function to initialize the first level 
         InitGame();
-       
-        
     }
 
     private void Start()
@@ -71,7 +62,6 @@ public class GameManager : MonoBehaviour
         //Call the SetupScene function of the BoardManager script, pass it current level number.
         //boardScript.SetupScene(level);
         //SceneManager.LoadScene(SceneStore.MENU);
-
     }
 
     public void StartGame()
@@ -167,19 +157,14 @@ public class GameManager : MonoBehaviour
         if (enemyCount > 0)
         {
             enemyCount--;
+            if(enemyCount == 0)
+            {
+                SpawnKey(transform);
+            }
         }
         int numCoin = Random.Range(1, 4);
-        if (numCoin == 1)
+        for (int i = 0; i < numCoin; i++)
         {
-            SpawnCoin(deathPosition, deathRotation);
-        } else if (numCoin==2)
-        {
-            SpawnCoin(deathPosition, deathRotation);
-            SpawnCoin(deathPosition, deathRotation);
-        } else
-        {
-            SpawnCoin(deathPosition, deathRotation);
-            SpawnCoin(deathPosition, deathRotation);
             SpawnCoin(deathPosition, deathRotation);
         }
     }
