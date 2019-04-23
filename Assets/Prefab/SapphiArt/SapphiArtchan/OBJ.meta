@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefab/SapphiArt/SapphiArtchan/OBJ.meta
 guid: 03642caf4d2db60438e9a8a78d28cc71
+=======
+guid: db89f63b55d94b84eb5b7e3d23a0668f
+>>>>>>> 08a1d9fd09530e94a67d78b8d86eb125248ac1ba:Assets/FBX.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class PlayerData
 {
-    public int healthPoint;
+    public float healthPoint;
     public int level;
     public float[] position;
     public string scene;

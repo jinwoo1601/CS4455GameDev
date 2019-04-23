@@ -97,7 +97,7 @@ public class EllenPlayerController : MonoBehaviour, Damageable
     }
 
 
-    public void OnDamage(Vector3 attackPoint, Vector3 attackForce)
+    public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
         //Debug.Log("todo");
         if (Time.time - damaged_time < invulnerable_duration)

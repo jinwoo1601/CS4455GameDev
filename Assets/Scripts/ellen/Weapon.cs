@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour
 
     private Vector3 velocity;
 
+    public int AD = 1;
+
     public void enbaleAttack()
     {
 
@@ -40,10 +42,6 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger enable");
-        Debug.Log(other);
-        Debug.Log(other.tag);
-
         Damageable other_damageable = other.gameObject.GetComponent<Damageable>();
         if (other_damageable != null)
         {
@@ -51,7 +49,7 @@ public class Weapon : MonoBehaviour
             {
                 RaycastHit hit;
                 Physics.Raycast(transform.position, transform.forward, out hit);
-                other_damageable.OnDamage(hit.point, velocity);
+                other_damageable.OnDamage(hit.point, velocity, AD);
             }
         }
 

@@ -4,8 +4,8 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 100;                            // The amount of health the player starts the game with.
-    public int currentHealth;                                   // The current health the player has.
+    public float startingHealth = 100;                            // The amount of health the player starts the game with.
+    public float currentHealth;                                   // The current health the player has.
     public Slider healthSlider;                                 // Reference to the UI's health bar.
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     public AudioClip deathClip;                                 // The audio clip to play when the player dies.
@@ -74,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         // Set the damaged flag so the screen will flash.
         damaged = true;
@@ -100,12 +100,13 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
-        Debug.Log("dead");
         // Set the death flag so this function won't be called again.
         isDead = true;
         deathImage.color = Color.Lerp(deathImage.color, deathColour, 100f * Time.deltaTime);
         GameManager.GameEnd = true;
+        EventManager.TriggerEvent<DeathEvent, Vector3>(transform.position);
         deathText.text = "   You are dead!\n Press ESC to restart!";
+
 
         // Turn off any remaining shooting effects.
         // playerShooting.DisableEffects();

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1945204915605459015}
   - component: {fileID: 1945204915605459009}
   m_Layer: 5
-  m_Name: AcceptButton
+  m_Name: OpenStoreButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1945204915920040065}
-        m_MethodName: AccetingCompanion
+        m_MethodName: OpenVendorStore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 1945204915920040066}
   - component: {fileID: 1945204915920040065}
   - component: {fileID: 1945204915920040064}
+  - component: {fileID: 5715547369045926794}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -251,8 +252,8 @@ MonoBehaviour:
   OptionsButtonsCanvasGroup: {fileID: 1945204916225867181}
   NextButtonCanvasGroup: {fileID: 1945204916951371745}
   NextButton: {fileID: 1945204916951371748}
-  AcceptButton: {fileID: 1945204915605459009}
-  RejectButton: {fileID: 1945204916080767905}
+  OpenStoreButton: {fileID: 1945204915605459009}
+  EndDialogueButton: {fileID: 1945204916080767905}
 --- !u!225 &1945204915920040064
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -265,6 +266,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &5715547369045926794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945204915920040071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e258d8c3365e47458d38cc9ea0fedaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1945204916080767904
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +291,7 @@ GameObject:
   - component: {fileID: 1945204916080767906}
   - component: {fileID: 1945204916080767905}
   m_Layer: 5
-  m_Name: RejectButton
+  m_Name: EndDialogueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +535,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I choose you!
+  m_Text: Open Store
 --- !u!1 &1945204916709835773
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Let me think..
+  m_Text: I'll be back
 --- !u!1 &1945204916951371771
 GameObject:
   m_ObjectHideFlags: 0
