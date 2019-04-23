@@ -12,47 +12,43 @@ public class UIGuideManager : MonoBehaviour
     public GameObject gate;
     public Text textPad;
     public Text textPadBottom;
-    public string end_word = "Now we could start our journey from the door, let's go!";
+    private string end_word = "I will not rest until I defeat the Goblin Queen!";
     public Light[] to_light;
+    public KeyEnabler KE;
 
     private bool enable_listener = true;
 
 
-    private KeyCode[] interestedKeyCode = { KeyCode.Space, KeyCode.Space , KeyCode.W, KeyCode.S, KeyCode.A,  KeyCode.D, KeyCode.None, KeyCode.J
-        , KeyCode.None, KeyCode.None, KeyCode.None, KeyCode.Mouse0, KeyCode.Mouse1 };
+    private KeyCode[] interestedKeyCode = { KeyCode.Space, KeyCode.Space , KeyCode.Space, KeyCode.Space, KeyCode.Space, KeyCode.K, KeyCode.J, KeyCode.None , KeyCode.None, KeyCode.K, KeyCode.Space };
 
     private int counter = -1;
 
-    public string[] texts = {
-        "Hi, Ellen! Welcome to our journey!",
-        "Before you start your journey, let me give you some tips",
-        "You could use W to move forward" ,
-        "You could use S to move backward" ,
-        "You could use A to turn left" ,
-        "You could use D to turn right" ,
-        "Click K to Pull Out Your Axe",
-        "Now you try to attack by clicking J",
-        "Great, now try to click J multiple times",
-        "You can attack at any time, even running",
-        "Click K again to Take Back AXE",
-        "Click left mouse to select the items",
-        "You could shange your view by pressing right mouse and rotate"
+    private string[] texts = {
+        "A small blacksmith’s shop in the early morning.\n There is nothing more peaceful.\n A single bird chirps as I light the furnace fire.",
+        "A knock on the door tells me my morning will soon be ruined.",
+        "As the only blacksmith in Neverwear I bring in good money.\n But ever since the Goblin Queen invaded and raised taxes, \n even I have difficulty affording food.",
+        "Each morning the tax collector comes. Anyone who \n refuses to pay is sent to the Goblin Queen’s dungeon \n and they are never seen again.",
+        "I have the ability to fight. I’ve been working \n with blades my entire life. I must stand up for \n the freedom of my village.",
+        "But first, maybe some practice swings.",
+        "But first, maybe some practice swings." ,
+        "But first, maybe some practice swings." ,
+        "But first, maybe some practice swings." ,
+        "That's enough practice.",
+        "I will unlock my door and face the day! \n I might not be well trained but I will do my best."
     };
 
-    public string[] inputIntructions = {
-        "PRESS SPACE to CONTINUE", 
-        "PRESS SPACE to CONTINUE",
-        "PRESS W to MOVE",
-        "PRESS S to MOVE",
-        "PRESS A to MOVE",
-        "PRESS D to MOVE",
-        "PRESS K to ARM",
-        "CLICK J to ATTACK",
-        "Click J Multiple Times to get combo",
-        "Click W & J to enable jump hit",
-        "PRESS K Again to Take Back AXE",
-        "PRESS LEFT MOUSE to CONTINUE",
-        "PRESS RIGHT MOUSE to ROTATE" };
+    private string[] inputIntructions = {
+        "Press SPACE to CONTINUE", 
+        "Press SPACE to CONTINUE",
+        "Press SPACE to CONTINUE",
+        "Press SPACE to CONTINUE",
+        "Press SPACE to CONTINUE",
+        "Press K to unsheathe axe",
+        "Press J to ATTACK",
+        "Press J quickly to combo ATTACK",
+        "Press J while walking forward to JUMP ATTACK",
+        "Press K to sheathe axe",
+        "Press Space to interact with objects"};
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +63,7 @@ public class UIGuideManager : MonoBehaviour
         if (counter > -1 && counter < interestedKeyCode.Length && interestedKeyCode[counter] != KeyCode.None && Input.GetKeyDown(interestedKeyCode[counter]))
         {
             showNext();
-            if (counter > 1)
+            if (counter >= -1)
             {
                 PlayerInput.Instance.enable = true;
             }
@@ -92,7 +88,11 @@ public class UIGuideManager : MonoBehaviour
             foreach (Light l in to_light) {
                 l.intensity = 5;
             }
-            gate.SetActive(false);
+            //gate.SetActive(false);
+        }
+
+        if(counter == 10){
+            KE.EnableKey();
         }
         return counter < texts.Length && counter < inputIntructions.Length;
     }
@@ -102,6 +102,9 @@ public class UIGuideManager : MonoBehaviour
         if (enable_listener)
         {
             panel.SetActive(true);
+
+             
+            new WaitForSecondsRealtime(8);
 
             showNext();
             enable_listener = false;

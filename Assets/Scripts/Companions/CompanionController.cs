@@ -10,6 +10,7 @@ public class CompanionController : MonoBehaviour
 
     NavMeshAgent navMeshAgent;
     DialogueTrigger dialogueTrigger;
+    VendorTrigger vendorTrigger;
 
     // Inspector
     [SerializeField] private float m_WalkSpeed = 2.0f;
@@ -25,10 +26,13 @@ public class CompanionController : MonoBehaviour
     private float m_MoveSpeed = 0.0f;
     private bool m_IsGround = true;
     private bool isMove = false;
+    private bool introduced = false;
+    public static bool inConversation = false;
 
     private void Awake()
     {
         dialogueTrigger = GetComponent<DialogueTrigger>();
+        vendorTrigger = GetComponent<VendorTrigger>();
         if (dialogueTrigger == null)
             Debug.Log("Couldn't find dialogue trigger");
         m_RigidBody = this.GetComponentInChildren<Rigidbody>();
@@ -128,8 +132,16 @@ public class CompanionController : MonoBehaviour
     {
         if (!following && other.CompareTag("Player"))
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            inConversation = true;
             Debug.Log("trigger enter");
-            dialogueTrigger.TriggerDialogue();
+            if (introduced)
+            {
+                vendorTrigger.TriggerVendorMenu();
+            } else {
+                dialogueTrigger.TriggerDialogue();
+            }
         }
     }
 
@@ -137,8 +149,22 @@ public class CompanionController : MonoBehaviour
     {
         if (!following && other.CompareTag("Player"))
         {
+            if (!inConversation)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
             Debug.Log("trigger exit");
-            dialogueTrigger.EndDialogue();
+            if (vendorTrigger.isOpen)
+            {
+                vendorTrigger.EndVendorMenu();
+            }
+            else
+            {
+                dialogueTrigger.EndDialogue();
+                introduced=true;
+            }
+            inConversation = false;
         }
     }
 }

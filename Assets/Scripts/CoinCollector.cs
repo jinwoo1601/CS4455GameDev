@@ -21,7 +21,7 @@ public class CoinCollector : MonoBehaviour
 
     public void CollectTreasure()
     {
-        int rand = Random.Range(20, 40);
+        int rand = Random.Range(10, 20);
         CoinCount += rand;
         UpdateCountText();
     }

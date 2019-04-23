@@ -4384,14 +4384,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 463208841, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463208841, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 2770864092324374611, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: loading_bar
+      value: 
+      objectReference: {fileID: 1033656333}
     - target: {fileID: 1745856857, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -4400,6 +4397,24 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246060340373582184, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242766047073486683, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463208841, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 463208841, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 781592738, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -6536,6 +6551,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5c127492fd2701498b2d86f996eb7f7, type: 3}
+--- !u!1 &1033656333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8246060340373582184, guid: 184a5b9de554b47bb952eb85e82c1605,
+    type: 3}
+  m_PrefabInstance: {fileID: 690609474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035538492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013419234888, guid: 6cd7440ceab5bd244aad79580a2f7817,
