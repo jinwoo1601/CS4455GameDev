@@ -529,7 +529,7 @@ MonoBehaviour:
   dead_time: 0
   damaged: 0
   damaged_time: 0
-  invulnerable_duration: 1
+  invulnerable_duration: 0.7
   disappear_speed: 15
   waypoints:
   - {fileID: 0}

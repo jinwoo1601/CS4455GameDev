@@ -10,7 +10,6 @@ public class CollectableCoin : MonoBehaviour
     // code to place the coin
     void OnTriggerEnter(Collider c)
     {
-        Debug.Log("trigger enter: " + c.tag);
         if (c.CompareTag("Player"))
         {
             CoinCollector kc = c.gameObject.GetComponent<CoinCollector>();

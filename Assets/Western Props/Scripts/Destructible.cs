@@ -24,6 +24,7 @@ public class Destructible : MonoBehaviour, Damageable {
 
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
+        Debug.Log("on damage");
         destructed();
     }
 
