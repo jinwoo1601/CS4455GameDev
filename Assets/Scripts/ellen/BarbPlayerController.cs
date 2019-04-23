@@ -126,7 +126,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
 
     }
 
-    /*
+    
     void Update()
     {
         if (m_Input.Attack)
@@ -137,7 +137,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
             }
         }
     }
-    */
+    
 
 
     void TimeoutToIdle()
