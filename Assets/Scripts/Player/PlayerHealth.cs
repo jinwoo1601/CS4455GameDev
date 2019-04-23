@@ -107,6 +107,7 @@ public class PlayerHealth : MonoBehaviour
         GameManager.GameEnd = true;
         deathText.text = "   You are dead!\n Press ESC to restart!";
 
+
         // Turn off any remaining shooting effects.
         // playerShooting.DisableEffects();
 
