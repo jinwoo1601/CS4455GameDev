@@ -23,6 +23,7 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip treasureAudio;
     public AudioClip glassAudio;
     public AudioClip doorAudio;
+    public AudioClip gateAudio;
 
 
     private UnityAction<Vector3> FootstepEventListener;
@@ -40,6 +41,7 @@ public class AudioEventManager : MonoBehaviour
     private UnityAction<Vector3> treasureEventListener;
     private UnityAction<Vector3> glassEventListener;
     private UnityAction<Vector3> doorEventListener;
+    private UnityAction<Vector3> gateEventListener;
 
     void Awake()
     {
@@ -59,6 +61,7 @@ public class AudioEventManager : MonoBehaviour
         treasureEventListener = new UnityAction<Vector3>(treasureEventHandler);
         glassEventListener = new UnityAction<Vector3>(glassEventHandler);
         doorEventListener = new UnityAction<Vector3>(doorEventHandler);
+        gateEventListener = new UnityAction<Vector3>(gateEventHandler);
     }
 
 
@@ -88,6 +91,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<treasureEvent, Vector3>(treasureEventListener);
         EventManager.StartListening<glassEvent, Vector3>(glassEventListener);
         EventManager.StartListening<doorEvent, Vector3>(doorEventListener);
+        EventManager.StartListening<gateEvent, Vector3>(gateEventListener);
     }
 
     void OnDisable()
@@ -107,6 +111,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<treasureEvent, Vector3>(treasureEventListener);
         EventManager.StopListening<glassEvent, Vector3>(glassEventListener);
         EventManager.StopListening<doorEvent, Vector3>(doorEventListener);
+        EventManager.StopListening<gateEvent, Vector3>(gateEventListener);
     }
 
 
@@ -285,6 +290,18 @@ public class AudioEventManager : MonoBehaviour
         EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
 
         snd.audioSrc.clip = this.doorAudio;
+
+        snd.audioSrc.minDistance = 5f;
+        snd.audioSrc.maxDistance = 100f;
+
+        snd.audioSrc.Play();
+    }
+
+    void gateEventHandler(Vector3 pos)
+    {
+        EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+        snd.audioSrc.clip = this.gateAudio;
 
         snd.audioSrc.minDistance = 5f;
         snd.audioSrc.maxDistance = 100f;

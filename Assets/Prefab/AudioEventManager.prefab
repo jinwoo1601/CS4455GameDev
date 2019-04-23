@@ -74,3 +74,4 @@ MonoBehaviour:
   treasureAudio: {fileID: 8300000, guid: e94c821d7039c5d4b9c9ae4440766df1, type: 3}
   glassAudio: {fileID: 8300000, guid: 65fe2ce57f199ae419e7a6c9cdc480fb, type: 3}
   doorAudio: {fileID: 8300000, guid: 2b8d17d65711bc94ca3df695b7a22e50, type: 3}
+  gateAudio: {fileID: 8300000, guid: 892b56adebd2fdd4f977562aea71d735, type: 3}
