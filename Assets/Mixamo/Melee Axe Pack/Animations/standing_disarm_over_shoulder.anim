@@ -113829,6 +113829,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.56666666
+    functionName: ExecuteSheath
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: f926ea810c614a244ba1ac6de5247bf2,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1
     functionName: unequip_arm
     data: 
