@@ -166,11 +166,11 @@ public class PlayerInput : MonoBehaviour
         
     }
 
-    public void weapon_enable() {
+    public void enable_weapon() {
         weapon.enbaleAttack();
     }
 
-    public void weapon_disable() {
+    public void disable_weapon() {
         weapon.disableAttack();
     }
 
