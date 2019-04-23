@@ -55,7 +55,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<mDeathEvent, Vector3>(mDeathEventListener);
         EventManager.StartListening<coinEvent, Vector3>(coinEventListener);
         EventManager.StartListening<keyEvent, Vector3>(keyEventListener);
-        EventManager.StartListening<keyEvent, Vector3>(treasureEventListener);
+        EventManager.StartListening<treasureEvent, Vector3>(treasureEventListener);
     }
 
     void OnDisable()
@@ -66,7 +66,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<mDeathEvent, Vector3>(mDeathEventListener);
         EventManager.StopListening<coinEvent, Vector3>(coinEventListener);
         EventManager.StopListening<keyEvent, Vector3>(keyEventListener);
-        EventManager.StopListening<keyEvent, Vector3>(treasureEventListener);
+        EventManager.StopListening<treasureEvent, Vector3>(treasureEventListener);
     }
 
 

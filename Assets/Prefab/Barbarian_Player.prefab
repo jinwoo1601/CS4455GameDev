@@ -2091,6 +2091,7 @@ GameObject:
   - component: {fileID: 3355557366001183303}
   - component: {fileID: 3355557366001183304}
   - component: {fileID: 7750271040648507457}
+  - component: {fileID: 2505664144789830990}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Player
@@ -2269,6 +2270,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 8659184231953344539}
+--- !u!114 &2505664144789830990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355557366001183296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f926ea810c614a244ba1ac6de5247bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3355557366001183298
 GameObject:
   m_ObjectHideFlags: 0
