@@ -66,3 +66,7 @@ MonoBehaviour:
   keyAudio: {fileID: 8300000, guid: e835f43210641a84dbe33624ad2a3a20, type: 3}
   treasureAudio: {fileID: 8300000, guid: e94c821d7039c5d4b9c9ae4440766df1, type: 3}
   glassAudio: {fileID: 8300000, guid: 65fe2ce57f199ae419e7a6c9cdc480fb, type: 3}
+  drawAudio: {fileID: 8300000, guid: 9caba23c572951c48a8beb2e3b55d385, type: 3}
+  sheathAudio: {fileID: 8300000, guid: da7f83f40476977479084dd56115dd91, type: 3}
+  doorAudio: {fileID: 8300000, guid: 2b8d17d65711bc94ca3df695b7a22e50, type: 3}
+  stanceAudio: {fileID: 8300000, guid: 9c2612980210a214ba8034d943dfb3b0, type: 3}

@@ -17,6 +17,10 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip keyAudio;
     public AudioClip treasureAudio;
     public AudioClip glassAudio;
+    public AudioClip drawAudio;
+    public AudioClip sheathAudio;
+    public AudioClip doorAudio;
+    public AudioClip stanceAudio;
 
 
     private UnityAction<Vector3> FootstepEventListener;
@@ -28,6 +32,10 @@ public class AudioEventManager : MonoBehaviour
     private UnityAction<Vector3> keyEventListener;
     private UnityAction<Vector3> treasureEventListener;
     private UnityAction<Vector3> glassEventListener;
+    private UnityAction<Vector3> drawEventListener;
+    private UnityAction<Vector3> sheathEventListener;
+    private UnityAction<Vector3> doorEventListener;
+    private UnityAction<Vector3> stanceEventListener;
 
     void Awake()
     {
@@ -41,6 +49,10 @@ public class AudioEventManager : MonoBehaviour
         keyEventListener = new UnityAction<Vector3>(keyEventHandler);
         treasureEventListener = new UnityAction<Vector3>(treasureEventHandler);
         glassEventListener = new UnityAction<Vector3>(glassEventHandler);
+        drawEventListener = new UnityAction<Vector3>(drawEventHandler);
+        sheathEventListener = new UnityAction<Vector3>(sheathEventHandler);
+        doorEventListener = new UnityAction<Vector3>(doorEventHandler);
+        stanceEventListener = new UnityAction<Vector3>(stanceEventHandler);
     }
 
 
@@ -64,6 +76,10 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<keyEvent, Vector3>(keyEventListener);
         EventManager.StartListening<treasureEvent, Vector3>(treasureEventListener);
         EventManager.StartListening<glassEvent, Vector3>(glassEventListener);
+        EventManager.StartListening<drawEvent, Vector3>(drawEventListener);
+        EventManager.StartListening<sheathEvent, Vector3>(sheathEventListener);
+        EventManager.StartListening<doorEvent, Vector3>(doorEventListener);
+        EventManager.StartListening<stanceEvent, Vector3>(stanceEventListener);
     }
 
     void OnDisable()
@@ -77,6 +93,10 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<keyEvent, Vector3>(keyEventListener);
         EventManager.StopListening<treasureEvent, Vector3>(treasureEventListener);
         EventManager.StopListening<glassEvent, Vector3>(glassEventListener);
+        EventManager.StopListening<drawEvent, Vector3>(drawEventListener);
+        EventManager.StopListening<sheathEvent, Vector3>(sheathEventListener);
+        EventManager.StopListening<doorEvent, Vector3>(doorEventListener);
+        EventManager.StopListening<stanceEvent, Vector3>(stanceEventListener);
     }
 
 
@@ -196,6 +216,54 @@ public class AudioEventManager : MonoBehaviour
         EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
 
         snd.audioSrc.clip = this.glassAudio;
+
+        snd.audioSrc.minDistance = 5f;
+        snd.audioSrc.maxDistance = 100f;
+
+        snd.audioSrc.Play();
+    }
+
+    void drawEventHandler(Vector3 pos)
+    {
+        EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+        snd.audioSrc.clip = this.drawAudio;
+
+        snd.audioSrc.minDistance = 5f;
+        snd.audioSrc.maxDistance = 100f;
+
+        snd.audioSrc.Play();
+    }
+
+    void sheathEventHandler(Vector3 pos)
+    {
+        EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+        snd.audioSrc.clip = this.sheathAudio;
+
+        snd.audioSrc.minDistance = 5f;
+        snd.audioSrc.maxDistance = 100f;
+
+        snd.audioSrc.Play();
+    }
+
+    void doorEventHandler(Vector3 pos)
+    {
+        EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+        snd.audioSrc.clip = this.doorAudio;
+
+        snd.audioSrc.minDistance = 5f;
+        snd.audioSrc.maxDistance = 100f;
+
+        snd.audioSrc.Play();
+    }
+
+    void stanceEventHandler(Vector3 pos)
+    {
+        EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+        snd.audioSrc.clip = this.stanceAudio;
 
         snd.audioSrc.minDistance = 5f;
         snd.audioSrc.maxDistance = 100f;

@@ -21,6 +21,7 @@ public class DoorAnimator : MonoBehaviour
             boxOnPlate = true;
             anim.Play("Door");
             animButton.Play("Press");
+            EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
         }
     }
 
@@ -29,6 +30,7 @@ public class DoorAnimator : MonoBehaviour
         {
             anim.Play("close");
             animButton.Play("Depress");
+            EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
         }
     }
 }
