@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: f727dae6fae0dff4eb9d5a34c99f8e69
+  - enabled: 1
+    path: Assets/Scenes/Outro Scene.unity
+    guid: c732760c41f96b94fb9c45d44d2733ee
   m_configObjects: {}
