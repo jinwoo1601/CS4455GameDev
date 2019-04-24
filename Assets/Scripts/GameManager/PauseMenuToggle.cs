@@ -47,8 +47,10 @@ public class PauseMenuToggle : MonoBehaviour
             {
                 canvasGroup.interactable = true;
                 canvasGroup.blocksRaycasts = true;
-                canvasGroup.alpha = 1f;
+                canvasGroup.alpha = 1.0f;
                 Time.timeScale = 0.0f;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 GameManager.instance.PauseGame();
             }
         }
