@@ -332,14 +332,15 @@ MonoBehaviour:
   - It turns out that if you challenge the Goblin Queen and fail, you get thrown in
     the dungeon.
   - I've managed to trick the guard into opening my cell.
-  - If I can defeat him. I may fight my still have a chance to defeat the Goblin Queen
-    with a little help from the other prisoners.
+  - If I can take him out. I may still have a chance to defeat the Goblin Queen with
+    a little help from the other prisoners.
   text: {fileID: 1555522381}
   images:
   - {fileID: 940439358}
   - {fileID: 2070068073}
   - {fileID: 861032897}
   - {fileID: 1286956951}
+  level: l1
 --- !u!1 &853553266
 GameObject:
   m_ObjectHideFlags: 0

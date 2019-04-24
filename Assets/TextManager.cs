@@ -10,6 +10,7 @@ public class TextManager : MonoBehaviour
     public Text text;
     private int counter = 1;
     public RawImage[] images;
+    public string level;
 
     void Start() {
     	text.text = textStrings[0];
@@ -25,7 +26,7 @@ public class TextManager : MonoBehaviour
         		images[counter - 1].enabled = false;
         		counter++;
         	} else {
-        		SceneManager.LoadScene("l1");
+        		SceneManager.LoadScene(level);
         	}
         }
     }
