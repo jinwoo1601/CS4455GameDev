@@ -1947,7 +1947,7 @@ PrefabInstance:
     - target: {fileID: 8542610441721152787, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -189.13
+      value: -190.69
       objectReference: {fileID: 0}
     - target: {fileID: 8542610441721152787, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
@@ -1957,7 +1957,7 @@ PrefabInstance:
     - target: {fileID: 8542610441721152787, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -259.35
+      value: -260.36
       objectReference: {fileID: 0}
     - target: {fileID: 8542610441721152787, guid: d1d01451116677947af5a4f116bec8ba,
         type: 3}
@@ -1998,6 +1998,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456346001702368473, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 267.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456346001702368473, guid: d1d01451116677947af5a4f116bec8ba,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 188.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1d01451116677947af5a4f116bec8ba, type: 3}
@@ -4224,16 +4234,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1431823182378235771, guid: da8f85cb7f0de4c638c9d03b281f9fe8,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431823182378235772, guid: da8f85cb7f0de4c638c9d03b281f9fe8,
-        type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8535942969491427240, guid: da8f85cb7f0de4c638c9d03b281f9fe8,
         type: 3}
       propertyPath: keyPrefab
@@ -4255,6 +4255,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3583132855026805356, guid: f08649a22066d434db0feb9e5b867ce9,
         type: 3}
+    - target: {fileID: 1431823182378235771, guid: da8f85cb7f0de4c638c9d03b281f9fe8,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431823182378235772, guid: da8f85cb7f0de4c638c9d03b281f9fe8,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8f85cb7f0de4c638c9d03b281f9fe8, type: 3}
 --- !u!1 &1375160740
@@ -5828,11 +5838,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1945204915920040067, guid: 13bfce078e4227c44bc1998a02fdad7e,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1945204917389554339, guid: 13bfce078e4227c44bc1998a02fdad7e,
         type: 3}
       propertyPath: m_Color.r
@@ -5866,6 +5871,11 @@ PrefabInstance:
     - target: {fileID: 1945204916709835774, guid: 13bfce078e4227c44bc1998a02fdad7e,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945204915920040067, guid: 13bfce078e4227c44bc1998a02fdad7e,
+        type: 3}
+      propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6443,6 +6453,10 @@ PrefabInstance:
     - target: {fileID: 2380189191261056484, guid: 184a5b9de554b47bb952eb85e82c1605,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745856857, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 463208841, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
