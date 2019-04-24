@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject coinPreFab;
 
-    private GameObject loading_bar;
+    public GameObject loading_bar;
 
     private List<Sprite> loading_bar_sprites;
 
@@ -46,9 +46,9 @@ public class GameManager : MonoBehaviour
         {
             loading_bar_sprites.Add(Resources.Load<Sprite>(string.Format("image/{0}", i)));
         }
-        loading_bar = GameObject.Find("loading_bar");
-        if(loading_bar != null)
-        loading_bar.SetActive(false);
+
+        if (loading_bar != null)
+            loading_bar.SetActive(false);
     }
 
     //Update is called every frame.
@@ -60,8 +60,7 @@ public class GameManager : MonoBehaviour
     void InitGame()
     {
         //Call the SetupScene function of the BoardManager script, pass it current level number.
-        //boardScript.SetupScene(level);
-        //SceneManager.LoadScene(SceneStore.MENU);
+        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
     public void StartGame()
@@ -102,8 +101,7 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         PlayerData playerData = SaveSystem.LoadPlayer();
-        Player.Instance.LoadData(playerData);
-        SceneManager.LoadScene(playerData.scene);
+        SceneManager.LoadScene(PlayerData.scene);
 
     }
 
@@ -159,7 +157,7 @@ public class GameManager : MonoBehaviour
             enemyCount--;
             if(enemyCount == 0)
             {
-                SpawnKey(transform);
+                SpawnKey(deathPosition, deathRotation);
             }
         }
         int numCoin = Random.Range(1, 4);
@@ -170,9 +168,9 @@ public class GameManager : MonoBehaviour
     }
 
     // Spawn the key to the next room when enemy count is zero.
-    public void SpawnKey(Transform trans)
+    public void SpawnKey(Vector3 pos, Quaternion rot)
     {
-        Instantiate(keyPrefab, trans.position, trans.rotation);
+        Instantiate(keyPrefab, pos, rot);
     }
 
     //Spawn a coin in a random location relative to the enemy's death location.

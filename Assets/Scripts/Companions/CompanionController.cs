@@ -56,16 +56,16 @@ public class CompanionController : MonoBehaviour
         if (null == m_Animator) return;
         Vector3 newDes = transform.position;
         
-        Vector3 playerPos = ellen.transform.position;
-        if (following && Vector3.Distance(transform.position, playerPos) > 5)
-        {
-            Vector3 range = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
-            newDes = ellen.transform.position + range;
-            //navMeshAgent.SetDestination(newDes);
-            isMove = true;
-            m_Animator.SetBool("isMove", isMove);
-        }
-        else
+        //Vector3 playerPos = ellen.transform.position;
+        //if (following && Vector3.Distance(transform.position, playerPos) > 5)
+        //{
+        //    Vector3 range = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
+        //    newDes = ellen.transform.position + range;
+        //    //navMeshAgent.SetDestination(newDes);
+        //    isMove = true;
+        //    m_Animator.SetBool("isMove", isMove);
+        //}
+        //else
         {
             isMove = false;
         }

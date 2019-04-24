@@ -17,7 +17,7 @@ public class SmallEnemyController : MonoBehaviour
     protected bool m_FollowNavmeshAgent;
     protected Animator m_Animator;
     protected bool m_UnderExternalForce;
-    protected bool m_ExternalForceAddGravity = true;
+    protected bool m_ExternalForceAddGravity = false;
     protected Vector3 m_ExternalForce;
 
     protected Rigidbody m_Rigidbody;
@@ -27,6 +27,7 @@ public class SmallEnemyController : MonoBehaviour
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
         m_Animator = GetComponent<Animator>();
         m_Animator.updateMode = AnimatorUpdateMode.AnimatePhysics;
+        m_ExternalForceAddGravity = false;
 
         m_Rigidbody = GetComponentInChildren<Rigidbody>();
         if (m_Rigidbody == null)
@@ -42,7 +43,7 @@ public class SmallEnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        animator.speed = 1;
+        //animator.speed = 1;
 
 
         if (m_UnderExternalForce)
@@ -83,9 +84,7 @@ public class SmallEnemyController : MonoBehaviour
                 m_Rigidbody.MovePosition(m_Rigidbody.position + m_Animator.deltaPosition);
             }
         }
-
-            transform.forward = m_Animator.deltaRotation * transform.forward;
-
+        transform.forward = m_Animator.deltaRotation * transform.forward;
     }
 
     // used to disable position being set by the navmesh agent, for case where we want the animation to move the enemy instead (e.g. Chomper attack)

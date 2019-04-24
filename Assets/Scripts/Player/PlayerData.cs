@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class PlayerData
 {
-    public float healthPoint;
-    public int level;
-    public float[] position;
-    public string scene;
+    public static float maxHealth = 100;
+    public static float curHealth = 100;
+    public static float attackDamage;
+    public static int level;
+    public static float[] position;
+    public static string scene;
 
     public PlayerData()
     {
-        healthPoint = Player.HealthPoint;
+        curHealth = Player.HealthPoint;
         level = Player.Level;
 
         position = new float[3];

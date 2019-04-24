@@ -4,8 +4,6 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float startingHealth = 100;                            // The amount of health the player starts the game with.
-    public float currentHealth;                                   // The current health the player has.
     public Slider healthSlider;                                 // Reference to the UI's health bar.
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     public AudioClip deathClip;                                 // The audio clip to play when the player dies.
@@ -31,13 +29,6 @@ public class PlayerHealth : MonoBehaviour
     {
         // Setting up the references.
         anim = GetComponent<Animator>();
-        //rig = GetComponent<Rigidbody>();
-        //playerAudio = GetComponent<AudioSource>();
-
-
-        // Set the initial health of the player.
-        currentHealth = startingHealth;
-
         isDead = false;
         deathText.text = "";
     }
@@ -47,28 +38,21 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead)
         {
-            //rig.isKinematic = false;
             anim.enabled = false;
             return;
         }
 
-        // If the player has just been damaged...
         if (damaged)
         {
-            // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
         }
-        // Otherwise...
         else
         {
-            // ... transition the colour back to clear.
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
 
-        // TODO: for testing only, need to be removed from update function.
-        healthSlider.value = currentHealth;
+        healthSlider.value = PlayerData.curHealth;
 
-        // Reset the damaged flag.
         anim.enabled = true;
         damaged = false;
     }
@@ -76,51 +60,22 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        // Set the damaged flag so the screen will flash.
         damaged = true;
-
-        // Reduce the current health by the damage amount.
-        currentHealth -= amount;
-
-        // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth;
-
-        Player.HealthPoint = currentHealth;
-
-        // Play the hurt sound effect.
-        // playerAudio.Play();
-
-        // If the player has lost all it's health and the death flag hasn't been set yet...
-        if (currentHealth <= 0 && !isDead)
+        PlayerData.curHealth -= amount;
+        healthSlider.value = PlayerData.curHealth;
+        if (PlayerData.curHealth <= 0 && !isDead)
         {
-            // ... it should die.
             Death();
         }
     }
 
     void Death()
     {
-        // Set the death flag so this function won't be called again.
         isDead = true;
         deathImage.color = Color.Lerp(deathImage.color, deathColour, 100f * Time.deltaTime);
         GameManager.GameEnd = true;
         EventManager.TriggerEvent<DeathEvent, Vector3>(transform.position);
         deathText.text = "   You are dead!\n Press ESC to restart!";
-
-
-        // Turn off any remaining shooting effects.
-        // playerShooting.DisableEffects();
-
-        // Tell the animator that the player is dead.
-        //anim.SetTrigger("Die");
-
-        // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-        // playerAudio.clip = deathClip;
-        // playerAudio.Play();
-
-        // Turn off the movement and shooting scripts.
-        // playerMovement.enabled = false;
-        // playerShooting.enabled = false;
     }
 
 }

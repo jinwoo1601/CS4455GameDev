@@ -107,8 +107,6 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         }
 
         healthBar.value = CalculateHealth();
-
-
     }
 
     void FixedUpdate()
@@ -246,6 +244,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         m_Animator.SetFloat("verticalPoint", attackPoint.y);
         m_Animator.ResetTrigger("hit");
         damaged_time = Time.time;
+        smallEnemyController.AddForce(Vector3.back * 2 + Vector3.up * 2);
         TakeDamage(AD);
     }
 
@@ -256,6 +255,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         GameManager.instance.EnemyDeath(deathPosition, deathRotation);
         m_NavMeshAgent.enabled = false;
         m_Animator.enabled = false;
+        weapon.disableAttack();
         rgbody.isKinematic = true;
         rgbody.useGravity = true;
         rgbody.constraints = RigidbodyConstraints.None;
@@ -283,7 +283,6 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         m_Animator.ResetTrigger("attack");
         transform.LookAt(instance.transform.position);
         trigger_state = false;
-
     }
 
     public void weapon_enable()

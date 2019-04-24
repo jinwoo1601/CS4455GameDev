@@ -88,11 +88,11 @@ public class Player : MonoBehaviour
         
     }
 
-    public void LoadData(PlayerData data)
-    {
-        HealthPoint = data.healthPoint;
-        Level = data.level;
-        SpawningPos = new Vector3(data.position[0], data.position[1], data.position[2]);
-    }
+    //public void LoadData(PlayerData data)
+    //{
+    //    HealthPoint = data.healthPoint;
+    //    Level = data.level;
+    //    SpawningPos = new Vector3(data.position[0], data.position[1], data.position[2]);
+    //}
 
 }
