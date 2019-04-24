@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneStore.LEVEL1);
+        SceneManager.LoadScene("Intro");
     }
 
     public void LoadSetting()
