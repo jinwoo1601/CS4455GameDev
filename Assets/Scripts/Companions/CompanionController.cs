@@ -150,7 +150,7 @@ public class CompanionController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
             Debug.Log("trigger exit");
-            if (vendorTrigger.isOpen)
+            if (VendorTrigger.isOpen)
             {
                 vendorTrigger.EndVendorMenu();
             }
