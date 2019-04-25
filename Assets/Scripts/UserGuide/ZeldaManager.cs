@@ -37,7 +37,7 @@ public class ZeldaManager : MonoBehaviour
 
             RenderSettings.skybox.SetFloat("_Exposure", (20 - 1) * time_elpsed + 1);
 
-            if (distance - current_distance < 0.1) {
+            if (current_distance < 0.1) {
                 PlayerInput.Instance.setStop();
             }
         }
