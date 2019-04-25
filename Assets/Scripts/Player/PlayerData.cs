@@ -11,6 +11,7 @@ public class PlayerData
     public static int coinCount;
     public static float[] position;
     public static string scene;
+    public static int[] buffs;
 
     public PlayerData()
     {

@@ -28,6 +28,11 @@ public class Vendor : MonoBehaviour
     public Button Sell2Button;
     public Button ExitStoreButton;
 
+    public GameObject speedPrefab;
+    public GameObject attackPrefab;
+    public GameObject luckPrefab;
+    public GameObject revivePrefab;
+
     void Awake()
     {
         if (Instance == null)
@@ -102,17 +107,32 @@ public class Vendor : MonoBehaviour
 
         //maybe add a confirmation pop-up message
         //TODO: implement buff and modify player here
+        Vector3 offset = new Vector3(0f, -0.03f, 0f);
+        Vector3 instantiatePos = BarbPlayerController.instance.transform.position + offset;
+        GameObject buffPrefab;
         switch (curBuff)
         {
             case Buff.BuffType.luck:
+                buffPrefab = Instantiate(luckPrefab, instantiatePos, Quaternion.identity);
                 break;
             case Buff.BuffType.attack:
+                buffPrefab = Instantiate(attackPrefab, instantiatePos, Quaternion.identity);
                 break;
             case Buff.BuffType.revive:
+                buffPrefab = Instantiate(revivePrefab, instantiatePos, Quaternion.identity);
                 break;
             case Buff.BuffType.speed:
+                buffPrefab = Instantiate(speedPrefab, instantiatePos, Quaternion.identity);
+                break;
+            default:
+                buffPrefab = null;
                 break;
         }
+
+        buffPrefab.transform.SetParent(BarbPlayerController.instance.transform);
+        buffPrefab.transform.localPosition = offset;
+        
+
         //use buttonName and switch statements to determine what buff
         //has been purchased
         BuffItemPanel.alpha = 0.0f;
