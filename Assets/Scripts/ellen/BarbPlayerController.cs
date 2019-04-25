@@ -21,6 +21,8 @@ public class BarbPlayerController : MonoBehaviour, Damageable
 
     public Text hintText;
     float hintExistTime;
+    float hintDispayTime = 3f;
+    float hintFadeOutSpeed = 3f;
 
     protected float m_AngleDiff;
     protected float m_DesiredForwardSpeed;
@@ -43,7 +45,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
 
     float m_speed;
     Vector3 curPosition;
-    Vector3 lastPosition; 
+    Vector3 lastPosition;
 
 
     private float m_IdleTimer = 0f;
@@ -57,7 +59,8 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         s_Instance = this;
         rbody = GetComponent<Rigidbody>();
         weapon_position = GetComponentInChildren<FollowUpdate>();
-        
+        PlayerData.coinCount = 140;
+
     }
 
     // Update is called once per frame
@@ -74,7 +77,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         m_Animator.SetFloat("velx", moveInput.x);
         m_Animator.SetFloat("vely", moveInput.y);
 
-        if(!hintText.text.Equals("") && Time.time > hintExistTime)
+        if (!hintText.text.Equals("") && Time.time > hintExistTime)
         {
             hintText.text = "";
         }
@@ -86,7 +89,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
             rbody.isKinematic = false;
         }
 
-        if(moveInput.magnitude > 0.01 || (armed && m_Input.Attack))
+        if (moveInput.magnitude > 0.01 || (armed && m_Input.Attack))
         {
             m_Animator.SetBool("active", true);
         }
@@ -138,7 +141,6 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         }
     }
     */
-    
 
 
     void TimeoutToIdle()

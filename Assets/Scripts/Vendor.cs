@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class Vendor : MonoBehaviour
 {
 
@@ -16,6 +17,7 @@ public class Vendor : MonoBehaviour
     public CanvasGroup BuffItemPanel;
 
     private string buttonName;
+    private Buff.BuffType curBuff;
 
     public Button BrowseItem1Button;
     public Button BrowseItem2Button;
@@ -52,7 +54,7 @@ public class Vendor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OpenStore()
@@ -71,8 +73,10 @@ public class Vendor : MonoBehaviour
         MainCanvasGroup.interactable = false;
     }
 
-    public void BrowseItem()
+    public void BrowseItem(int type)
     {
+        Buff.BuffType buffType = (Buff.BuffType)type;
+        curBuff = buffType;
         buttonName = EventSystem.current.currentSelectedGameObject.name;
         VendorMenuPanel.alpha = 0.0f;
         VendorMenuPanel.blocksRaycasts = false;
@@ -80,13 +84,35 @@ public class Vendor : MonoBehaviour
         BuffItemPanel.alpha = 1.0f;
         BuffItemPanel.blocksRaycasts = true;
         BuffItemPanel.interactable = true;
-        FillBuffInfo(buttonName);
+        FillBuffInfo(buffType);
     }
 
     public void PurchaseBuff()
     {
+        int buffPrice = Buff.GetBuffPrice(curBuff);
+
+        if (PlayerData.coinCount < buffPrice)
+        {
+            BarbPlayerController.instance.setHintText("You need more gold to buy this buff!");
+            return;
+        } else
+        {
+            PlayerData.coinCount -= buffPrice;
+        }
+
         //maybe add a confirmation pop-up message
         //TODO: implement buff and modify player here
+        switch (curBuff)
+        {
+            case Buff.BuffType.luck:
+                break;
+            case Buff.BuffType.attack:
+                break;
+            case Buff.BuffType.revive:
+                break;
+            case Buff.BuffType.speed:
+                break;
+        }
         //use buttonName and switch statements to determine what buff
         //has been purchased
         BuffItemPanel.alpha = 0.0f;
@@ -118,15 +144,22 @@ public class Vendor : MonoBehaviour
     }
 
     // Once we implement the buffs, this is how we fill in the menu with appropriate texts
-    private void FillBuffInfo(string buttonName)
+    private void FillBuffInfo(Buff.BuffType type)
     {
         // example of how to tell which buff is being purchased
-        switch(buttonName)
-        {
-            case "Attack Buff":
-                break;
-        }
-        BuffItemPanel.transform.GetChild(0).GetComponent<Text>().text = "This is where buff description appears";
-        BuffItemPanel.transform.GetChild(1).GetComponent<Text>().text = "This is where buff price appears";
+        //switch (type)
+        //{
+        //    case Buff.BuffType.luck:
+        //        break;
+        //    case Buff.BuffType.attack:
+        //        break;
+        //    case Buff.BuffType.revive:
+        //        break;
+        //    case Buff.BuffType.speed:
+        //        break;
+        //}
+
+        BuffItemPanel.transform.GetChild(0).GetComponent<Text>().text = Buff.GetBuffDescription(type);
+        BuffItemPanel.transform.GetChild(1).GetComponent<Text>().text = Buff.GetBuffPrice(type).ToString();
     }
 }
