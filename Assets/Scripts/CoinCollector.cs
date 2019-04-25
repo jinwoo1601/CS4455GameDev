@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CoinCollector : MonoBehaviour
 {
-    static int CoinCount;
     public Text countText;
 
     public void Start()
@@ -13,26 +12,29 @@ public class CoinCollector : MonoBehaviour
         UpdateCountText();
     }
 
+    private void Update()
+    {
+        UpdateCountText();
+    }
+
     public void CollectCoin()
     {
-        CoinCount++;
-        UpdateCountText();
+        PlayerData.coinCount++;
     }
 
     public void CollectTreasure()
     {
         int rand = Random.Range(10, 20);
-        CoinCount += rand;
-        UpdateCountText();
+        PlayerData.coinCount += rand;
     }
 
     public int getCoinCount()
     {
-        return CoinCount;
+        return PlayerData.coinCount;
     }
 
     private void UpdateCountText()
     {
-        countText.text = CoinCount.ToString();
+        countText.text = PlayerData.coinCount.ToString();
     }
 }

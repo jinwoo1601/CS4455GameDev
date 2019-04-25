@@ -8,6 +8,7 @@ public class PlayerData
     public static float curHealth = 100;
     public static float attackDamage;
     public static int level;
+    public static int coinCount;
     public static float[] position;
     public static string scene;
 
