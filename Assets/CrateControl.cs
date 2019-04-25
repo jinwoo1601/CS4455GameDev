@@ -27,11 +27,21 @@ public class CrateControl : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other){
-        rbody.constraints = RigidbodyConstraints.FreezeRotationY;
+    void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Player")){
+            rbody.constraints = RigidbodyConstraints.FreezeRotationY;
+        }
     }
 
-    void OnCollisionExit(Collision other) {
-        rbody.constraints = RigidbodyConstraints.None;
+    void OnTriggerStay(Collider other){
+        if(other.CompareTag("Player")){
+            rbody.constraints = RigidbodyConstraints.FreezeRotationY;
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if(other.CompareTag("Player")){
+            rbody.constraints = RigidbodyConstraints.None;
+        }
     }
 }
