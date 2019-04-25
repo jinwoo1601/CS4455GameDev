@@ -26,6 +26,7 @@ public class ZeldaManager : MonoBehaviour
     void FixedUpdate()
     {
         if (started) {
+            BarbPlayerController.instance.transform.LookAt(lookat_target.transform, Vector3.up);
             Vector2 v21 = new Vector2(BarbPlayerController.instance.transform.position.x, BarbPlayerController.instance.transform.position.z);
             Vector2 v22 = new Vector2(distance_target.transform.position.x, distance_target.transform.position.z);
             float current_distance = Vector2.Distance(v21, v22);
@@ -37,9 +38,9 @@ public class ZeldaManager : MonoBehaviour
 
             RenderSettings.skybox.SetFloat("_Exposure", (20 - 1) * time_elpsed + 1);
 
-            if (current_distance < 0.1) {
-                PlayerInput.Instance.setStop();
-            }
+            //if (current_distance < 0.1) {
+            //    PlayerInput.Instance.setStop();
+            //}
         }
     }
 
