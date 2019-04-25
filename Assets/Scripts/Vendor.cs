@@ -23,10 +23,15 @@ public class Vendor : MonoBehaviour
     public Button BrowseItem2Button;
     public Button BrowseItem3Button;
     public Button BrowseItem4Button;
-    public Button BrowseItem5Button;
-    public Button Sell1Button;
-    public Button Sell2Button;
+    //public Button BrowseItem5Button;
+    //public Button Sell1Button;
+    //public Button Sell2Button;
     public Button ExitStoreButton;
+
+    public GameObject speedPrefab;
+    public GameObject attackPrefab;
+    public GameObject luckPrefab;
+    public GameObject revivePrefab;
 
     void Awake()
     {
@@ -49,6 +54,10 @@ public class Vendor : MonoBehaviour
         BuffItemPanel.alpha = 0.0f;
         BuffItemPanel.blocksRaycasts = false;
         BuffItemPanel.interactable = false;
+        BrowseItem1Button.GetComponentInChildren<Text>().text = Buff.BuffType.speed.ToString();
+        BrowseItem2Button.GetComponentInChildren<Text>().text = Buff.BuffType.attack.ToString();
+        BrowseItem3Button.GetComponentInChildren<Text>().text = Buff.BuffType.luck.ToString();
+        BrowseItem4Button.GetComponentInChildren<Text>().text = Buff.BuffType.revive.ToString();
     }
 
     // Update is called once per frame
@@ -102,17 +111,8 @@ public class Vendor : MonoBehaviour
 
         //maybe add a confirmation pop-up message
         //TODO: implement buff and modify player here
-        switch (curBuff)
-        {
-            case Buff.BuffType.luck:
-                break;
-            case Buff.BuffType.attack:
-                break;
-            case Buff.BuffType.revive:
-                break;
-            case Buff.BuffType.speed:
-                break;
-        }
+        CreateBuff(curBuff);
+
         //use buttonName and switch statements to determine what buff
         //has been purchased
         BuffItemPanel.alpha = 0.0f;
@@ -141,6 +141,45 @@ public class Vendor : MonoBehaviour
     public void SellItem2()
     {
 
+    }
+
+    public void CreateBuff(Buff.BuffType type)
+    {
+        if (PlayerData.buffs.Count > 1)
+        {
+            BarbPlayerController.instance.removeBuff(PlayerData.buffs[0]);
+            PlayerData.buffs.RemoveAt(0);
+            Destroy(PlayerData.buffAuroras[0]);
+            PlayerData.buffAuroras.RemoveAt(0);
+        }
+
+        Vector3 offset = new Vector3(0f, -0.03f, 0f);
+        Vector3 instantiatePos = BarbPlayerController.instance.transform.position + offset;
+        GameObject buffPrefab;
+        switch (type)
+        {
+            case Buff.BuffType.luck:
+                buffPrefab = Instantiate(luckPrefab, instantiatePos, Quaternion.identity);
+                break;
+            case Buff.BuffType.attack:
+                buffPrefab = Instantiate(attackPrefab, instantiatePos, Quaternion.identity);
+                break;
+            case Buff.BuffType.revive:
+                buffPrefab = Instantiate(revivePrefab, instantiatePos, Quaternion.identity);
+                break;
+            case Buff.BuffType.speed:
+                buffPrefab = Instantiate(speedPrefab, instantiatePos, Quaternion.identity);
+                break;
+            default:
+                buffPrefab = null;
+                break;
+        }
+
+        buffPrefab.transform.SetParent(BarbPlayerController.instance.transform);
+        buffPrefab.transform.localPosition = offset;
+        PlayerData.buffs.Add(type);
+        PlayerData.buffAuroras.Add(buffPrefab);
+        BarbPlayerController.instance.addBuff(curBuff);
     }
 
     // Once we implement the buffs, this is how we fill in the menu with appropriate texts

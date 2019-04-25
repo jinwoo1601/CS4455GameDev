@@ -18,9 +18,7 @@ public class GameManager : MonoBehaviour
     private bool keySpawned = false;
 
     public GameObject keyPrefab;
-
     public GameObject coinPreFab;
-
     public GameObject loading_bar;
 
     private List<Sprite> loading_bar_sprites;

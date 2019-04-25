@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 [System.Serializable]
 public class PlayerData
@@ -11,6 +13,8 @@ public class PlayerData
     public static int coinCount;
     public static float[] position;
     public static string scene;
+    public static List<Buff.BuffType> buffs = new List<Buff.BuffType>();
+    public static List<GameObject> buffAuroras = new List<GameObject>();
 
     public PlayerData()
     {
