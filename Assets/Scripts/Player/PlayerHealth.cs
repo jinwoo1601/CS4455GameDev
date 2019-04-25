@@ -71,6 +71,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
+        if (BarbPlayerController.instance.couldRevive)
+        {
+            PlayerData.curHealth = 100;
+            BarbPlayerController.instance.setHintText("You are revived by the revive buff! \nThe power of revive buff goes away. Take care warrior!");
+            return;
+        }
         isDead = true;
         deathImage.color = Color.Lerp(deathImage.color, deathColour, 100f * Time.deltaTime);
         GameManager.GameEnd = true;

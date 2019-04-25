@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Debug.Log("work please");
+        PlayerData.curHealth = 100f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1.0f;
         ResumeGame();
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void MoveToScene(string scene)
     {
+        Debug.Log("move to scene");
         loading_bar.SetActive(true);
         StartCoroutine(LoadScene(scene));
     }
@@ -159,7 +161,8 @@ public class GameManager : MonoBehaviour
                 SpawnKey(deathPosition, deathRotation);
             }
         }
-        int numCoin = Random.Range(1, 4);
+        int luckiness = BarbPlayerController.instance.luckiness;
+        int numCoin = Random.Range(1*luckiness, 4*luckiness);
         for (int i = 0; i < numCoin; i++)
         {
             SpawnCoin(deathPosition, deathRotation);

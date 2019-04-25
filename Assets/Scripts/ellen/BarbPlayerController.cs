@@ -49,8 +49,8 @@ public class BarbPlayerController : MonoBehaviour, Damageable
 
     //public List<GameObject> buffAuroras = new List<GameObject>();
     //public List<Buff.BuffType> buffs = new List<Buff.BuffType>();
-    bool couldRevive = false;
-    public float luckiness = 1f;
+    public bool couldRevive = false;
+    public int luckiness = 1;
 
     private float m_IdleTimer = 0f;
 
@@ -159,12 +159,13 @@ public class BarbPlayerController : MonoBehaviour, Damageable
                 break;
             case Buff.BuffType.speed:
                 rootMovementSpeed *= 1.5f;
+                rootTurnSpeed *= 1.5f;
                 break;
             case Buff.BuffType.revive:
                 couldRevive = true;
                 break;
             case Buff.BuffType.luck:
-                luckiness *= 2;
+                luckiness = 3;
                 break;
         }
     }
@@ -178,12 +179,13 @@ public class BarbPlayerController : MonoBehaviour, Damageable
                 break;
             case Buff.BuffType.speed:
                 rootMovementSpeed /= 1.5f;
+                rootTurnSpeed /= 1.5f;
                 break;
             case Buff.BuffType.revive:
                 couldRevive = false;
                 break;
             case Buff.BuffType.luck:
-                luckiness /= 2;
+                luckiness = 1;
                 break;
         }
     }
