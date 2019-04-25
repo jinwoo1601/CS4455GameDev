@@ -10,6 +10,8 @@ TagManager:
   - damageable
   - crate
   - zelda_area
+  - TreasureCoin
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX

@@ -259,7 +259,11 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         rgbody.isKinematic = true;
         rgbody.useGravity = true;
         rgbody.constraints = RigidbodyConstraints.None;
-        GetComponent<BoxCollider>().enabled = false;
+        Collider[] colliders = GetComponents<Collider>();
+        foreach(Collider c in colliders)
+        {
+            c.enabled = false;
+        }
     }
 
     public bool canBeAttacked()
