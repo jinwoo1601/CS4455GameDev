@@ -65,7 +65,6 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         s_Instance = this;
         rbody = GetComponent<Rigidbody>();
         weapon_position = GetComponentInChildren<FollowUpdate>();
-        PlayerData.coinCount = 1000;
         PlayerData.curHealth = 100;
         List<Buff.BuffType> list = PlayerData.buffs;
         PlayerData.buffs = new List<Buff.BuffType>();
