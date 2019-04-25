@@ -34,6 +34,17 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
+        if (SceneManager.GetActiveScene().name == "MenuScene")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         InitGame();
     }
 
@@ -126,8 +137,9 @@ public class GameManager : MonoBehaviour
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene);
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
-        for (int i = 0; i < 300; i++) {
-            if ( i < 100)
+        for (int i = 0; i < 300; i++)
+        {
+            if (i < 100)
             {
                 loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[1];
             }
@@ -135,10 +147,12 @@ public class GameManager : MonoBehaviour
             {
                 loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[2];
             }
-            else if (i >= 200) {
+            else if (i >= 200)
+            {
                 loading_bar.GetComponentInChildren<Image>().sprite = loading_bar_sprites[3];
             }
-            if (i % 10 == 0) {
+            if (i % 10 == 0)
+            {
                 yield return null;
             }
         }
@@ -156,7 +170,7 @@ public class GameManager : MonoBehaviour
         if (enemyCount > 0)
         {
             enemyCount--;
-            if(enemyCount == 0)
+            if (enemyCount == 0)
             {
                 SpawnKey(deathPosition, deathRotation);
             }
@@ -185,7 +199,7 @@ public class GameManager : MonoBehaviour
         int randZMag = Random.Range(1, 4);
         if (randXDir == 0) { randXDir = -1; }
         if (randZDir == 0) { randZDir = -1; }
-        coinSpawnPoint = new Vector3(coinSpawnPoint.x + randXDir * randXMag, coinSpawnPoint.y+1, coinSpawnPoint.z + randZDir * randZMag);
+        coinSpawnPoint = new Vector3(coinSpawnPoint.x + randXDir * randXMag, coinSpawnPoint.y + 1, coinSpawnPoint.z + randZDir * randZMag);
         Instantiate(coinPreFab, coinSpawnPoint, deathRotation);
     }
 }

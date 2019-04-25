@@ -50,6 +50,8 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     //public List<GameObject> buffAuroras = new List<GameObject>();
     //public List<Buff.BuffType> buffs = new List<Buff.BuffType>();
     public bool couldRevive = false;
+    public float reviveTime;
+    public bool reviving = false;
     public int luckiness = 1;
 
     private float m_IdleTimer = 0f;
@@ -64,6 +66,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         rbody = GetComponent<Rigidbody>();
         weapon_position = GetComponentInChildren<FollowUpdate>();
         PlayerData.coinCount = 1000;
+        PlayerData.curHealth = 100;
         List<Buff.BuffType> list = PlayerData.buffs;
         PlayerData.buffs = new List<Buff.BuffType>();
         foreach (Buff.BuffType type in list)
@@ -75,6 +78,28 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (reviving)
+        {
+            if (Time.time - reviveTime < 0.5f)
+                return;
+
+            couldRevive = false;
+            for (int i = 0; i < PlayerData.buffs.Capacity; i++)
+            {
+                if (PlayerData.buffs[i] == Buff.BuffType.revive)
+                {
+                    PlayerData.buffs.RemoveAt(i);
+                    Destroy(PlayerData.buffAuroras[i]);
+                    PlayerData.buffAuroras.RemoveAt(i);
+                    break;
+                }
+            }
+            reviving = false;
+            PlayerData.curHealth = 100;
+            Time.timeScale = 1f;
+            return;
+        }
+
         curPosition = transform.position;
         curPosition.y = 0;
         m_speed = (((curPosition - lastPosition).magnitude) / Time.deltaTime);
@@ -216,6 +241,9 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     public void OnDamage(Vector3 attackPoint, Vector3 attackForce, float AD)
     {
         if (Time.time - damaged_time < invulnerable_duration)
+            return;
+
+        if (reviving)
             return;
 
         m_PlayerHealth.TakeDamage(10);

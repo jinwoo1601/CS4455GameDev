@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour
         Damageable other_damageable = other.gameObject.GetComponent<Damageable>();
         if (other_damageable != null)
         {
-            if (other_damageable.canBeAttacked() && other_damageable.getOwner() != this.gameObject.GetComponentInParent<Damageable>() && this.gameObject.tag != other.gameObject.tag)
+            if (other_damageable.canBeAttacked() && other_damageable.getOwner() != this.gameObject.GetComponentInParent<Damageable>() && !this.gameObject.CompareTag(other.gameObject.tag))
             {
                 RaycastHit hit;
                 Physics.Raycast(transform.position, transform.forward, out hit);
