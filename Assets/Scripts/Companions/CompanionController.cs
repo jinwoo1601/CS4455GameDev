@@ -136,12 +136,7 @@ public class CompanionController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             inConversation = true;
             Debug.Log("trigger enter");
-            if (introduced)
-            {
-                vendorTrigger.TriggerVendorMenu();
-            } else {
-                dialogueTrigger.TriggerDialogue();
-            }
+            dialogueTrigger.TriggerDialogue(introduced);
         }
     }
 

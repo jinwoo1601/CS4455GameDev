@@ -58,23 +58,29 @@ public class DialogueManager : MonoBehaviour
         EndDialogue();
     }
 
-    public void StartDialogue(Dialogue dialogue, GameObject NPC)
+    public void StartDialogue(Dialogue dialogue, GameObject NPC, bool introduced)
     {
         Debug.Log("start dialogue");
         interactingNPC = NPC;
         Debug.Log(interactingNPC.name);
         nameText.text = dialogue.name;
-
-        sentences.Clear();
-        foreach ( string sentence in dialogue.sentences)
+        if (introduced)
         {
-            sentences.Enqueue(sentence);
+            dialogueText.text = dialogue.sentences[dialogue.sentences.Length - 1];
+            hideNextButton();
+            showOptionsButtons();
+        } else
+        {
+            sentences.Clear();
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+            DisplayNextSentence();
+            showNextButton();
         }
-
-        DisplayNextSentence();
         showDialogueBox();
-        showNextButton();
-
     }
 
     public void DisplayMessage(string message) {

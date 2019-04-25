@@ -6,10 +6,10 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(bool introduced)
     {
         Debug.Log("trigger dialogue");
-        DialogueManager.Instance.StartDialogue(dialogue, this.gameObject);
+        DialogueManager.Instance.StartDialogue(dialogue, this.gameObject, introduced);
     }
 
     public void EndDialogue()
