@@ -8,7 +8,8 @@ public class PlaneController : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerStay(Collider other)
     {
-        DM.DisplayMessage("I have no reason to go back this way. I should keep moving forward.");
+        //DM.DisplayMessage();
+        BarbPlayerController.instance.setHintText("I have no reason to go back this way. I should keep moving forward.");
     }
 
     // Update is called once per frame
