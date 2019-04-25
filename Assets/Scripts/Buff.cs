@@ -4,10 +4,10 @@ using System.Collections.Generic;
 public class Buff 
 {
 
-    private static int luckBuffPrice = 100;
-    private static int speedBuffPrice = 100;
-    private static int attackBuffPrice = 100;
-    private static int reviveBuffPrice = 100;
+    private static int luckBuffPrice = 12;
+    private static int speedBuffPrice = 12;
+    private static int attackBuffPrice = 50;
+    private static int reviveBuffPrice = 60;
 
     private static string luckBuffDesc = "This buff will give you extra luck. \n\nEach enemy you kill will drop a higher amount of gold!";
     private static string speedBuffDesc = "This buff will make you faster. \n\nYou will be able to walk twice as fast!";
