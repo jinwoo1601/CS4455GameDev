@@ -73,8 +73,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (BarbPlayerController.instance.couldRevive)
         {
-            PlayerData.curHealth = 100;
+            BarbPlayerController.instance.reviveTime = Time.time;
             BarbPlayerController.instance.setHintText("You are revived by the revive buff! \nThe power of revive buff goes away. Take care warrior!");
+            BarbPlayerController.instance.reviving = true;
+            Time.timeScale = 0.1f;
             return;
         }
         isDead = true;

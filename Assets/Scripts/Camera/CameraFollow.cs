@@ -31,6 +31,10 @@ public class CameraFollow : MonoBehaviour
         Vector3 rot = transform.localRotation.eulerAngles;
         rotX = rot.x;
         rotY = rot.y;
+    }
+
+    private void Awake()
+    {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -42,9 +46,6 @@ public class CameraFollow : MonoBehaviour
             mouseXBase = -Input.GetAxis("Mouse Y");
             mouseYBase = Input.GetAxis("Mouse X");
         }
-
-
-
 
         else if (Input.GetMouseButton(1))
         {
