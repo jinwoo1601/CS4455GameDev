@@ -4244,6 +4244,137 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1596519665950477805, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 781592738, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.019557877
+      objectReference: {fileID: 0}
+    - target: {fileID: 781592738, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.005441701
+      objectReference: {fileID: 0}
+    - target: {fileID: 781592738, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.13253736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235333511, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.019557877
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235333511, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.005441701
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235333511, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.13253736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453995756, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000020861626
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401960445, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.1804303
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401960445, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000010660733
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401960445, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.00000012549572
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993310745, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.34998122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993310745, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -8.1490725e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993310745, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.00000021606684
+      objectReference: {fileID: 0}
+    - target: {fileID: 812598781, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.349981
+      objectReference: {fileID: 0}
+    - target: {fileID: 812598781, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.000000037252903
+      objectReference: {fileID: 0}
+    - target: {fileID: 812598781, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.00000018626451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690255872, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.12568423
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690255872, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.576406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194082233, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.12568423
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194082233, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.5764055
+      objectReference: {fileID: 0}
+    - target: {fileID: 516440511, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 1.4261962e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 41519889, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.18043017
+      objectReference: {fileID: 0}
+    - target: {fileID: 41519889, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.000000104744686
+      objectReference: {fileID: 0}
+    - target: {fileID: 41519889, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.00000014784746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717758294167709656, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717758294167709656, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717758294167709656, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717758294167709656, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717758294167709656, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717758294167709656, guid: 184a5b9de554b47bb952eb85e82c1605,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184a5b9de554b47bb952eb85e82c1605, type: 3}
 --- !u!1 &709408621
