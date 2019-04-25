@@ -59,6 +59,7 @@ public class SmallEnemyController : MonoBehaviour
         Vector3 movement = m_ExternalForce * Time.deltaTime;
         if (!m_Rigidbody.SweepTest(movement.normalized, out hit, movement.sqrMagnitude))
         {
+            movement.y = 0;
             m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
         }
 
