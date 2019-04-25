@@ -52,7 +52,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     public bool couldRevive = false;
     public float reviveTime;
     public bool reviving = false;
-    public int luckiness = 1;
+    public int luckiness = 0;
 
     private float m_IdleTimer = 0f;
 
