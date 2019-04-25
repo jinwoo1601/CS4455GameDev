@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneStore.LEVEL1);
+        SceneManager.LoadScene("Intro");
     }
 
     public void LoadSetting()
@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Debug.Log("work please");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1.0f;
         ResumeGame();

@@ -12,6 +12,7 @@ public class DoorAnimator : MonoBehaviour
 
     void Start()
     {
+        boxOnPlate = false;
     }
 
     // Update is called once per frame
@@ -22,15 +23,22 @@ public class DoorAnimator : MonoBehaviour
             anim.Play("Door");
             animButton.Play("Press");
             EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
+        } else if(c.CompareTag("Player")) {
+            anim.Play("Door");
+            animButton.Play("Press");
         }
     }
 
     void OnTriggerExit(Collider c) {
-        if (!boxOnPlate)
+        if (c.CompareTag("crate") && boxOnPlate)
         {
+            boxOnPlate = false;
             anim.Play("close");
             animButton.Play("Depress");
             EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
+        } else if(c.CompareTag("Player") && !boxOnPlate){
+            anim.Play("close");
+            animButton.Play("Depress");   
         }
     }
 }
