@@ -33,7 +33,7 @@ public class UIGuideManager : MonoBehaviour
         "But first, maybe some practice swings." ,
         "But first, maybe some practice swings." ,
         "But first, maybe some practice swings." ,
-        "That's enough practice.",
+        "That's probably enough practice.",
         "I will unlock my door and face the day! \n I might not be well trained but I will do my best."
     };
 
