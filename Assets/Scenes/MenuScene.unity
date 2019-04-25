@@ -811,7 +811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &579377200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1211,6 +1211,7 @@ MonoBehaviour:
   enemyCount: 10
   keyPrefab: {fileID: 0}
   coinPreFab: {fileID: 0}
+  loading_bar: {fileID: 0}
 --- !u!4 &1096888868
 Transform:
   m_ObjectHideFlags: 0
