@@ -47,6 +47,10 @@ public class BarbPlayerController : MonoBehaviour, Damageable
     Vector3 curPosition;
     Vector3 lastPosition;
 
+    //public List<GameObject> buffAuroras = new List<GameObject>();
+    //public List<Buff.BuffType> buffs = new List<Buff.BuffType>();
+    bool couldRevive = false;
+    public float luckiness = 1f;
 
     private float m_IdleTimer = 0f;
 
@@ -59,8 +63,13 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         s_Instance = this;
         rbody = GetComponent<Rigidbody>();
         weapon_position = GetComponentInChildren<FollowUpdate>();
-        PlayerData.coinCount = 140;
-
+        PlayerData.coinCount = 1000;
+        List<Buff.BuffType> list = PlayerData.buffs;
+        PlayerData.buffs = new List<Buff.BuffType>();
+        foreach (Buff.BuffType type in list)
+        {
+            Vendor.Instance.CreateBuff(type);
+        }
     }
 
     // Update is called once per frame
@@ -141,6 +150,43 @@ public class BarbPlayerController : MonoBehaviour, Damageable
         }
     }
     */
+    public void addBuff(Buff.BuffType type)
+    {
+        switch (type)
+        {
+            case Buff.BuffType.attack:
+                PlayerInput.Instance.weapon.AD *= 1.5f;
+                break;
+            case Buff.BuffType.speed:
+                rootMovementSpeed *= 1.5f;
+                break;
+            case Buff.BuffType.revive:
+                couldRevive = true;
+                break;
+            case Buff.BuffType.luck:
+                luckiness *= 2;
+                break;
+        }
+    }
+
+    public void removeBuff(Buff.BuffType type)
+    {
+        switch (type)
+        {
+            case Buff.BuffType.attack:
+                PlayerInput.Instance.weapon.AD /= 1.5f;
+                break;
+            case Buff.BuffType.speed:
+                rootMovementSpeed /= 1.5f;
+                break;
+            case Buff.BuffType.revive:
+                couldRevive = false;
+                break;
+            case Buff.BuffType.luck:
+                luckiness /= 2;
+                break;
+        }
+    }
 
 
     void TimeoutToIdle()

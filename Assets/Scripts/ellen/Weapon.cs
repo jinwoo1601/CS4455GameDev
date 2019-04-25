@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
 
     private Vector3 velocity;
 
-    public int AD = 1;
+    public float AD = 1;
 
     public void enbaleAttack()
     {
