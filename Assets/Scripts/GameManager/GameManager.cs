@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.Log("quit pressed");
         Application.Quit();
     }
 
