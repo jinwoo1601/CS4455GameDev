@@ -764,11 +764,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2805975521551263219, guid: fec2492d62948244ca00d8a94a109969,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2447954914537314244, guid: fec2492d62948244ca00d8a94a109969,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -813,6 +808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805975521551263219, guid: fec2492d62948244ca00d8a94a109969,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fec2492d62948244ca00d8a94a109969, type: 3}
@@ -1033,6 +1033,10 @@ PrefabInstance:
     - target: {fileID: 790831070, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
       propertyPath: m_Name
       value: unitychan
+      objectReference: {fileID: 0}
+    - target: {fileID: 790831070, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: 8e576a22bc3c0a148839ff894f30a01e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5158,6 +5162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sapphi
       objectReference: {fileID: 0}
+    - target: {fileID: 790831070, guid: 93950f796bb2c6a4e95813b84fa362c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 790831079, guid: 93950f796bb2c6a4e95813b84fa362c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 291.42
@@ -7638,17 +7646,19 @@ MonoBehaviour:
   dialogue:
     name: Yuhong
     sentences:
-    - Thank you so much for saving me! That was some impresive sword work.
-    - I have been trapped in this prison for 7 months. All of the days begin to blur
-      together.
-    - I was not strong enough to defeat Guner by myself, but maybe with your help...
-    - No! I know we could beat him together!
-    - Our swords combined would be unstoppable.
-    - However, I refuse to work with Xiang.
-    - We are good friends but I've been trapped here with her for what feels like
-      forever.
-    - Even your friends can get annoying.
-    - Anyway, would you like me to join your party?
+    - You.... You escaped from your prison cell!?!?
+    - Wow. That's really crazy. You must be an excellent fighter.
+    - I tried escaping a couple times, but I know I wouldn't be able to take on the
+      Goblin Queen.
+    - 'Do you think you could do it? '
+    - My family is probably still waiting for me out there. I would be forever in
+      debt to you if you freed us all.
+    - I'll help however I can.
+    - The other prisoners and I have been stock piling some potions that could help
+      you.
+    - If you give me some money to support my family when we escape, I would be willing
+      to trade with you.
+    - What do you think? Would you like to buy a buff?
 --- !u!1001 &1945204916570121236
 PrefabInstance:
   m_ObjectHideFlags: 0
