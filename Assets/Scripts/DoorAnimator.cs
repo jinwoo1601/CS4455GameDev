@@ -22,7 +22,7 @@ public class DoorAnimator : MonoBehaviour
             boxOnPlate = true;
             anim.Play("Door");
             animButton.Play("Press");
-            //EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
+            EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
         } else if(c.CompareTag("Player")) {
             anim.Play("Door");
             animButton.Play("Press");
@@ -35,7 +35,7 @@ public class DoorAnimator : MonoBehaviour
             boxOnPlate = false;
             anim.Play("close");
             animButton.Play("Depress");
-            //EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
+            EventManager.TriggerEvent<doorEvent, Vector3>(transform.position);
         } else if(c.CompareTag("Player") && !boxOnPlate){
             anim.Play("close");
             animButton.Play("Depress");   

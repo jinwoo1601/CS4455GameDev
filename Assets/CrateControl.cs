@@ -26,4 +26,12 @@ public class CrateControl : MonoBehaviour
             
         }
     }
+
+    void OnCollisionEnter(Collision other){
+        rbody.constraints = RigidbodyConstraints.FreezeRotationY;
+    }
+
+    void OnCollisionExit(Collision other) {
+        rbody.constraints = RigidbodyConstraints.None;
+    }
 }
