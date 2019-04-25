@@ -244,7 +244,7 @@ public class SmallEnemyAI : MonoBehaviour, Damageable
         m_Animator.SetFloat("verticalPoint", attackPoint.y);
         m_Animator.ResetTrigger("hit");
         damaged_time = Time.time;
-        smallEnemyController.AddForce(Vector3.back * 2 + Vector3.up * 2);
+        smallEnemyController.AddForce(Vector3.back + Vector3.up);
         TakeDamage(AD);
     }
 
