@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VendorTrigger : MonoBehaviour
 {
-    public bool isOpen;
+    public static bool isOpen;
 
     public void TriggerVendorMenu()
     {

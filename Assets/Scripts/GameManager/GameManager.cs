@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
             }
         }
         int luckiness = BarbPlayerController.instance.luckiness;
-        int numCoin = Random.Range(1*luckiness, 4*luckiness);
+        int numCoin = Random.Range(1+luckiness, 4+luckiness);
         for (int i = 0; i < numCoin; i++)
         {
             SpawnCoin(deathPosition, deathRotation);
