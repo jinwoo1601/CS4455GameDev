@@ -47,7 +47,7 @@ Polish: There is a cute in game start menu and the ability to  quit the game at 
 
 
 
-Known Bugs:
+Known Bugs: There are some issues with the weapon on the character's back glithing. There are some errors with the camera following in tight spaces. There are some errors with the enemy models jumping partially into walls or falling slightly into the floor because of their animations. Some buffs do not work if they are bought and used at the same time. We don't know exactly which combinations are flawed.
 
 
 
