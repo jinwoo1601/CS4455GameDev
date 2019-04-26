@@ -35,6 +35,7 @@ public class Vendor : MonoBehaviour
     public GameObject revivePrefab;
 
     int buffNumber;
+    string buffName;
 
     void Awake()
     {
@@ -82,27 +83,27 @@ public class Vendor : MonoBehaviour
         }
         else if (PlayerData.buffs.Count == 1)
         {
-            if (PlayerData.buffAuroras[0] != null)
+            if (PlayerData.buffs.Contains(Buff.BuffType.luck))
             {
-                Sell1Button.GetComponentInChildren<Text>().text = "Refund " + PlayerData.buffs[0].ToString();
-                Sell2Button.GetComponentInChildren<Text>().text = "You only have one buff";
-                Sell1Button.GetComponent<CanvasGroup>().alpha = 1.0f;
-                Sell1Button.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                Sell1Button.GetComponent<CanvasGroup>().interactable = true;
-                Sell2Button.GetComponent<CanvasGroup>().alpha = 0.5f;
-                Sell2Button.GetComponent<CanvasGroup>().blocksRaycasts = false;
-                Sell2Button.GetComponent<CanvasGroup>().interactable = false;
-            } else if (PlayerData.buffAuroras[1] != null)
+                buffName = "Luck Buff";
+            } else if (PlayerData.buffs.Contains(Buff.BuffType.attack))
             {
-                Sell2Button.GetComponentInChildren<Text>().text = "Refund " + PlayerData.buffs[1].ToString();
-                Sell1Button.GetComponentInChildren<Text>().text = "You only have one buff";
-                Sell1Button.GetComponent<CanvasGroup>().alpha = 0.5f;
-                Sell1Button.GetComponent<CanvasGroup>().blocksRaycasts = false;
-                Sell1Button.GetComponent<CanvasGroup>().interactable = false;
-                Sell2Button.GetComponent<CanvasGroup>().alpha = 1.0f;
-                Sell2Button.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                Sell2Button.GetComponent<CanvasGroup>().interactable = true;
+                buffName = "Attack Buff";
+            } else if (PlayerData.buffs.Contains(Buff.BuffType.speed))
+            {
+                buffName = "Speed Buff";
+            } else
+            {
+                buffName = "Revive Buff";
             }
+            Sell1Button.GetComponentInChildren<Text>().text = "Refund " + buffName;
+            Sell2Button.GetComponentInChildren<Text>().text = "You only have one buff";
+            Sell1Button.GetComponent<CanvasGroup>().alpha = 1.0f;
+            Sell1Button.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            Sell1Button.GetComponent<CanvasGroup>().interactable = true;
+            Sell2Button.GetComponent<CanvasGroup>().alpha = 0.5f;
+            Sell2Button.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            Sell2Button.GetComponent<CanvasGroup>().interactable = false;
         } else
         {
             Sell1Button.GetComponent<CanvasGroup>().alpha = 0.5f;
