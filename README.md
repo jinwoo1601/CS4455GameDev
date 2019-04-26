@@ -11,3 +11,9 @@ SapphiArt - https://assetstore.unity.com/packages/3d/characters/amane-kisora-cha
 
 Unity-chan - https://assetstore.unity.com/packages/3d/characters/unity-chan-model-18705
 3D Character Model used
+
+Treasure Set - Free Chest - https://assetstore.unity.com/packages/3d/props/interior/treasure-set-free-chest-72345
+Models and materials were used.
+
+Coin Bag Clip Art - http://clipart-library.com/clipart/1114489.htm
+2D Sprite
