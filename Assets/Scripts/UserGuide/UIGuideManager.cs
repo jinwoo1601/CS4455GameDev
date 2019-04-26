@@ -57,7 +57,7 @@ public class UIGuideManager : MonoBehaviour
         PlayerInput.Instance.enable = false;
     }
 
-    void FixedUpdate()
+    void Update()
     {
 
         if (counter > -1 && counter < interestedKeyCode.Length && interestedKeyCode[counter] != KeyCode.None && Input.GetKeyDown(interestedKeyCode[counter]))
