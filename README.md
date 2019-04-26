@@ -6,6 +6,18 @@ The Good Smith's War
 Instructions:
 Run "The Good Smith_s War.exe" located under the Assests/Build folder
 
+Scenes to open in Unity:
+l0 - this is the first scene to open
+intro
+l1
+l1.5
+l2
+l3
+l4_copy
+l5final
+Outro Scene
+menuscene
+
 Keys:
 Movement: WASD or arrow keys
 Sheathe/unsheathe weapon: K
@@ -32,6 +44,10 @@ NPC AI: The enemy goblins in the game have an AI that we implemented. We used on
 
 
 Polish: There is a cute in game start menu and the ability to  quit the game at any time. You can opena pause menu with esc and then quit the game by pressing exit. There is a loadig screen between each level to help with transitions and the tutorial level has a cool fade out of the world effect. The audio effects in the game cover every situation without being overwhelming. The player has multiple randomized attack sounds that play to keep the audio from being annoying. The crate when pushed plays a looped audio. There are effects that surround the player to show what buffs they have on them at any point. See this by buying a buff in any vendor level. There are still many cool and useful environment animations. The lighting in the levels is meant to match the asthetic. Especially look for the lighting deisgn in the main menu, the tutorial level, and the boss level. Also make a not of the consistent style through out the game and artwork that displays when you complete the game. The edge of the workd makes sense and the player can't leave the world. There are some minor glitches.
+
+
+
+Known Bugs:
 
 
 
