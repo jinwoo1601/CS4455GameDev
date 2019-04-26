@@ -5,10 +5,19 @@ using UnityEngine;
 public class TreasureChestScript : MonoBehaviour
 {
     private bool TreasureNotCollected;
+    private bool spacePressed;
 
 
     private void Start(){
         TreasureNotCollected = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            spacePressed = true;
+        }
     }
 
     void OnTriggerEnter(Collider c)
@@ -37,7 +46,7 @@ public class TreasureChestScript : MonoBehaviour
             CoinCollector kc = c.gameObject.GetComponent<CoinCollector>();
             if (kc != null)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && TreasureNotCollected)
+                if (spacePressed && TreasureNotCollected)
                 {
                     kc.CollectTreasure();
                     TreasureNotCollected = false;

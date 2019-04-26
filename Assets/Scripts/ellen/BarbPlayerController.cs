@@ -115,6 +115,56 @@ public class BarbPlayerController : MonoBehaviour, Damageable
             hintText.text = "";
         }
 
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    Debug.Log("ragdoll");
+        //    m_Animator.enabled = false;
+        //    rbody.isKinematic = false;
+        //}
+
+        //if (moveInput.magnitude > 0.01 || (armed && m_Input.Attack))
+        //{
+        //    m_Animator.SetBool("active", true);
+        //}
+        //else
+        //{
+        //    m_Animator.SetBool("active", false);
+        //}
+
+        //rbody.MoveRotation(rbody.rotation * Quaternion.AngleAxis(m_Input.Turn * Time.deltaTime * rootTurnSpeed, Vector3.up));
+
+        //TimeoutToIdle();
+
+        //m_Animator.ResetTrigger("attack");
+        //if (m_Input.Attack)
+        //{
+        //    if (armed)
+        //    {
+        //        m_Animator.SetTrigger("attack");
+        //    }
+        //    else
+        //    {
+        //        setHintText("need to pullup the weapon first!");
+        //    }
+        //}
+
+        //if (m_Input.Equip)
+        //{
+        //    if (armed)
+        //    {
+        //        m_Animator.SetTrigger("unequip");
+        //    }
+        //    else
+        //    {
+        //        m_Animator.SetTrigger("equip");
+        //    }
+        //}
+
+    }
+
+
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("ragdoll");
@@ -122,7 +172,7 @@ public class BarbPlayerController : MonoBehaviour, Damageable
             rbody.isKinematic = false;
         }
 
-        if (moveInput.magnitude > 0.01 || (armed && m_Input.Attack))
+        if (m_Input.MoveInput.magnitude > 0.01 || (armed && m_Input.Attack))
         {
             m_Animator.SetBool("active", true);
         }
@@ -159,21 +209,9 @@ public class BarbPlayerController : MonoBehaviour, Damageable
                 m_Animator.SetTrigger("equip");
             }
         }
-
     }
 
-    /*
-    void Update()
-    {
-        if (m_Input.Attack)
-        {
-            if (armed)
-            {
-                EventManager.TriggerEvent<attackEvent, Vector3>(transform.position);
-            }
-        }
-    }
-    */
+
     public void addBuff(Buff.BuffType type)
     {
         switch (type)

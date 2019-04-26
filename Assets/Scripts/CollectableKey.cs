@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CollectableKey : MonoBehaviour
 {
+    private bool spacePressed;
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            spacePressed = true;
+        }
+    }
     // code to place the key
     void OnTriggerStay(Collider c)
     {
@@ -14,7 +22,8 @@ public class CollectableKey : MonoBehaviour
             KeyCollector kc = c.gameObject.GetComponent<KeyCollector>();
             if (kc != null)
             {
-                if(Input.GetKeyDown("space")){
+                if(spacePressed)
+                {
                     kc.CollectKey();
                     EventManager.TriggerEvent<keyEvent, Vector3>(transform.position);
                     Destroy(this.gameObject);
