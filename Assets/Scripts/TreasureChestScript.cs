@@ -18,6 +18,10 @@ public class TreasureChestScript : MonoBehaviour
         {
             spacePressed = true;
         }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            spacePressed = false;
+        }
     }
 
     void OnTriggerEnter(Collider c)

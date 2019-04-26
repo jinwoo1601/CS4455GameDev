@@ -20,6 +20,9 @@ public class gateController : MonoBehaviour
         {
             spacePressed = true;
         }
+        if (Input.GetKeyUp("space")) {
+            spacePressed = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -11,6 +11,10 @@ public class CollectableKey : MonoBehaviour
         {
             spacePressed = true;
         }
+        if (Input.GetKeyUp("space"))
+        {
+            spacePressed = false;
+        }
     }
     // code to place the key
     void OnTriggerStay(Collider c)
