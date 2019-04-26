@@ -7,11 +7,20 @@ public class gateController : MonoBehaviour
 
 	private bool animPlayed;
 	public Animation anim;
+    private bool spacePressed;
 
     // Update is called once per frame
    	void Start() {
    		animPlayed = false;
    	}
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            spacePressed = true;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,7 +44,7 @@ public class gateController : MonoBehaviour
     	KeyCollector kc = other.gameObject.GetComponent<KeyCollector>();
         
         if(kc != null) {
-        	if (Input.GetKeyDown("space") && other.gameObject.tag == "Player" && animPlayed == false && kc.getHasKey())
+        	if (spacePressed && other.gameObject.tag == "Player" && animPlayed == false && kc.getHasKey())
         	{
         		animPlayed = true;
             	anim.Play("Raise bars");
