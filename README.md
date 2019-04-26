@@ -26,3 +26,11 @@ We used this 3d character model for our main play character
 
 3D Game Kit - Character Pack - https://assetstore.unity.com/packages/3d/3d-game-kit-character-pack-135217
 We only used the chomper model and chomper animation from this pack. The animator and controller are ourselves.
+
+Aura - Particle System - https://assetstore.unity.com/packages/tools/particles-effects/aura-volumetric-lighting-111664
+We only use its pictures as our material mesh
+
+Cartoon Building Temple Kit - Environment - https://assetstore.unity.com/packages/3d/environments/dungeons/cartoon-temple-building-kit-lite-110397
+We use this kit to build our whole environment
+
+Zelda: breath of the wild OST - We use as our OP background music
