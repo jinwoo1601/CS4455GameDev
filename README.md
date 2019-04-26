@@ -1,6 +1,24 @@
 # CS4455GameDev
 CS4455 Game Development Project
 
+The Good Smith's War
+
+Instructions:
+Run "The Good Smith_s War.exe"
+
+Keys:
+Movement: WASD
+Sheathe/unsheathe weapon: K
+Attack: J
+Jump Attack: J while pressing W
+Activate: Space
+
+Genre: Dungeon Crawler RPG
+Premise: You are a simple blacksmith of a small village. Your village has recently been invaded by goblins who have been demanding money from you and the other villagers. Anyone who refuses to pay is kidnaped and locked in the goblin Queen’s dungeon.
+You spoke out against this unfair taxation and have been arrested. The game begins as you wake up in a small jail cell in the Goblin Queen’s dungeon. You trick one of the guards to release you and recover your trusted axe. Now, your war to dethrone the goblin Queen continues. Fight guard minions, solve puzzels, collect the coins to purchase buffs that will help you, collect the key to open the next level and defeat the goblin Queen.
+
+
+
 Citation
 --------
 AcquireChan - https://assetstore.unity.com/packages/3d/characters/acquire-chan-3d-model-110031
