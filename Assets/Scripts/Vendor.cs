@@ -86,17 +86,23 @@ public class Vendor : MonoBehaviour
             {
                 Sell1Button.GetComponentInChildren<Text>().text = "Refund " + PlayerData.buffs[0].ToString();
                 Sell2Button.GetComponentInChildren<Text>().text = "You only have one buff";
-            } else
+                Sell1Button.GetComponent<CanvasGroup>().alpha = 1.0f;
+                Sell1Button.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                Sell1Button.GetComponent<CanvasGroup>().interactable = true;
+                Sell2Button.GetComponent<CanvasGroup>().alpha = 0.5f;
+                Sell2Button.GetComponent<CanvasGroup>().blocksRaycasts = false;
+                Sell2Button.GetComponent<CanvasGroup>().interactable = false;
+            } else if (PlayerData.buffAuroras[1] != null)
             {
                 Sell2Button.GetComponentInChildren<Text>().text = "Refund " + PlayerData.buffs[1].ToString();
                 Sell1Button.GetComponentInChildren<Text>().text = "You only have one buff";
+                Sell1Button.GetComponent<CanvasGroup>().alpha = 0.5f;
+                Sell1Button.GetComponent<CanvasGroup>().blocksRaycasts = false;
+                Sell1Button.GetComponent<CanvasGroup>().interactable = false;
+                Sell2Button.GetComponent<CanvasGroup>().alpha = 1.0f;
+                Sell2Button.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                Sell2Button.GetComponent<CanvasGroup>().interactable = true;
             }
-            Sell1Button.GetComponent<CanvasGroup>().alpha = 1.0f;
-            Sell1Button.GetComponent<CanvasGroup>().blocksRaycasts = true;
-            Sell1Button.GetComponent<CanvasGroup>().interactable = true;
-            Sell2Button.GetComponent<CanvasGroup>().alpha = 0.5f;
-            Sell2Button.GetComponent<CanvasGroup>().blocksRaycasts = false;
-            Sell2Button.GetComponent<CanvasGroup>().interactable = false;
         } else
         {
             Sell1Button.GetComponent<CanvasGroup>().alpha = 0.5f;
