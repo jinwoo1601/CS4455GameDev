@@ -34,3 +34,10 @@ Cartoon Building Temple Kit - Environment - https://assetstore.unity.com/package
 We use this kit to build our whole environment
 
 Zelda: breath of the wild OST - We use as our OP background music
+
+Castle Supply LITE - https://assetstore.unity.com/packages/3d/environments/fantasy/castle-supply-lite-23699 - Used blacksmith models from this kit
+
+High Quality Realistic Wood Textures - Mega Pack https://assetstore.unity.com/packages/2d/textures-materials/wood/high-quality-realistic-wood-textures-mega-pack-75831 - Used Materials from this kit
+
+Ben3d Crate - https://assetstore.unity.com/packages/3d/props/industrial/ben3d-crate-7548 - Used models form this kit
+
